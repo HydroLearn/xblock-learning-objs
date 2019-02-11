@@ -34,54 +34,33 @@ from xblock.fields import (
 
 from xblock.fragment import Fragment
 
-"""
-    TODO:
-        potentally going to need multiple xblocks to implement this
 
-        - HL_Learning_outcomes:
-                multiselect of abet outcome strings
-
-        - HL_Learning_obj:
-                a single learning objective's definition containing
-                    condition
-                    verb - String
-                            NOTE: though technically selectable option based on level
-                            (
-                                levels are one of 5 possible strings with
-                                associated verbs for each
-                            )
-
-                    task - String
-                    degree - String
-                    ABET-outcomes - fk-list
-
-        - HL_Learning_objs -
-                a collection of generated child HL_Learning_obj
-
-        e.g.
-            HL_LearningObjs_XBlock
-                |
-                |- Learning_Objs (List):
-                        [
-                            (Learning_obj (XBlock)
-                                |
-                                |- condition (string)
-                                |- verb (selectable string)
-                                |- task (string)
-                                |- degree (string)
-                                |- HL_Learning_obj
-                                    |
-                                    |- Outcomes (XBlock?): [
-                                            HL_Learning_outcome (string),
-                                            ...
-                                        ]
-                            ),
-                            Learning_obj, ... ]
-"""
 class HL_LearningObjs_XBlock(XBlock):
+    """
+        custom xblock for defining a list of learning objective strings for
+        a unit in the HydroLearn platform.
 
+        stores a list of Learning objective strings
+    """
     # xblock fields
-    learning_objs = List()
+    display_name = String(
+        display_name="Learning Objectives",
+        help="This name appears in the horizontal navigation at the top of the page",
+        scope=Scope.settings,
+        default="HydroLearn Text Block"
+    )
+
+    learning_level = Integer()
+
+    learning_objs = List(
+            display_name="Learning Objectives",
+            help="List of Learning Objectives",
+            scope=Scope.content,
+            
+            # default=fields.UNSET,
+            # values=None,
+            # enforce_type=False,
+        )
 
     @XBlock.json_handler
     def get_body_html(self, data, suffix=''):
