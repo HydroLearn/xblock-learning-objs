@@ -129,6 +129,16 @@ function LO_catalog(){
         "An ability to acquire and apply new knowledge as needed, using appropriate learning strategies",
     ]
 
+    // internal method used in learning levels
+    //      for getting a verb by it's index
+    // NOTE: not for use with the base object
+    _get_verb = function(id){
+        if(typeof(this.verbs) == "undefined") throw Error("Learning Objective Catalog: The _get_verb method was called on an object that doesn't contain a 'verbs' listing");
+        if(typeof(this.verbs[id]) == "undefined") throw Error("Learning Objective Catalog: Verb matching the provided id does not exist!")
+
+        return this.verbs[id];
+
+    }
 }
 
     LO_catalog.prototype._generate_ABET_selection = function(){
@@ -244,17 +254,6 @@ function LO_catalog(){
     LO_catalog.prototype.get_level = function(id){
         if(typeof(this.data[id]) == "undefined") throw Error("Learning Objective Catalog: Learning Level matching the provided id does not exist!")
         return this.levels[id];
-    }
-
-    // internal method used in learning levels
-    //      for getting a verb by it's index
-    // NOTE: not for use with the base object
-    LO_catalog.prototype._get_verb = function(id){
-        if(typeof(this.verbs) == "undefined") throw Error("Learning Objective Catalog: The _get_verb method was called on an object that doesn't contain a 'verbs' listing");
-        if(typeof(this.verbs[id]) == "undefined") throw Error("Learning Objective Catalog: Verb matching the provided id does not exist!")
-
-        return this.verbs[id];
-
     }
 
     LO_catalog.prototype.objective_str = function(level_id,verb_id, condition, task, degree){

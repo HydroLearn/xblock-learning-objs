@@ -87,8 +87,9 @@ class HL_LearningObjs_XBlock(XBlock):
         content = {'self': self}
 
         # body_html = unicode(self.generate_html())
+        fragment.add_content(render_template('templates/learning_objs-lms.html', content))
         fragment.add_css(load_resource('static/css/lms-styling.css'))
-        fragment.add_content(Template('templates/learning_objs-lms.html').render(Context(content)))
+
         #fragment.add_content(render_template('templates/HLCustomText.html', content))
 
         # add the custom initialization code for the LMS view and initialize it
