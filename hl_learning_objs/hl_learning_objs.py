@@ -69,7 +69,7 @@ class HL_LearningObjs_XBlock(XBlock):
             }
 
     @staticmethod
-    def generate_html(html):
+    def generate_html():
         # add a wrapper around the content so ck-styling applies
         result = "<div class='HL-Learning-obj_wrapper'>"
         # Assume valid HTML code
