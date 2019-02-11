@@ -47,7 +47,7 @@ class HL_LearningObjs_XBlock(XBlock):
         display_name="Learning Objectives",
         help="This name appears in the horizontal navigation at the top of the page",
         scope=Scope.settings,
-        default="HydroLearn Text Block"
+        default="Learning Objectives"
     )
 
     learning_level = Integer()
@@ -56,7 +56,7 @@ class HL_LearningObjs_XBlock(XBlock):
             display_name="Learning Objectives",
             help="List of Learning Objectives",
             scope=Scope.content,
-            
+
             # default=fields.UNSET,
             # values=None,
             # enforce_type=False,

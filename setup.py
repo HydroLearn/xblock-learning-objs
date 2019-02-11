@@ -24,7 +24,7 @@ setup(
     name='xblock-hl_learning_objs',
     version='0.1',
     author="cRivet",
-    description='Custom Text editor xblock package for adding learning objectives to openEDX courses.',
+    description='Custom Xblock for generating collection of learning objectives for use in HydroLearn platform.',
     packages=[
         'hl_learning_objs',
     ],
