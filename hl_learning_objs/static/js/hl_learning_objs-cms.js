@@ -1,6 +1,8 @@
 /* JavaScript for HydroLearn's learning objectives XBlock, Studio Side. */
 function HL_LO_XBlockStudio(runtime, xblock_element) {
 
+    var catalog = new LO_catalog();
+    
     // Define mapping of tabs (modes) to display names
     var studio_buttons = {
         "editor": "EDITOR",
