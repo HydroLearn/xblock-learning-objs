@@ -23,7 +23,7 @@ function LO_catalog(){
                     "recall",
                     "select",
                 ],
-            "get_verb": _get_verb,
+            "get_verb": this._get_verb,
         },
         1: {
             "display_name": "Understanding",
@@ -40,7 +40,7 @@ function LO_catalog(){
                     "summarize",
                     "translate",
                 ],
-            "get_verb": _get_verb,
+            "get_verb": this._get_verb,
         },
         2: {
             "display_name": "Applying",
@@ -59,7 +59,7 @@ function LO_catalog(){
                     "solve",
                     "choose",
                 ],
-            "get_verb": _get_verb,
+            "get_verb": this._get_verb,
         },
         3: {
             "display_name": "Analyzing",
@@ -77,7 +77,7 @@ function LO_catalog(){
                     "outline",
                     "interelate",
                 ],
-            "get_verb": _get_verb,
+            "get_verb": this._get_verb,
         },
         4: {
             "display_name": "Evaluating",
@@ -94,7 +94,7 @@ function LO_catalog(){
                     "interpret",
                     "weigh",
                 ],
-            "get_verb": _get_verb,
+            "get_verb": this._get_verb,
         },
 
         5: {
@@ -114,7 +114,7 @@ function LO_catalog(){
                     "design",
                     "devise",
                 ],
-            "get_verb": _get_verb,
+            "get_verb": this._get_verb,
         },
 
     }
@@ -132,7 +132,7 @@ function LO_catalog(){
     // internal method used in learning levels
     //      for getting a verb by it's index
     // NOTE: not for use with the base object
-    _get_verb = function(id){
+    this._get_verb = function(id){
         if(typeof(this.verbs) == "undefined") throw Error("Learning Objective Catalog: The _get_verb method was called on an object that doesn't contain a 'verbs' listing");
         if(typeof(this.verbs[id]) == "undefined") throw Error("Learning Objective Catalog: Verb matching the provided id does not exist!")
 
