@@ -65,7 +65,7 @@ class HL_LearningObjs_XBlock(XBlock):
     @XBlock.json_handler
     def get_body_html(self, data, suffix=''):
         return {
-                "content": self.content,
+                # "content": self.content,
             }
 
     @staticmethod
@@ -86,7 +86,7 @@ class HL_LearningObjs_XBlock(XBlock):
 
         content = {'self': self}
 
-        body_html = unicode(self.generate_html(self.content))
+        body_html = unicode(self.generate_html())
         fragment.add_css(load_resource('static/css/lms-styling.css'))
         fragment.add_content(Template(body_html).render(Context(content)))
         #fragment.add_content(render_template('templates/HLCustomText.html', content))
@@ -141,7 +141,7 @@ class HL_LearningObjs_XBlock(XBlock):
             # NOTE: No validation going on here; be careful with your code
             self.display_name = data["display_name"]
             self.dependencies = ""
-            self.content = data["body_html"]
+            # self.content = data["body_html"]
 
             result["submitted"] = "true"
             result["saved"] = "true"
@@ -160,7 +160,7 @@ class HL_LearningObjs_XBlock(XBlock):
                 re.DOTALL |
                 re.VERBOSE),
             "",
-            self.content
+            # self.content
         )
         html_content = escape_html_characters(html_content)
         html_body = {
