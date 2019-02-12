@@ -195,7 +195,7 @@ function LO_catalog(){
             var option = $('<option />', {
                 class:"learning_level_option",
                 value: key,
-                text: value,
+                text: value.display_name,
             });
 
             selection.append(option);
@@ -206,6 +206,7 @@ function LO_catalog(){
 
         // bind event to selection change to show/hide verb selections
         $(selection).change(function(){
+            debugger;
             var wrapper = $(this).closest('.learning_level_wrapper')
             var val = this.val();
 
