@@ -35,10 +35,9 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
                             case 1:
 
                                 valid_input = (
-                                    $('#learning_level_selection').val().trim().length != "None" &&
-                                    $(".learning_verb_wrapper.active").val().trim().length != "None" 
-
-                                )
+                                        $('#learning_level_selection').val().trim().length != "None" &&
+                                        $(".learning_verb_wrapper.active").val().trim().length != "None"
+                                    )
                                 break;
                             case 2:
                                 valid_input = $("#task").val().trim().length > 0
@@ -47,16 +46,13 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
                                 valid_input = $("#degree").val().trim().length > 0;
                                 break;
 
-                            //case 4: break;
-
-
                             default: break;
 
                         }
 
                         // if loading the review step, update the selected ABET listing
                         if(newIndex == 5){
-                            updateABETReview();
+                            //updateABETReview();
                         }
 
                         return valid_input;
@@ -94,9 +90,6 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
                         resetWizard();
                     }
                 });
-
-            });
-
     }
 
     function getCookie(name) {
