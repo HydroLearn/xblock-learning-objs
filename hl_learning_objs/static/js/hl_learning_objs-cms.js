@@ -10,8 +10,8 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
     };
 
     function initialize_forms(){
-        $('.level_form').append(catalog._generate_level_selection());
-        $('.ABET_form').append(catalog._generate_ABET_selection());
+        $('.verb_input').append(catalog._generate_level_selection());
+        $('.abet_input').append(catalog._generate_ABET_selection());
 
     }
 
