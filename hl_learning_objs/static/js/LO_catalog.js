@@ -360,7 +360,7 @@ function LO_catalog(){
     }
 
     LO_catalog.prototype.add_item = function(new_learning_obj){
-        if(new_learning_obj instanceof Learning_obj) throw Error('Catalog only accepts Learning_obj items')
+        if(!(new_learning_obj instanceof Learning_obj)) throw Error('Catalog only accepts Learning_obj items')
 
         self._items.push(new_learning_obj);
     }
@@ -404,6 +404,6 @@ function LO_catalog(){
 
     LO_catalog.prototype.update_listing = function(){
         // update the listed items in catalog
-        
+
 
     }
