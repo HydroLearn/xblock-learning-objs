@@ -186,7 +186,7 @@ function LO_catalog(){
         // create a default 'null' option for the selection
         selection.append($('<option />', {
                 class:"learning_level_option",
-                value: null,
+                value: "None",
                 text: "Select Level...",
             })
         );
@@ -211,7 +211,7 @@ function LO_catalog(){
             var val = $(this).val();
 
             wrapper.find('.learning_verb_wrapper').hide();
-            wrapper.find('.learning_verb_wrapper').val(null);
+            wrapper.find('.learning_verb_wrapper').val("None");
             wrapper.find('.learning_verb_wrapper[data-level={0}]'.format(val)).show();
 
         })
@@ -229,12 +229,13 @@ function LO_catalog(){
             id:"verbs_select_{0}".format(level_id),
             class:"learning_verb_wrapper",
             "data-level": level_id,
-        });
 
+        });
+        selection.css('display', 'none');
         // create a default 'null' option for the selection
         selection.append($('<option />', {
                 class:"learning_level_option",
-                value: null,
+                value: "None",
                 text: "Select Level...",
             })
         );
