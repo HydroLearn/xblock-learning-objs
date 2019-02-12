@@ -362,7 +362,7 @@ function LO_catalog(){
     LO_catalog.prototype.add_item = function(new_learning_obj){
         if(!(new_learning_obj instanceof Learning_obj)) throw Error('Catalog only accepts Learning_obj items')
 
-        self._items.push(new_learning_obj);
+        this._items.push(new_learning_obj);
     }
 
     LO_catalog.prototype.remove_item = function(item_index){
