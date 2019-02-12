@@ -23,6 +23,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
 
                     onStepChanging: function (event, currentIndex, newIndex)
                     {
+                        debugger;
                         // Always allow previous action even if the current form is not valid
                         if (currentIndex > newIndex) return true;
 
@@ -35,8 +36,8 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
                             case 1:
 
                                 valid_input = (
-                                        $('#learning_level_selection').val().trim().length != "None" &&
-                                        $(".learning_verb_wrapper.active").val().trim().length != "None"
+                                        $('#learning_level_selection').val() != "None" &&
+                                        $(".learning_verb_wrapper.active").val() != "None"
                                     )
                                 break;
                             case 2:
@@ -62,8 +63,8 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
                     {
                         // add the new form row for this learning objective
                         //$('.LO_fs_add').click()
-
-                        var outcomes_ids = $("#outcomes_selection input:checked").map(function(){
+                        debugger;
+                        var outcomes_ids = $("#ABET_listing input:checked").map(function(){
                                               return $(this).val();
                                             }).get();
 
@@ -72,22 +73,22 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
                             "condition": $("#condition").val().trim(),
                             "task": $("#task").val().trim(),
                             "degree": $("#degree").val().trim(),
-                            "level": $("#knowledgeSelection option:selected").text(),
                             "level_id": $("#knowledgeSelection option:selected").val(),
-                            "verb": $("#actionSelection option:selected").text(),
+                            "level": $("#knowledgeSelection option:selected").text(),
                             'verb_id': $("#actionSelection option:selected").val(),
+                            "verb": $("#actionSelection option:selected").text(),
                             "outcomes": outcomes_ids,
                         }
 
                         // add the new form
-                        var learning_objective_form = $('.LO_form').last();
-                        if(learning_objective_form.attr('id') !== "learning_objective_set-0" || learning_objective_form.find(".LO_representation").text() !== ''){
-                            $('.LO_fs_add').click();
-                            learning_objective_form = $('.LO_form').last();
-                        }
-                        updateLearningObjective(learning_objective_form, values_dictionary);
-                        $('.ui-dialog-titlebar-close').click();
-                        resetWizard();
+                        //var learning_objective_form = $('.LO_form').last();
+                        // if(learning_objective_form.attr('id') !== "learning_objective_set-0" || learning_objective_form.find(".LO_representation").text() !== ''){
+                        //     $('.LO_fs_add').click();
+                        //     learning_objective_form = $('.LO_form').last();
+                        // }
+                        //updateLearningObjective(learning_objective_form, values_dictionary);
+                        //$('.ui-dialog-titlebar-close').click();
+                        //resetWizard();
                     }
                 });
     }
@@ -175,10 +176,14 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
                 );
         }
 
+        // populate form inputs for catalog items
         initialize_forms();
 
+        // initialize jquery steps implementation
         initialize_steps();
-        // Set main pane to Options
+
+
+        // Set main pane to the editor
         tab_switch("editor");
 
         // Readjust modal window dimensions in case the browser window is resized

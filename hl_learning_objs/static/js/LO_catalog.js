@@ -223,7 +223,7 @@ function LO_catalog(){
     }
 
     LO_catalog.prototype._generate_level_selection = function(){
-        var catalog = this;
+        var self = this;
         //  generate a select box listing the possible learning levels
         var wrapper = $('<div />', {
             class:"learning_level_wrapper",
@@ -244,7 +244,7 @@ function LO_catalog(){
             })
         );
 
-        $.each(catalog.data, function(key, value){
+        $.each(self.data, function(key, value){
             var option = $('<option />', {
                 class:"learning_level_option",
                 value: key,
@@ -254,7 +254,7 @@ function LO_catalog(){
             selection.append(option);
 
             // generate child verb listings for each levels
-            wrapper.append(catalog._generate_verb_selection(key));
+            wrapper.append(self._generate_verb_selection(key));
         })
 
         // bind event to selection change to show/hide verb selections
