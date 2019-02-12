@@ -2,7 +2,8 @@
   width: 400px; }
 
 .modal_tab_view {
-  width: 100%; }
+  width: 100%;
+  overflow-y: auto; }
 
 .HL_LO_xblock_studio .child_form {
   padding: 1em 1.5em; }
