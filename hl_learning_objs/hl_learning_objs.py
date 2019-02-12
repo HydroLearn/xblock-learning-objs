@@ -115,6 +115,7 @@ class HL_LearningObjs_XBlock(XBlock):
 
         # add static files for styling, custom CK5 build, and template initialization
         fragment.add_css(load_resource('static/css/cms-styling.css'))
+        fragment.add_css(load_resource('static/css/jquery.steps.css'))
         fragment.add_javascript(unicode(render_template('static/js/js-str-format.js', content)))
         fragment.add_javascript(unicode(render_template('static/js/jquery.steps.js', content)))
         fragment.add_javascript(unicode(render_template('static/js/LO_catalog.js', content)))
