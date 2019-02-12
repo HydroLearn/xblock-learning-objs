@@ -3,8 +3,15 @@
     <!-- HTML editor tab -->
     <div class="modal_tab_view modal_tab_editor" data-mode="editor">
         <div id="editor-crumb">
-            <a href="#"> <i class="fas fa-arrow-left"></i>Cancel </a>
+            <a href="#"> <i class="fa fa-arrow-left"></i> Cancel </a>
         </div>
+
+
+        <div id="learning_obj_listing">
+            <div id="learning_obj_collection"></div>            
+            <button><i class="fa fa-plus"></i> Objective</button>
+        </div>
+
         <div id="learning_obj_wizard">
 
             <h2>Condition</h2>
@@ -57,6 +64,6 @@
     <div class="modal_tab_view modal_tab_settings" data-mode="settings">
 		<!-- this seems like the form for modifying the model fields -->
         <p class="chx_desc">Display Name</p>
-        <input type="text" class="chx_display_name" value="{{ self.display_name }}">
+        <input type="text" class="settings_display_name" value="{{ self.display_name }}">
     </div>
 </div>

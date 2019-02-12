@@ -1,6 +1,8 @@
 /* JavaScript for HydroLearn's learning objectives XBlock, Studio Side. */
 function HL_LO_XBlockStudio(runtime, xblock_element) {
 
+    console.log(xblock_element)
+
     var catalog = new LO_catalog();
 
     // Define mapping of tabs (modes) to display names
@@ -134,8 +136,8 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
         // get the form data from the edit modal
         var data = {
             // "commit": commit.toString(),
-            "display_name": $('.chx_display_name').val(),
-            // "body_html": ckeditor_html.getData(),
+            "display_name": $('.settings_display_name').val(),
+            "learning_obj_list": catalog.export_objectives(),
         }
 
         runtime.notify('save', {state: 'start'});

@@ -115,7 +115,7 @@ class HL_LearningObjs_XBlock(XBlock):
 
         # add static files for styling, custom CK5 build, and template initialization
         fragment.add_css(load_resource('static/css/jquery.steps.css'))
-        fragment.add_css(load_resource('static/css/cms-styling.css'))        
+        fragment.add_css(load_resource('static/css/cms-styling.css'))
         fragment.add_javascript(unicode(render_template('static/js/js-str-format.js', content)))
         fragment.add_javascript(unicode(render_template('static/js/jquery.steps.js', content)))
         fragment.add_javascript(unicode(render_template('static/js/LO_catalog.js', content)))
@@ -145,7 +145,7 @@ class HL_LearningObjs_XBlock(XBlock):
             # NOTE: No validation going on here; be careful with your code
             self.display_name = data["display_name"]
             self.dependencies = ""
-            # self.content = data["body_html"]
+            self.learning_objs = data["learning_obj_list"]            
 
             result["submitted"] = "true"
             result["saved"] = "true"
