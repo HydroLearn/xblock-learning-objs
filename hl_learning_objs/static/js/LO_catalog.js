@@ -401,3 +401,9 @@ function LO_catalog(){
 
         return level_selected && verb_selected;
     }
+
+    LO_catalog.prototype.update_listing = function(){
+        // update the listed items in catalog
+        
+
+    }

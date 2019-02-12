@@ -1,11 +1,6 @@
 /* JavaScript for HydroLearn's learning objectives XBlock, Studio Side. */
 function HL_LO_XBlockStudio(runtime, xblock_element) {
 
-    console.log("runtime:")
-    console.log(runtime)
-    console.log("element:")
-    console.log(xblock_element)
-
     var catalog = new LO_catalog();
 
     // Define mapping of tabs (modes) to display names
@@ -18,6 +13,16 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
         $('.action_input').append(catalog._generate_level_selection());
         $('.abet_input').append(catalog._generate_ABET_selection());
 
+    }
+
+    function reset_wizard(){
+        $("#condition").val("");
+        $("#task").val("");
+        $("#degree").val("");
+        $("#learning_level_selection").val("None");
+        $(".learning_verb_wrapper.active").val("None");
+        $(".learning_verb_wrapper.active").removeClass('active');
+        $(".ABET_selection_wrapper input:checked").prop('checked', false);
     }
 
     function initialize_steps(){
@@ -81,6 +86,20 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
                             "outcomes": outcomes_ids,
                         }
 
+                        var new_LO = new Learning_obj(
+                                values_dictionary["level_id"],
+                                values_dictionary["verb_id"],
+                                values_dictionary["condition"],
+                                values_dictionary["task"],
+                                values_dictionary["degree"],
+                                values_dictionary["outcomes"]
+                            )
+
+                        catalog.add_item(new_LO);
+                        catalog.update_listing();
+
+                        reset_wizard();
+
                         // add the new form
                         //var learning_objective_form = $('.LO_form').last();
                         // if(learning_objective_form.attr('id') !== "learning_objective_set-0" || learning_objective_form.find(".LO_representation").text() !== ''){
@@ -92,6 +111,8 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
                         //resetWizard();
                     }
                 });
+
+                $("#learning_obj_wizard").hide();
     }
 
     function bind_input_evts() {
@@ -112,6 +133,11 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
             }
         }
         return cookieValue;
+    }
+
+    function editor_toggle(){
+        $('#learning_obj_wizard').toggle()
+        $('#learning_obj_listing').toggle()
     }
 
     function tab_highlight(toHighlight) {
@@ -210,6 +236,9 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
             studio_submit(true);
             //setTimeout(function(){location.reload();},200);
         });
+
+        $('#cancel_new').click(editor_toggle);
+        $('#add_new').click(editor_toggle);
 
         $('.action-cancel').removeClass('action-primary');
 
