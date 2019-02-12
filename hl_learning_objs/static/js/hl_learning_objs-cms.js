@@ -93,6 +93,10 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
                 });
     }
 
+    function bind_input_evts() {
+        $("#learning_obj_wizard").on('change','#learning_level_selection', catalog.learning_level_change_evt);
+    }
+
     function getCookie(name) {
         var cookieValue = null;
         if (document.cookie && document.cookie !== '') {
@@ -181,7 +185,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
 
         // initialize jquery steps implementation
         initialize_steps();
-
+        bind_input_evts();
 
         // Set main pane to the editor
         tab_switch("editor");

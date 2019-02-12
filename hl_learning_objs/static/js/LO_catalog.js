@@ -258,22 +258,24 @@ function LO_catalog(){
         })
 
         // bind event to selection change to show/hide verb selections
-        $(selection).on('change',function(){
-            debugger;
-            var wrapper = $(this).closest('.learning_level_wrapper')
-            var val = $(this).val();
-
-            wrapper.find('.learning_verb_wrapper').removeClass('active');
-            wrapper.find('.learning_verb_wrapper').hide();
-            wrapper.find('.learning_verb_wrapper').val("None");
-
-            var associated_verb_select = wrapper.find('.learning_verb_wrapper[data-level={0}]'.format(val))
-            associated_verb_select.addClass('active')
-            associated_verb_select.show();
-
-        })
+        $(selection).change(self.learning_level_change_evt);
 
         return wrapper;
+    }
+
+    LO_catalog.prototype.learning_level_change_evt = function(){
+        debugger;
+        var wrapper = $(this).closest('.learning_level_wrapper')
+        var val = $(this).val();
+
+        wrapper.find('.learning_verb_wrapper').removeClass('active');
+        wrapper.find('.learning_verb_wrapper').hide();
+        wrapper.find('.learning_verb_wrapper').val("None");
+
+        var associated_verb_select = wrapper.find('.learning_verb_wrapper[data-level={0}]'.format(val))
+        associated_verb_select.addClass('active')
+        associated_verb_select.show();
+
     }
 
     LO_catalog.prototype._generate_verb_selection = function(level_id){
