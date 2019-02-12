@@ -35,10 +35,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
                                 break;
                             case 1:
 
-                                valid_input = (
-                                        $('#learning_level_selection').val() != "None" &&
-                                        $(".learning_verb_wrapper.active").val() != "None"
-                                    )
+                                valid_input = catalog.verb_validation();
                                 break;
                             case 2:
                                 valid_input = $("#task").val().trim().length > 0

@@ -354,3 +354,10 @@ function LO_catalog(){
 
     // export the current colleciton of learning objectives as a json obj list
     LO_catalog.prototype.export_objectives = function(){}
+
+    LO_catalog.prototype.verb_validation = function(){
+        var level_selected = !!$('#learning_level_selection').val() && $('#learning_level_selection').val() != "None"
+        var verb_selected = !!!!$(".learning_verb_wrapper.active").val() && $(".learning_verb_wrapper.active").val() != "None"
+
+        return level_selected && verb_selected;
+    }
