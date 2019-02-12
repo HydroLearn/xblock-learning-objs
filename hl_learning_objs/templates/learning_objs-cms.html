@@ -2,30 +2,53 @@
 <div class="HL_LO_xblock_studio">
     <!-- HTML editor tab -->
     <div class="modal_tab_view modal_tab_editor" data-mode="editor">
-        <div class="child_form condition_form">
+
+        <div id="learning_obj_wizard">
+
             <h2>Condition</h2>
-            <input type="text" name="condition_input" value="" />
-        </div>
+            <section class="child_form condition_form">
+                <input id="condition" type="text" name="condition_input" value="" />
 
-        <div class="child_form level_form">
-            <h2>Verb</h2>
-            <div class="verb_input"></div>
-        </div>
+                <h3>Examples:</h3>
+                <ul>
+                    <li>With a definition of each source of ground water recharge and how it functions in the water cycle </li>
+                    <li>to 90% accuracy</li>
+                    <li>within 0.1 correct measure</li>
+                    <li>with at least 5 characteristics listed</li>
+                </ul>
+            </section>
 
-        <div class="child_form task_form">
+            <h2>Action</h2>
+            <section class="child_form level_form">
+
+                <div class="action_input"></div>
+            </section>
+
             <h2>Task</h2>
-            <input type="text" name="task_input" value="" />
-        </div>
+            <section class="child_form task_form">
 
-        <div class="child_form degree_form">
+                <input id="task" type="text" name="task_input" value="" />
+            </section>
+
             <h2>Degree</h2>
-            <input type="text" name="degree_input" value="" />
+            <section class="child_form degree_form">
+
+                <input id="degree" type="text" name="degree_input" value="" />
+            </section>
+
+            <h2>ABET outcomes</h2>
+            <section class="child_form ABET_form">
+                <div class="abet_input"></div>
+            </section>
+
+            <h2>Review</h2>
+            <section class="child_form review_form">
+                <div class="review">this is the reviewable outcome before adding to item list</div>
+            </section>
+
         </div>
 
-        <div class="child_form ABET_form">
-            <h2>ABET outcomes selection</h2>
-            <div class="abet_input"></div>
-        </div>
+
     </div>
 
     <!-- XBlock options -->

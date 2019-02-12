@@ -262,9 +262,10 @@ function LO_catalog(){
             var wrapper = $(this).closest('.learning_level_wrapper')
             var val = $(this).val();
 
+            wrapper.find('.learning_verb_wrapper').removeClass('active');
             wrapper.find('.learning_verb_wrapper').hide();
             wrapper.find('.learning_verb_wrapper').val("None");
-            wrapper.find('.learning_verb_wrapper[data-level={0}]'.format(val)).show();
+            wrapper.find('.learning_verb_wrapper[data-level={0}]'.format(val)).addClass('active').show();
 
         })
 

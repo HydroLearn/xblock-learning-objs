@@ -10,8 +10,92 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
     };
 
     function initialize_forms(){
-        $('.verb_input').append(catalog._generate_level_selection());
+        $('.action_input').append(catalog._generate_level_selection());
         $('.abet_input').append(catalog._generate_ABET_selection());
+
+    }
+
+    function initialize_steps(){
+        $("#learning_obj_wizard").steps({
+                    headerTag: "h2",
+                    bodyTag: "section",
+                    transitionEffect: "fade",
+
+                    onStepChanging: function (event, currentIndex, newIndex)
+                    {
+                        // Always allow previous action even if the current form is not valid
+                        if (currentIndex > newIndex) return true;
+
+
+                        var valid_input = true;
+                        switch(currentIndex){
+                            case 0:
+                                valid_input = $("#condition").val().trim().length > 0;
+                                break;
+                            case 1:
+
+                                valid_input = (
+                                    $('#learning_level_selection').val().trim().length != "None" &&
+                                    $(".learning_verb_wrapper.active").val().trim().length != "None" 
+
+                                )
+                                break;
+                            case 2:
+                                valid_input = $("#task").val().trim().length > 0
+                                break;
+                            case 3:
+                                valid_input = $("#degree").val().trim().length > 0;
+                                break;
+
+                            //case 4: break;
+
+
+                            default: break;
+
+                        }
+
+                        // if loading the review step, update the selected ABET listing
+                        if(newIndex == 5){
+                            updateABETReview();
+                        }
+
+                        return valid_input;
+                    },
+
+                    onFinished: function (event, currentIndex)
+                    {
+                        // add the new form row for this learning objective
+                        //$('.LO_fs_add').click()
+
+                        var outcomes_ids = $("#outcomes_selection input:checked").map(function(){
+                                              return $(this).val();
+                                            }).get();
+
+                        // grab all input field values
+                        var values_dictionary = {
+                            "condition": $("#condition").val().trim(),
+                            "task": $("#task").val().trim(),
+                            "degree": $("#degree").val().trim(),
+                            "level": $("#knowledgeSelection option:selected").text(),
+                            "level_id": $("#knowledgeSelection option:selected").val(),
+                            "verb": $("#actionSelection option:selected").text(),
+                            'verb_id': $("#actionSelection option:selected").val(),
+                            "outcomes": outcomes_ids,
+                        }
+
+                        // add the new form
+                        var learning_objective_form = $('.LO_form').last();
+                        if(learning_objective_form.attr('id') !== "learning_objective_set-0" || learning_objective_form.find(".LO_representation").text() !== ''){
+                            $('.LO_fs_add').click();
+                            learning_objective_form = $('.LO_form').last();
+                        }
+                        updateLearningObjective(learning_objective_form, values_dictionary);
+                        $('.ui-dialog-titlebar-close').click();
+                        resetWizard();
+                    }
+                });
+
+            });
 
     }
 
@@ -99,6 +183,8 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
         }
 
         initialize_forms();
+
+        initialize_steps();
         // Set main pane to Options
         tab_switch("editor");
 
