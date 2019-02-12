@@ -2,7 +2,7 @@
 function HL_LO_XBlockStudio(runtime, xblock_element) {
 
     var catalog = new LO_catalog();
-    
+
     // Define mapping of tabs (modes) to display names
     var studio_buttons = {
         "editor": "EDITOR",
@@ -10,8 +10,8 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
     };
 
     function initialize_forms(){
-        $('.level_form').append(LO_catalog._generate_level_selection());
-        $('.ABET_form').append(LO_catalog._generate_ABET_selection());
+        $('.level_form').append(catalog._generate_level_selection());
+        $('.ABET_form').append(catalog._generate_ABET_selection());
 
     }
 
