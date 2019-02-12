@@ -55,7 +55,8 @@
   .wizard .content {
     overflow: auto;
     flex-grow: 1;
-    background: none; }
+    background: none;
+    min-height: unset; }
     .wizard .content .body {
       padding: 10px 25px;
       position: inherit;
