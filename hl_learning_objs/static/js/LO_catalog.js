@@ -261,11 +261,14 @@ function LO_catalog(){
         $(selection).change(function(){
             var wrapper = $(this).closest('.learning_level_wrapper')
             var val = $(this).val();
-
+            debugger;
             wrapper.find('.learning_verb_wrapper').removeClass('active');
             wrapper.find('.learning_verb_wrapper').hide();
             wrapper.find('.learning_verb_wrapper').val("None");
-            wrapper.find('.learning_verb_wrapper[data-level={0}]'.format(val)).addClass('active').show();
+
+            var associated_verb_select = wrapper.find('.learning_verb_wrapper[data-level={0}]'.format(val))
+            associated_verb_select.addClass('active')
+            associated_verb_select.show();
 
         })
 
