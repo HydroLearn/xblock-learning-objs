@@ -44,7 +44,8 @@
         .wizard .steps ul li a .number {
           font-size: inherit; }
         .wizard .steps ul li a:hover {
-          padding: 5px 7px; }
+          padding: 5px 7px;
+          margin: 0 5px 5px; }
       .wizard .steps ul li.current a {
         background: #45a4f3;
         font-weight: bold; }
@@ -54,16 +55,15 @@
   .wizard .content {
     overflow: auto;
     flex-grow: 1;
-    background: none;
-    margin-bottom: 50px; }
+    background: none; }
     .wizard .content .body {
       padding: 10px 25px;
       position: inherit;
       background: #eee;
       border-radius: 7px;
-      height: fit-content; }
-      .wizard .content .body ul {
-        margin: 3px 2em; }
+      height: fit-content;
+      min-height: ul;
+        min-height-margin: 3px 2em; }
   .wizard .actions {
     flex-grow: 0; }
     .wizard .actions:before, .wizard .actions:after {

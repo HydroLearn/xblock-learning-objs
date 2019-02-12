@@ -23,7 +23,6 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
 
                     onStepChanging: function (event, currentIndex, newIndex)
                     {
-                        debugger;
                         // Always allow previous action even if the current form is not valid
                         if (currentIndex > newIndex) return true;
 
