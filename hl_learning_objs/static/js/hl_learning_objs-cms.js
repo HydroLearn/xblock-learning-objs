@@ -121,6 +121,8 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
                     }
                 });
 
+                bind_input_evts();
+
                 $("#learning_obj_wizard").hide();
                 $("#editor-crumb").hide();
     }
@@ -223,7 +225,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
 
         // initialize jquery steps implementation
         initialize_steps();
-        bind_input_evts();
+
 
         // Set main pane to the editor
         tab_switch("editor");
