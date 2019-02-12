@@ -24,4 +24,52 @@
   .modal-type-hl_learning_objs .edit-xblock-modal .modal-actions {
     flex-grow: unset; }
 
+.wizard {
+  display: table;
+  width: 100%;
+  height: 100%; }
+  .wizard .steps {
+    display: table-row; }
+    .wizard .steps:before, .wizard .steps:after {
+      content: none; }
+    .wizard .steps ul {
+      display: table-cell; }
+      .wizard .steps ul li {
+        width: unset;
+        float: unset;
+        display: inline-block; }
+        .wizard .steps ul li a {
+          margin: 0 5px 5px;
+          padding: 5px 7px; }
+          .wizard .steps ul li a .number {
+            font-size: inherit; }
+        .wizard .steps ul li.current a {
+          background: #45a4f3;
+          font-weight: bold; }
+        .wizard .steps ul li.error a {
+          background: #ea163e;
+          font-weight: bold; }
+  .wizard .content {
+    overflow: auto;
+    display: table-row;
+    background: none;
+    margin-bottom: 50px; }
+    .wizard .content .body {
+      display: table-cell;
+      padding: 10px 25px;
+      position: inherit;
+      background: #eee;
+      border-radius: 7px;
+      height: fit-content; }
+      .wizard .content .body ul {
+        margin: 3px 2em; }
+  .wizard .actions {
+    display: table-row; }
+    .wizard .actions:before, .wizard .actions:after {
+      content: none; }
+    .wizard .actions ul {
+      display: table-cell;
+      float: right;
+      padding: 10px; }
+
 /*# sourceMappingURL=cms-styling.css.map */
