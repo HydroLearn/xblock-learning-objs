@@ -32,7 +32,8 @@ from xblock.fields import (
         ReferenceList, # list of references to other xblocks
     )
 
-from xblock.fragment import Fragment
+# from xblock.fragment import Fragment
+from web_fragments import Fragment
 
 
 class HL_LearningObjs_XBlock(XBlock):
@@ -49,8 +50,6 @@ class HL_LearningObjs_XBlock(XBlock):
         scope=Scope.settings,
         default="Learning Objectives"
     )
-
-    learning_level = Integer()
 
     learning_objs = List(
             display_name="Learning Objectives",
