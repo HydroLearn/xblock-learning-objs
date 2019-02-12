@@ -208,7 +208,7 @@ function LO_catalog(){
         $(selection).change(function(){
             debugger;
             var wrapper = $(this).closest('.learning_level_wrapper')
-            var val = this.val();
+            var val = $(this).val();
 
             wrapper.find('.learning_verb_wrapper').hide();
             wrapper.find('.learning_verb_wrapper').val(null);
