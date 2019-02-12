@@ -113,6 +113,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
                 });
 
                 $("#learning_obj_wizard").hide();
+                $("#editor-crumb").hide();
     }
 
     function bind_input_evts() {
@@ -138,6 +139,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
     function editor_toggle(){
         $('#learning_obj_wizard').toggle()
         $('#learning_obj_listing').toggle()
+        $("#editor-crumb").toggle()
     }
 
     function tab_highlight(toHighlight) {
