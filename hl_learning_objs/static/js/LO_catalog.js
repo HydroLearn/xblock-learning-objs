@@ -258,7 +258,7 @@ function LO_catalog(){
         })
 
         // bind event to selection change to show/hide verb selections
-        $(selection).change(function(){
+        $(selection).on('change',function(){
             debugger;
             var wrapper = $(this).closest('.learning_level_wrapper')
             var val = $(this).val();
