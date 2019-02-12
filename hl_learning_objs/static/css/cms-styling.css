@@ -25,39 +25,38 @@
     flex-grow: unset; }
 
 .wizard {
-  display: table;
-  width: 100%;
-  height: 100%; }
+  display: flex;
+  flex-flow: column;
+  width: calc(100% - $wizard_padding);
+  height: calc(100% - $wizard_padding);
+  padding: 1em; }
   .wizard .steps {
-    display: table-row; }
+    flex-grow: 0; }
     .wizard .steps:before, .wizard .steps:after {
       content: none; }
-    .wizard .steps ul {
-      display: table-cell; }
-      .wizard .steps ul li {
-        width: unset;
-        float: unset;
-        display: inline-block; }
-        .wizard .steps ul li a {
-          margin: 0 5px 5px;
+    .wizard .steps ul li {
+      width: unset;
+      float: unset;
+      display: inline-block; }
+      .wizard .steps ul li a {
+        margin: 0 5px 5px;
+        padding: 5px 7px; }
+        .wizard .steps ul li a .number {
+          font-size: inherit; }
+        .wizard .steps ul li a:hover {
           padding: 5px 7px; }
-          .wizard .steps ul li a .number {
-            font-size: inherit; }
-          .wizard .steps ul li a:hover {
-            padding: 5px 7px; }
-        .wizard .steps ul li.current a {
-          background: #45a4f3;
-          font-weight: bold; }
-        .wizard .steps ul li.error a {
-          background: #ea163e;
-          font-weight: bold; }
+      .wizard .steps ul li.current a {
+        background: #45a4f3;
+        font-weight: bold; }
+      .wizard .steps ul li.error a {
+        background: #ea163e;
+        font-weight: bold; }
   .wizard .content {
     overflow: auto;
-    display: table-row;
+    flex-grow: 1;
     background: none;
     margin-bottom: 50px; }
     .wizard .content .body {
-      display: table-cell;
       padding: 10px 25px;
       position: inherit;
       background: #eee;
@@ -66,11 +65,10 @@
       .wizard .content .body ul {
         margin: 3px 2em; }
   .wizard .actions {
-    display: table-row; }
+    flex-grow: 0; }
     .wizard .actions:before, .wizard .actions:after {
       content: none; }
     .wizard .actions ul {
-      display: table-cell;
       float: right;
       padding: 10px; }
 

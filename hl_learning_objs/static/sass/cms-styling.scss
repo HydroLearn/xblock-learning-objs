@@ -68,22 +68,31 @@
 // *********************************
 
 .wizard {
-    display:table;
-    width:100%;
-    height: 100%;
+    $wizard_padding: 1em;
+
+    // display:table;
+    display: flex;
+    flex-flow: column;
+
+    width: calc(100% - $wizard_padding);
+    height: calc(100% - $wizard_padding);
+
+    padding: $wizard_padding;
 
     .steps {
         //position: absolute;
         //top: 5px;
         //width: 95%;
-        display: table-row;
+        // display: table-row;
+        flex-grow:0;
 
         &:before, &:after {
             content: none;
         }
 
         ul {
-            display:table-cell;
+            // display:table-cell;
+
 
             li {
                 width:unset;
@@ -127,7 +136,8 @@
 
     .content{
         overflow: auto;
-        display:table-row;
+        // display:table-row;
+        flex-grow: 1;
         background: none;
 
         //position: absolute;
@@ -140,13 +150,15 @@
         margin-bottom: 50px;
 
         .body{
-            display: table-cell;
+            // display: table-cell;
             padding: 10px 25px;
             position: inherit;
 
             background: #eee;
             border-radius: 7px;
             height:fit-content;
+
+            // potentially add min-height here to normalize display
 
             ul{
                 margin: 3px 2em;
@@ -158,14 +170,15 @@
         //position: relative;
         //bottom: 0;
         //right:0;
-        display: table-row;
+        // display: table-row;
+        flex-grow:0;
 
         &:before, &:after {
             content: none;
         }
 
         ul {
-            display: table-cell;
+            // display: table-cell;
             float:right;
             padding:10px;
         }
