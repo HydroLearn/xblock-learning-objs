@@ -7,6 +7,10 @@
 }
 
 .HL_LO_xblock_studio{
+    .child_form{
+        padding: 1em 1.5em;
+    }
+
     .learning_level_wrapper{
         .learning_level_selection{
             .learning_level_option{
@@ -24,7 +28,7 @@
     .ABET_selection_wrapper{
         .ABET_Label{
             display:block;
-            
+
             .ABET_input{
 
             }

@@ -32,7 +32,7 @@ from xblock.fields import (
         ReferenceList, # list of references to other xblocks
     )
 
-# from xblock.fragment import Fragment
+# from xblock.fragment import Fragment #DEPRECIATED
 from web_fragments.fragment import Fragment
 
 
