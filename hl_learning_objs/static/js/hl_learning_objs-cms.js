@@ -1,7 +1,10 @@
 /* JavaScript for HydroLearn's learning objectives XBlock, Studio Side. */
 function HL_LO_XBlockStudio(runtime, xblock_element) {
 
-    console.log($('.learning_objs', xblock_element))
+    console.log("runtime:")
+    console.log(runtime)
+    console.log("element:")
+    console.log(xblock_element)
 
     var catalog = new LO_catalog();
 
