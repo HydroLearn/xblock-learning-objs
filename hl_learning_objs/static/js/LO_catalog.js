@@ -289,7 +289,7 @@ function LO_catalog(){
         selection.append($('<option />', {
                 class:"verb_option",
                 value: "None",
-                text: "Select Level...",
+                text: "Select Action...",
             })
         );
 

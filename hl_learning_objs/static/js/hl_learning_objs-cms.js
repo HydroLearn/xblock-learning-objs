@@ -23,6 +23,15 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
         $(".learning_verb_wrapper.active").val("None");
         $(".learning_verb_wrapper.active").removeClass('active');
         $(".ABET_selection_wrapper input:checked").prop('checked', false);
+
+
+        $('#learning_obj_wizard').steps('destroy');
+        initialize_steps();
+
+        // remove 'done' tags from each step tab
+        // $('#learning_obj_wizard .steps .done').each(function(index, tab){
+        //     $(tab).removeClass('done')._enableAria(false);
+        // })
     }
 
     function initialize_steps(){
