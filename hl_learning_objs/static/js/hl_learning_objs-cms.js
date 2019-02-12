@@ -60,7 +60,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
                         // add the new form row for this learning objective
                         //$('.LO_fs_add').click()
                         debugger;
-                        var outcomes_ids = $("#ABET_listing input:checked").map(function(){
+                        var outcomes_ids = $(".ABET_selection_wrapper input:checked").map(function(){
                                               return $(this).val();
                                             }).get();
 
@@ -69,10 +69,10 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
                             "condition": $("#condition").val().trim(),
                             "task": $("#task").val().trim(),
                             "degree": $("#degree").val().trim(),
-                            "level_id": $("#knowledgeSelection option:selected").val(),
-                            "level": $("#knowledgeSelection option:selected").text(),
-                            'verb_id': $("#actionSelection option:selected").val(),
-                            "verb": $("#actionSelection option:selected").text(),
+                            "level_id": $("#learning_level_selection option:selected").val(),
+                            "level": $("#learning_level_selection option:selected").text(),
+                            'verb_id': $(".learning_verb_wrapper.active option:selected").val(),
+                            "verb": $(".learning_verb_wrapper.active option:selected").text(),
                             "outcomes": outcomes_ids,
                         }
 
