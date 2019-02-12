@@ -32,8 +32,8 @@ from xblock.fields import (
         ReferenceList, # list of references to other xblocks
     )
 
-# from xblock.fragment import Fragment
-from web_fragments import Fragment
+from xblock.fragment import Fragment
+# from web_fragments import Fragment
 
 
 class HL_LearningObjs_XBlock(XBlock):
