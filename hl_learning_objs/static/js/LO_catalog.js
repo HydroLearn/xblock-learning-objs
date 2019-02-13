@@ -284,7 +284,7 @@ function LO_catalog(){
             "data-level": level_id,
 
         });
-        selection.css('display', 'none');
+        
         // create a default 'null' option for the selection
         selection.append($('<option />', {
                 class:"verb_option",
