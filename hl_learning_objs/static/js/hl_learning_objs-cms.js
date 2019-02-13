@@ -129,7 +129,6 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
                         editor_toggle();
                         reset_wizard();
 
-                        console.log(catalog._items);
                         // add the new form
                         //var learning_objective_form = $('.LO_form').last();
                         // if(learning_objective_form.attr('id') !== "learning_objective_set-0" || learning_objective_form.find(".LO_representation").text() !== ''){
@@ -293,15 +292,21 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
             tab_switch($(this).attr('data-mode'));
         });
 
-        // Clicked Save button
-        $('#save_LOs', xblock_element).click(function(eventObject) {
-            studio_submit(true);
-            //setTimeout(function(){location.reload();},200);
-        });
+
 
         $('#cancel_new', xblock_element).click(function(){
             editor_toggle();
             reset_wizard();
+        });
+
+        // save button clicked
+        $(xblock_element).find('.save-button').bind('click', function() {
+            studio_submit(true);
+        });
+
+        // cancel button clicked
+        $(xblock_element).find('.cancel-button').bind('click', function() {
+            runtime.notify('cancel', {});
         });
 
         $('#add_new', xblock_element).click(editor_toggle);
