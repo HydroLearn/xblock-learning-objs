@@ -87,7 +87,7 @@ class HL_LearningObjs_XBlock(XBlock):
         content = {
             'self': self,
             'blooms_catalog': json.dumps(blooms),
-            'objs': json.dumps(self.learning_objs or [])
+            'objs': json.dumps(self.learning_objs or []),
 
             }
 
@@ -118,6 +118,7 @@ class HL_LearningObjs_XBlock(XBlock):
         content = {
             'self': self,
             'blooms_catalog': json.dumps(blooms),
+            'objs': json.dumps(self.learning_objs or []),
             }
 
         fragment = Fragment()
