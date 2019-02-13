@@ -116,6 +116,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
                         editor_toggle();
                         reset_wizard();
 
+                        console.log(catalog._items);
                         // add the new form
                         //var learning_objective_form = $('.LO_form').last();
                         // if(learning_objective_form.attr('id') !== "learning_objective_set-0" || learning_objective_form.find(".LO_representation").text() !== ''){
