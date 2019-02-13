@@ -316,7 +316,7 @@ function LO_catalog(){
 
         var associated_verb_select = wrapper.find('.learning_verb_selection[data-level={0}]'.format(val))
         associated_verb_select.addClass('active')
-        associated_verb_select.show();
+
 
     }
 
