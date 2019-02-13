@@ -31,12 +31,18 @@
 #learning_obj_creation {
   height: 100%; }
   #learning_obj_creation #editor-crumb {
-    height: 1.5em; }
+    height: 1.5em;
+    background: #efefef;
+    margin: 1em 1em 0;
+    padding: .5em 1em;
+    border-radius: 7px; }
+    #learning_obj_creation #editor-crumb a {
+      cursor: pointer; }
   #learning_obj_creation .wizard {
     display: flex;
     flex-flow: column;
     width: calc(100% - 2em);
-    height: calc(100% - 3.5em);
+    height: calc(100% - 5.5em);
     padding: 1em; }
     #learning_obj_creation .wizard .steps {
       flex-grow: 0; }

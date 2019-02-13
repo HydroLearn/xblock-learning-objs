@@ -74,6 +74,7 @@
 // *********************************
 $wizard_padding: 1em;
 $crumb-height: 1.5em;
+$crumb-addtl-vert: 2em; // accounts for padding/margins in calculations
 $gutter: 1em;
 
 #learning_obj_creation{
@@ -81,6 +82,14 @@ $gutter: 1em;
 
     #editor-crumb{
         height: $crumb-height;
+        background: #efefef;
+        margin: 1em 1em 0;
+        padding: .5em 1em;
+        border-radius: 7px;
+
+        a{
+            cursor:pointer;
+        }
     }
 
     .wizard {
@@ -91,7 +100,7 @@ $gutter: 1em;
         flex-flow: column;
 
         width: calc(100% - #{$wizard_padding + $gutter});
-        height: calc(100% - #{$crumb-height + $wizard_padding + $gutter});
+        height: calc(100% - #{$crumb-height + $crumb-addtl-vert + $wizard_padding + $gutter});
 
         padding: $wizard_padding;
 
