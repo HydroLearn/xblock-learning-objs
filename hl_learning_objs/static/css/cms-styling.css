@@ -28,6 +28,13 @@
   .modal-type-hl_learning_objs .edit-xblock-modal .modal-actions {
     flex-grow: unset; }
 
+#learning_obj_listing h3 {
+  font-size: 1.2em;
+  font-weight: 600; }
+#learning_obj_listing ul {
+  list-style: disc;
+  margin: 1em 2em; }
+
 #learning_obj_creation {
   height: 98%; }
   #learning_obj_creation #editor-crumb {

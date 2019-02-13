@@ -1,7 +1,7 @@
 /* JavaScript for HydroLearn's learning objectives XBlock, Studio Side. */
 function HL_LO_XBlockStudio(runtime, xblock_element) {
 
-    var catalog = new LO_catalog();
+    var catalog = new LO_catalog(JSON.parse('{{ blooms_catalog }}'));
 
     // Define mapping of tabs (modes) to display names
     var studio_buttons = {
@@ -189,7 +189,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
 
     // update listing of learning objectives based on catalog items
     function update_listing(){
-        debugger;
+
         var items = catalog.item_list();
 
         if(items.length == 0){
@@ -211,7 +211,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
                 listing.append(row);
             });
             $('#learning_obj_collection', xblock_element).append(listing);
-            
+
             $('#learning_obj_collection', xblock_element).show();
         }
 

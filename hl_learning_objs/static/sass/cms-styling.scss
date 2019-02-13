@@ -23,7 +23,7 @@
 
         .learning_verb_selection{
             display:none;
-            
+
             &.active{
                 display:inline-block;
             }
@@ -69,13 +69,23 @@
     }
 }
 
-// *********************************
-// jquery.steps.css overrides
-// *********************************
+
 $wizard_padding: 1em;
 $crumb-height: 1.5em;
 $crumb-addtl-vert: 2em; // accounts for padding/margins in calculations
 $gutter: 1em;
+
+#learning_obj_listing{
+    h3 {
+        font-size: 1.2em;
+        font-weight: 600;
+    }
+
+    ul{
+        list-style: disc;
+        margin: 1em 2em;
+    }
+}
 
 #learning_obj_creation{
     // height:100%;
