@@ -18,11 +18,8 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
         $('.abet_input', xblock_element).append(catalog._generate_ABET_selection());
 
         // import this xblocks data into the catalog for use in the system
-        //catalog.import_objectives(JSON.parse('{{ self.learning_objs|safe|escapejs }}'))
-
-        var existing = '{{ self.learning_objs|safe|escapejs }}';
-        var as_dump = '{{ objs|safe }}';
-        debugger;
+        var existing = JSON.parse('{{ objs|safe }}');
+        catalog.import_objectives(existing)
         // by default hide the creation form until called
         $('#learning_obj_creation', xblock_element).hide()
 
