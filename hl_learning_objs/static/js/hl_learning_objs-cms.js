@@ -293,7 +293,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
         });
 
         // Clicked Save button
-        $('#chx_submit', xblock_element).click(function(eventObject) {
+        $('#save_LOs', xblock_element).click(function(eventObject) {
             studio_submit(true);
             //setTimeout(function(){location.reload();},200);
         });
