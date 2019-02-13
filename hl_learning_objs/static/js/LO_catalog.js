@@ -245,7 +245,7 @@ function LO_catalog(initial_catalog){
     // import the json list conatining existing learning objectives
     LO_catalog.prototype.import_objectives = function(obj_list){
         var self = this;
-        debugger;
+        
         $.each(obj_list, function(i, item){
             var new_item = new Learning_obj(
                     item.level,
