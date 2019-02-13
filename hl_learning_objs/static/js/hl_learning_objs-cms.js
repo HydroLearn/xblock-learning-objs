@@ -1,6 +1,9 @@
 /* JavaScript for HydroLearn's learning objectives XBlock, Studio Side. */
 function HL_LO_XBlockStudio(runtime, xblock_element) {
-    debugger;
+
+    // add modal tag so it's width gets adjusted on window resize
+    $('.modal-window', xblock_element).addClass('hl_resize_correction')
+
     var catalog = new LO_catalog(JSON.parse('{{ blooms_catalog|safe }}'));
 
     // Define mapping of tabs (modes) to display names
