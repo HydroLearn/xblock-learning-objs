@@ -60,7 +60,7 @@ function Learning_obj(level, verb, condition, task, degree, outcomes){
         and providing a listing of ABET outcomes
 */
 
-function LO_catalog(inital_catalog){
+function LO_catalog(initial_catalog){
 
     this.data = initial_catalog;
     // the catalog data used to generate learning objectives
