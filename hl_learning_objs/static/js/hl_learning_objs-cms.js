@@ -10,8 +10,11 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
     };
 
     function initialize_forms(){
-        $('.action_input').append(catalog._generate_level_selection());
-        $('.abet_input').append(catalog._generate_ABET_selection());
+        $('.action_input', xblock_element).append(catalog._generate_level_selection());
+        $('.abet_input', xblock_element).append(catalog._generate_ABET_selection());
+
+        // by default hide the creation form until called
+        $('#learning_obj_creation', xblock_element).hide()
 
     }
 
