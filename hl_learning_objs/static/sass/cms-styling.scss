@@ -74,6 +74,7 @@
 // *********************************
 $wizard_padding: 1em;
 $crumb-height: 1.5em;
+$gutter: 1em;
 
 #learning_obj_creation{
     height:100%;
@@ -89,8 +90,8 @@ $crumb-height: 1.5em;
         display: flex;
         flex-flow: column;
 
-        width: calc(100% - #{$wizard_padding});
-        height: calc(100% - #{$crumb-height +$wizard_padding });
+        width: calc(100% - #{$wizard_padding + $gutter});
+        height: calc(100% - #{$crumb-height + $wizard_padding + $gutter});
 
         padding: $wizard_padding;
 
