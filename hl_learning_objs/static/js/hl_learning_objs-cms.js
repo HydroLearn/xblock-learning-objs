@@ -257,7 +257,11 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
             //setTimeout(function(){location.reload();},200);
         });
 
-        $('#cancel_new', xblock_element).click(editor_toggle);
+        $('#cancel_new', xblock_element).click(function(){
+            editor_toggle();
+            reset_wizard();
+        });
+        
         $('#add_new', xblock_element).click(editor_toggle);
 
         $('.action-cancel', xblock_element).removeClass('action-primary');
