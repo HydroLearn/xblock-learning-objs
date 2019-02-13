@@ -253,7 +253,7 @@ function LO_catalog(initial_catalog){
                     item.condition,
                     item.task,
                     item.degree,
-                    item.outcomes
+                    item.ABET_ids
                 );
             self.add_item(new_item);
         });
