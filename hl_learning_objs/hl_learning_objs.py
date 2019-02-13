@@ -145,7 +145,7 @@ class HL_LearningObjs_XBlock(XBlock):
             # NOTE: No validation going on here; be careful with your code
             self.display_name = data["display_name"]
             self.dependencies = ""
-            self.learning_objs = data["learning_obj_list"]            
+            self.learning_objs = data["learning_obj_list"]
 
             result["submitted"] = "true"
             result["saved"] = "true"

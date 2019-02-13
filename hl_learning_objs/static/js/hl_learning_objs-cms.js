@@ -114,7 +114,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
                             )
 
                         catalog.add_item(new_LO);
-                        catalog.update_listing();
+                        update_listing();
 
                         editor_toggle();
                         reset_wizard();
@@ -181,6 +181,21 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
         place_modal();
     }
 
+    // update listing of learning objectives based on catalog items
+    function update_listing(){
+        debugger;
+        var items = catalog.item_list();
+
+        if(items.length == 0){
+            $('#learning_obj_collection', xblock_element).hide();
+            $('#learning_obj_empty', xblock_element).show();
+        }else{
+            $('#learning_obj_empty', xblock_element).hide();
+            $('#learning_obj_collection', xblock_element).html(items);
+        }
+
+
+    }
     // Send current code and settings to the backend
     function studio_submit(commit) {
 

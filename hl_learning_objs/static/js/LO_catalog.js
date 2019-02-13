@@ -284,7 +284,7 @@ function LO_catalog(){
             "data-level": level_id,
 
         });
-        
+
         // create a default 'null' option for the selection
         selection.append($('<option />', {
                 class:"verb_option",
@@ -307,7 +307,7 @@ function LO_catalog(){
     }
 
     LO_catalog.prototype.learning_level_change_evt = function(){
-        debugger;
+
         var wrapper = $(this).closest('.learning_level_wrapper')
         var val = $(this).val();
 
@@ -358,6 +358,10 @@ function LO_catalog(){
 
     }
 
+    LO_catalog.prototype.item_list = function(){
+        return this._items;
+    }
+
     LO_catalog.prototype.add_item = function(new_learning_obj){
         if(!(new_learning_obj instanceof Learning_obj)) throw Error('Catalog only accepts Learning_obj items')
 
@@ -399,10 +403,4 @@ function LO_catalog(){
         var verb_selected = !!$(".learning_verb_selection.active").val() && $(".learning_verb_selection.active").val() != "None";
 
         return level_selected && verb_selected;
-    }
-
-    LO_catalog.prototype.update_listing = function(){
-        // update the listed items in catalog
-
-
     }
