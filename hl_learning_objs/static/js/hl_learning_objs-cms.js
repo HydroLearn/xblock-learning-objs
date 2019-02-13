@@ -13,8 +13,12 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
         $('.action_input', xblock_element).append(catalog._generate_level_selection());
         $('.abet_input', xblock_element).append(catalog._generate_ABET_selection());
 
+        console.log("testing template var in js");
+        console.log('{{ self.learning_objs}}');
+
         // by default hide the creation form until called
         $('#learning_obj_creation', xblock_element).hide()
+        update_listing();
 
     }
 
@@ -191,7 +195,8 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
             $('#learning_obj_empty', xblock_element).show();
         }else{
             $('#learning_obj_empty', xblock_element).hide();
-            $('#learning_obj_collection', xblock_element).html(items);
+            $('#learning_obj_collection', xblock_element).text(items);
+            $('#learning_obj_collection', xblock_element).show();
         }
 
 
