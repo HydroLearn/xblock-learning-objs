@@ -18,7 +18,8 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
         var raw_data = '{{ self.learning_objs|escapejs }}'
         var initial_data = JSON.parse('{{ self.learning_objs|escapejs }}')
         debugger;
-        catalog.import_objectives()
+        //catalog.import_objectives()
+
         // by default hide the creation form until called
         $('#learning_obj_creation', xblock_element).hide()
         update_listing();
