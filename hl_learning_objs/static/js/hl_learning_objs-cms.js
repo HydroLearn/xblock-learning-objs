@@ -15,7 +15,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
     function initialize_forms(){
         $('.action_input', xblock_element).append(catalog._generate_level_selection());
         $('.abet_input', xblock_element).append(catalog._generate_ABET_selection());
-
+        debugger;
         // import this xblocks data into the catalog for use in the system
         catalog.import_objectives(JSON.parse('{{ self.learning_objs|safe }}'))
 
