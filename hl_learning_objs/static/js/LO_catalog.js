@@ -275,6 +275,7 @@ function LO_catalog(initial_catalog){
 
     LO_catalog.prototype._generate_verb_selection = function(level_id){
 
+        debugger;
         // ensure the level_id is accounted for in catalog data
         if(typeof(this.data[level_id]) == "undefined") throw Error("the requested 'level_id' isn't present in the data catalog!");
         if(typeof(this.data[level_id].verbs) == "undefined") throw Error("the requested 'level_id' object doesn't contain any predefined verbs!");
