@@ -79,7 +79,7 @@ $crumb-height: 1.5em;
     height:100%;
 
     #editor-crumb{
-        height:50px
+        height: $crumb-height;
     }
 
     .wizard {
@@ -90,7 +90,7 @@ $crumb-height: 1.5em;
         flex-flow: column;
 
         width: calc(100% - #{$wizard_padding});
-        height: calc(100% - #{$crumb-height});
+        height: calc(100% - #{$crumb-height +$wizard_padding });
 
         padding: $wizard_padding;
 
