@@ -113,6 +113,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
                         catalog.add_item(new_LO);
                         catalog.update_listing();
 
+                        editor_toggle();
                         reset_wizard();
 
                         // add the new form
@@ -130,7 +131,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
                 bind_input_evts();
 
                 // hide wizard by default
-                $("#learning_obj_creation", xblock_element).hide();
+                //$("#learning_obj_creation", xblock_element).hide();
 
 
     }
