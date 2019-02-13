@@ -85,7 +85,7 @@ class HL_LearningObjs_XBlock(XBlock):
 
         content = {
             'self': self,
-            'blooms_catalog': json.loads(load_resource("static/blooms_catalog.json")),
+            'blooms_catalog': json.dump(load_resource("static/blooms_catalog.json")),
         }
 
         # body_html = unicode(self.generate_html())
@@ -111,7 +111,7 @@ class HL_LearningObjs_XBlock(XBlock):
         """
         content = {
             'self': self,
-            'blooms_catalog': json.loads(load_resource("static/blooms_catalog.json")),
+            'blooms_catalog': json.dump(load_resource("static/blooms_catalog.json")),
             }
 
         fragment = Fragment()
