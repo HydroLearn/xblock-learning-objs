@@ -3,7 +3,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
 
     // add modal tag so it's width gets adjusted on window resize
     $(xblock_element).closest('.modal-window').addClass('hl_resize_correction')
-
+    debugger;
     var catalog = new LO_catalog(JSON.parse('{{ blooms_catalog|safe }}'));
 
     // Define mapping of tabs (modes) to display names
