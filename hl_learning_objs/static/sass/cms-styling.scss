@@ -73,7 +73,8 @@
 // jquery.steps.css overrides
 // *********************************
 $wizard_padding: 1em;
-$crumb-height: 1em;
+$crumb-height: 1.5em;
+
 #learning_obj_creation{
     height:100%;
 
@@ -88,8 +89,8 @@ $crumb-height: 1em;
         display: flex;
         flex-flow: column;
 
-        width: 100% - $wizard_padding;
-        height: 100% - $crumb-height;
+        width: calc(100% - $wizard_padding);
+        height: calc(100% - $crumb-height);
 
         padding: $wizard_padding;
 
