@@ -21,8 +21,8 @@
                 "name",
                 "order",
                 "recall",
-                "select",
-            ],
+                "select"
+            ]
 
     },
     "1": {
@@ -38,7 +38,7 @@
                 "interpret",
                 "predict",
                 "summarize",
-                "translate",
+                "translate"
             ]
 
     },
@@ -76,7 +76,7 @@
                 "differentiate",
                 "outline",
                 "interelate"
-            ],
+            ]
 
     },
     "4": {
