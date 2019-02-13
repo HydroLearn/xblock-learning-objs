@@ -83,7 +83,7 @@ class HL_LearningObjs_XBlock(XBlock):
         """
         fragment = Fragment()
 
-        blooms = json.loads(load_resource("static/blooms_catalog.json")),
+        blooms = json.loads(load_resource("static/blooms_catalog.json"))
         content = {
             'self': self,
             'blooms_catalog': json.dumps(blooms),
@@ -112,7 +112,7 @@ class HL_LearningObjs_XBlock(XBlock):
         """
 
         # load blooms config
-        blooms = json.loads(load_resource("static/blooms_catalog.json")),
+        blooms = json.loads(load_resource("static/blooms_catalog.json"))
         content = {
             'self': self,
             'blooms_catalog': json.dumps(blooms),
