@@ -83,10 +83,11 @@ class HL_LearningObjs_XBlock(XBlock):
         """
         fragment = Fragment()
 
+        blooms = json.loads(load_resource("static/blooms_catalog.json")),
         content = {
             'self': self,
-            'blooms_catalog': json.dumps(load_resource("static/blooms_catalog.json")),
-        }
+            'blooms_catalog': json.dumps(blooms),
+            }
 
         # body_html = unicode(self.generate_html())
         fragment.add_content(render_template('templates/learning_objs-lms.html', content))
@@ -109,9 +110,12 @@ class HL_LearningObjs_XBlock(XBlock):
         """
         The studio view
         """
+
+        # load blooms config
+        blooms = json.loads(load_resource("static/blooms_catalog.json")),
         content = {
             'self': self,
-            'blooms_catalog': json.dumps(load_resource("static/blooms_catalog.json")),
+            'blooms_catalog': json.dumps(blooms),
             }
 
         fragment = Fragment()
