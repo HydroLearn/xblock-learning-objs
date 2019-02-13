@@ -87,6 +87,8 @@ class HL_LearningObjs_XBlock(XBlock):
         content = {
             'self': self,
             'blooms_catalog': json.dumps(blooms),
+            'objs': json.dumps(self.learning_objs or [])
+
             }
 
         # body_html = unicode(self.generate_html())

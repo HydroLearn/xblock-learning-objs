@@ -21,6 +21,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
         //catalog.import_objectives(JSON.parse('{{ self.learning_objs|safe|escapejs }}'))
         debugger;
         var existing = '{{ self.learning_objs|safe|escapejs }}';
+        var as_dump = '{{ objs }}';
         // by default hide the creation form until called
         $('#learning_obj_creation', xblock_element).hide()
 
