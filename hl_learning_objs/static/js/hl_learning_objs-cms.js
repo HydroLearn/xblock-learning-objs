@@ -197,7 +197,21 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
             $('#learning_obj_empty', xblock_element).show();
         }else{
             $('#learning_obj_empty', xblock_element).hide();
-            $('#learning_obj_collection', xblock_element).text(items);
+            $('#learning_obj_collection', xblock_element).html("");
+
+            var listing = $('<ul />', {
+                class: 'objective_listing',
+            })
+
+            $.each(items, function(i, item){
+                var row = $('<li />', {
+                    class: 'objective_item',
+                    text: item.as_str(),
+                })
+                listing.append(row);
+            });
+            $('#learning_obj_collection', xblock_element).append(listing);
+            
             $('#learning_obj_collection', xblock_element).show();
         }
 
