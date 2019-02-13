@@ -72,9 +72,10 @@
 // *********************************
 // jquery.steps.css overrides
 // *********************************
+$wizard_padding: 1em;
 
 .wizard {
-    $wizard_padding: 1em;
+
 
     // display:table;
     display: flex;
