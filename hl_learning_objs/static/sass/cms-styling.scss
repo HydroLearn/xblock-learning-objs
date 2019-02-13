@@ -21,7 +21,13 @@
             }
         }
 
-        .learning_verb_wrapper{
+        .learning_verb_selection{
+            display:none;
+
+            &.active{
+                display:inline-block;
+            }
+
             .verb_option{
 
             }

@@ -280,7 +280,7 @@ function LO_catalog(){
         // genearte a select box listing the possible verbs for a specified learning level
         var selection = $('<select />', {
             id:"verbs_select_{0}".format(level_id),
-            class:"learning_verb_wrapper",
+            class:"learning_verb_selection",
             "data-level": level_id,
 
         });
@@ -311,11 +311,10 @@ function LO_catalog(){
         var wrapper = $(this).closest('.learning_level_wrapper')
         var val = $(this).val();
 
-        wrapper.find('.learning_verb_wrapper').removeClass('active');
-        wrapper.find('.learning_verb_wrapper').hide();
-        wrapper.find('.learning_verb_wrapper').val("None");
+        wrapper.find('.learning_verb_selection').removeClass('active');
+        wrapper.find('.learning_verb_selection').val("None");
 
-        var associated_verb_select = wrapper.find('.learning_verb_wrapper[data-level={0}]'.format(val))
+        var associated_verb_select = wrapper.find('.learning_verb_selection[data-level={0}]'.format(val))
         associated_verb_select.addClass('active')
         associated_verb_select.show();
 
@@ -397,7 +396,7 @@ function LO_catalog(){
 
     LO_catalog.prototype.verb_validation = function(){
         var level_selected = !!$('#learning_level_selection').val() && $('#learning_level_selection').val() != "None";
-        var verb_selected = !!$(".learning_verb_wrapper.active").val() && $(".learning_verb_wrapper.active").val() != "None";
+        var verb_selected = !!$(".learning_verb_selection.active").val() && $(".learning_verb_selection.active").val() != "None";
 
         return level_selected && verb_selected;
     }

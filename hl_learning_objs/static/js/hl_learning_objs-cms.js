@@ -21,8 +21,8 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
         $("#task", xblock_element).val("");
         $("#degree", xblock_element).val("");
         $("#learning_level_selection", xblock_element).val("None");
-        $(".learning_verb_wrapper.active", xblock_element).val("None");
-        $(".learning_verb_wrapper.active", xblock_element).removeClass('active');
+        $(".learning_verb_selection.active", xblock_element).val("None");
+        $(".learning_verb_selection.active", xblock_element).removeClass('active');
         $(".ABET_selection_wrapper input:checked", xblock_element).prop('checked', false);
 
         // destroy and reinitalize wizard (reset)
@@ -96,8 +96,8 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
                             "degree": $("#degree", xblock_element).val().trim(),
                             "level_id": $("#learning_level_selection option:selected", xblock_element).val(),
                             "level": $("#learning_level_selection option:selected", xblock_element).text(),
-                            'verb_id': $(".learning_verb_wrapper.active option:selected", xblock_element).val(),
-                            "verb": $(".learning_verb_wrapper.active option:selected", xblock_element).text(),
+                            'verb_id': $(".learning_verb_selection.active option:selected", xblock_element).val(),
+                            "verb": $(".learning_verb_selection.active option:selected", xblock_element).text(),
                             "outcomes": outcomes_ids,
                         }
 
@@ -261,7 +261,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
             editor_toggle();
             reset_wizard();
         });
-        
+
         $('#add_new', xblock_element).click(editor_toggle);
 
         $('.action-cancel', xblock_element).removeClass('action-primary');
