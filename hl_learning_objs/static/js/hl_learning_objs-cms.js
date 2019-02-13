@@ -13,15 +13,13 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
         $('.action_input', xblock_element).append(catalog._generate_level_selection());
         $('.abet_input', xblock_element).append(catalog._generate_ABET_selection());
 
-
-
-        var raw_data = '{{ self.learning_objs|escapejs }}'
-        var initial_data = JSON.parse('{{ self.learning_objs|escapejs }}')
-        debugger;
-        //catalog.import_objectives()
+        // import this xblocks data into the catalog for use in the system
+        catalog.import_objectives(JSON.parse('{{ self.learning_objs|escapejs }}'))
 
         // by default hide the creation form until called
         $('#learning_obj_creation', xblock_element).hide()
+
+        // update the listing display now that the data has been imported
         update_listing();
 
     }
