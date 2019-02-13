@@ -16,16 +16,17 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
     }
 
     function reset_wizard(){
-        $("#condition").val("");
-        $("#task").val("");
-        $("#degree").val("");
-        $("#learning_level_selection").val("None");
-        $(".learning_verb_wrapper.active").val("None");
-        $(".learning_verb_wrapper.active").removeClass('active');
-        $(".ABET_selection_wrapper input:checked").prop('checked', false);
+        // reset input values
+        $("#condition", xblock_element).val("");
+        $("#task", xblock_element).val("");
+        $("#degree", xblock_element).val("");
+        $("#learning_level_selection", xblock_element).val("None");
+        $(".learning_verb_wrapper.active", xblock_element).val("None");
+        $(".learning_verb_wrapper.active", xblock_element).removeClass('active');
+        $(".ABET_selection_wrapper input:checked", xblock_element).prop('checked', false);
 
-
-        $('#learning_obj_wizard').steps('destroy');
+        // destroy and reinitalize wizard (reset)
+        $('#learning_obj_wizard', xblock_element).steps('destroy');
         initialize_steps();
 
         // remove 'done' tags from each step tab
@@ -35,7 +36,12 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
     }
 
     function initialize_steps(){
-        $("#learning_obj_wizard").steps({
+        /*
+            initialize the wizard instance and bind events to inputs
+            after creation
+        */
+
+        $("#learning_obj_wizard", xblock_element).steps({
                     headerTag: "h2",
                     bodyTag: "section",
                     transitionEffect: "fade",
@@ -49,17 +55,17 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
                         var valid_input = true;
                         switch(currentIndex){
                             case 0:
-                                valid_input = $("#condition").val().trim().length > 0;
+                                valid_input = $("#condition", xblock_element).val().trim().length > 0;
                                 break;
                             case 1:
 
                                 valid_input = catalog.verb_validation();
                                 break;
                             case 2:
-                                valid_input = $("#task").val().trim().length > 0
+                                valid_input = $("#task", xblock_element).val().trim().length > 0
                                 break;
                             case 3:
-                                valid_input = $("#degree").val().trim().length > 0;
+                                valid_input = $("#degree", xblock_element).val().trim().length > 0;
                                 break;
 
                             default: break;
@@ -79,19 +85,19 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
                         // add the new form row for this learning objective
                         //$('.LO_fs_add').click()
                         debugger;
-                        var outcomes_ids = $(".ABET_selection_wrapper input:checked").map(function(){
+                        var outcomes_ids = $(".ABET_selection_wrapper input:checked", xblock_element).map(function(){
                                               return $(this).val();
                                             }).get();
 
                         // grab all input field values
                         var values_dictionary = {
-                            "condition": $("#condition").val().trim(),
-                            "task": $("#task").val().trim(),
-                            "degree": $("#degree").val().trim(),
-                            "level_id": $("#learning_level_selection option:selected").val(),
-                            "level": $("#learning_level_selection option:selected").text(),
-                            'verb_id': $(".learning_verb_wrapper.active option:selected").val(),
-                            "verb": $(".learning_verb_wrapper.active option:selected").text(),
+                            "condition": $("#condition", xblock_element).val().trim(),
+                            "task": $("#task", xblock_element).val().trim(),
+                            "degree": $("#degree", xblock_element).val().trim(),
+                            "level_id": $("#learning_level_selection option:selected", xblock_element).val(),
+                            "level": $("#learning_level_selection option:selected", xblock_element).text(),
+                            'verb_id': $(".learning_verb_wrapper.active option:selected", xblock_element).val(),
+                            "verb": $(".learning_verb_wrapper.active option:selected", xblock_element).text(),
                             "outcomes": outcomes_ids,
                         }
 
@@ -123,12 +129,14 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
 
                 bind_input_evts();
 
-                $("#learning_obj_wizard").hide();
-                $("#editor-crumb").hide();
+                // hide wizard by default
+                $("#learning_obj_creation", xblock_element).hide();
+
+
     }
 
     function bind_input_evts() {
-        $("#learning_obj_wizard").on('change','#learning_level_selection', catalog.learning_level_change_evt);
+        $("#learning_obj_wizard", xblock_element).on('change','#learning_level_selection', catalog.learning_level_change_evt);
     }
 
     function getCookie(name) {
@@ -148,14 +156,13 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
     }
 
     function editor_toggle(){
-        $('#learning_obj_wizard').toggle()
-        $('#learning_obj_listing').toggle()
-        $("#editor-crumb").toggle()
+        $('#learning_obj_creation', xblock_element).toggle()
+        $('#learning_obj_listing', xblock_element).toggle()
     }
 
     function tab_highlight(toHighlight) {
-        $('.modal-window .editor-modes .modal_tab').removeClass('is-set');
-        $('.modal-window .editor-modes .modal_tab[data-mode="' + toHighlight + '"]').addClass('is-set');
+        $('.modal-window .editor-modes .modal_tab', xblock_element).removeClass('is-set');
+        $('.modal-window .editor-modes .modal_tab[data-mode="' + toHighlight + '"]', xblock_element).addClass('is-set');
     }
 
     // Hide all panes except toShow
@@ -163,8 +170,8 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
 
         tab_highlight(toShow);
 
-        $('.modal-window .modal_tab_view').hide()
-        $('.modal-window .modal_tab_view[data-mode="' + toShow + '"]').show();
+        $('.modal-window .modal_tab_view', xblock_element).hide()
+        $('.modal-window .modal_tab_view[data-mode="' + toShow + '"]', xblock_element).show();
 
         place_modal();
     }
@@ -178,7 +185,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
         // get the form data from the edit modal
         var data = {
             // "commit": commit.toString(),
-            "display_name": $('.settings_display_name').val(),
+            "display_name": $('.settings_display_name', xblock_element).val(),
             "learning_obj_list": catalog.export_objectives(),
         }
 
@@ -205,7 +212,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
 
         // add actions for the top of the modal to switch views
         for (var mode in studio_buttons) {
-            $('.editor-modes')
+            $('.editor-modes', xblock_element)
                 .append(
                     $('<li>', {class: "action-item"}).append(
                         $('<a />', {
@@ -240,20 +247,20 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
         //     place_modal();
         // });
 
-        $('.modal-window .editor-modes .modal_tab').click(function(){
+        $('.modal-window .editor-modes .modal_tab', xblock_element).click(function(){
             tab_switch($(this).attr('data-mode'));
         });
 
         // Clicked Save button
-        $('#chx_submit').click(function(eventObject) {
+        $('#chx_submit', xblock_element).click(function(eventObject) {
             studio_submit(true);
             //setTimeout(function(){location.reload();},200);
         });
 
-        $('#cancel_new').click(editor_toggle);
-        $('#add_new').click(editor_toggle);
+        $('#cancel_new', xblock_element).click(editor_toggle);
+        $('#add_new', xblock_element).click(editor_toggle);
 
-        $('.action-cancel').removeClass('action-primary');
+        $('.action-cancel', xblock_element).removeClass('action-primary');
 
     });
 
