@@ -79,7 +79,7 @@ $gutter: 1em;
 
 #learning_obj_creation{
     // height:100%;
-    //  for some reason this div has a vertical gap before it, 
+    //  for some reason this div has a vertical gap before it,
     //  shrink to alleviate
     height:98%;
 
@@ -185,8 +185,8 @@ $gutter: 1em;
 
                 background: #eee;
                 border-radius: 7px;
-                height:fit-content;
-                min-height:
+                height: calc(100% - 20px);
+                min-height: fit-content;
                 // potentially add min-height here to normalize display
 
                 ul{

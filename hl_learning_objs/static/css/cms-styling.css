@@ -76,9 +76,10 @@
         position: inherit;
         background: #eee;
         border-radius: 7px;
-        height: fit-content;
-        min-height: ul;
-          min-height-margin: 3px 2em; }
+        height: calc(100% - 20px);
+        min-height: fit-content; }
+        #learning_obj_creation .wizard .content .body ul {
+          margin: 3px 2em; }
     #learning_obj_creation .wizard .actions {
       flex-grow: 0; }
       #learning_obj_creation .wizard .actions:before, #learning_obj_creation .wizard .actions:after {
