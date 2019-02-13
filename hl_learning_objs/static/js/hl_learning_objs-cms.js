@@ -13,9 +13,12 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
         $('.action_input', xblock_element).append(catalog._generate_level_selection());
         $('.abet_input', xblock_element).append(catalog._generate_ABET_selection());
 
-        console.log("testing template var in js");
-        console.log('{{ self.learning_objs}}');
 
+
+        var raw_data = '{{ self.learning_objs|escapejs }}'
+        var initial_data = JSON.parse('{{ self.learning_objs|escapejs }}')
+        debugger;
+        catalog.import_objectives()
         // by default hide the creation form until called
         $('#learning_obj_creation', xblock_element).hide()
         update_listing();
@@ -203,7 +206,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
     }
     // Send current code and settings to the backend
     function studio_submit(commit) {
-
+        debugger;
         commit = commit === undefined ? false : commit;
         var handlerUrl = runtime.handlerUrl(xblock_element, 'studio_submit');
 
@@ -254,11 +257,8 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
 
         // populate form inputs for catalog items
         initialize_forms();
-
         // initialize jquery steps implementation
         initialize_steps();
-
-
         // Set main pane to the editor
         tab_switch("editor");
 
