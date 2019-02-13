@@ -20,6 +20,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
         // import this xblocks data into the catalog for use in the system
         var existing = JSON.parse('{{ objs|safe|escapejs }}');
         catalog.import_objectives(existing)
+
         // by default hide the creation form until called
         $('#learning_obj_creation', xblock_element).hide()
 
@@ -172,6 +173,12 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
     function editor_toggle(){
         $('#learning_obj_creation', xblock_element).toggle()
         $('#learning_obj_listing', xblock_element).toggle()
+
+        if($('#learning_obj_creation', xblock_element).is(':visible')){
+            $(xblock_element).find('.save-button').addClass('disabled');
+        }else{
+            $(xblock_element).find('.save-button').removeClass('disabled');
+        }
     }
 
     function tab_highlight(toHighlight) {
