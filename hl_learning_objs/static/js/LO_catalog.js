@@ -62,7 +62,8 @@ function Learning_obj(level, verb, condition, task, degree, outcomes){
 
 function LO_catalog(initial_catalog){
 
-    this.data = initial_catalog;
+    this.data = initial_catalog.levels;
+    this.ABET_outcomes = initial_catalog.ABET;
     // the catalog data used to generate learning objectives
     // this.data = {
     //     0: {
@@ -213,7 +214,7 @@ function LO_catalog(initial_catalog){
 
         // for each of the abet outcomes generate a checkable entry
         // and append to the wrapper.
-        $.each(this.data['ABET'], function(i,outcome){
+        $.each(this.ABET_outcomes, function(i,outcome){
             var option = $("<label />", {
                 "class": "ABET_Label",
                 "text": outcome,
