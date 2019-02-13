@@ -35,8 +35,8 @@
   #learning_obj_creation .wizard {
     display: flex;
     flex-flow: column;
-    width: calc(100% - $wizard_padding);
-    height: calc(100% - $crumb-height);
+    width: calc(100% - 1em);
+    height: calc(100% - 1.5em);
     padding: 1em; }
     #learning_obj_creation .wizard .steps {
       flex-grow: 0; }
