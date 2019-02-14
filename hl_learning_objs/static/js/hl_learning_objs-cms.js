@@ -182,8 +182,8 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
     }
 
     function tab_highlight(toHighlight) {
-        $('.modal-window .editor-modes .modal_tab', xblock_element).removeClass('is-set');
-        $('.modal-window .editor-modes .modal_tab[data-mode="' + toHighlight + '"]', xblock_element).addClass('is-set');
+        $('.editor-modes .modal_tab', xblock_element).removeClass('is-set');
+        $('.editor-modes .modal_tab[data-mode="' + toHighlight + '"]', xblock_element).addClass('is-set');
     }
 
     // Hide all panes except toShow
@@ -229,7 +229,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
     }
     // Send current code and settings to the backend
     function studio_submit(commit) {
-        debugger;
+
         commit = commit === undefined ? false : commit;
         var handlerUrl = runtime.handlerUrl(xblock_element, 'studio_submit');
 
@@ -277,7 +277,6 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
 
 
         $(xblock_element).closest('.modal-window').find('.editor-modes .modal_tab').click(function(){
-            debugger;
             tab_switch($(this).attr('data-mode'));
         });
 
