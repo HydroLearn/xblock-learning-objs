@@ -252,7 +252,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
 
         // add actions for the top of the modal to switch views
         for (var mode in studio_buttons) {
-            
+
             $(xblock_element).closest('.modal-window').find('.editor-modes')
                 .append(
                     $('<li>', {class: "action-item"}).append(
@@ -275,17 +275,8 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
         // Set main pane to the editor
         tab_switch("editor");
 
-        // Readjust modal window dimensions in case the browser window is resized
-        // window.addEventListener('resize', function() {
-        //     place_modal();
-        // });
-        //
-        // // reposition modal on window scroll
-        // window.addEventListener('scroll', function() {
-        //     place_modal();
-        // });
 
-        $('.modal-window .editor-modes .modal_tab', xblock_element).click(function(){
+        $(xblock_element).closest('.modal-window').find('.editor-modes .modal_tab').click(function(){
             tab_switch($(this).attr('data-mode'));
         });
 
