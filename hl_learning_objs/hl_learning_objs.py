@@ -104,7 +104,7 @@ class HL_LearningObjs_XBlock(XBlock):
         fragment.add_javascript(unicode(render_template('static/js/hl_learning_objs-lms.js', content)))
 
         fragment.initialize_js('LO_catalog')
-        fragment.initialize_js('HL_LO_XBlock', {'objs': self.learning_objs.as_json() })
+        fragment.initialize_js('HL_LO_XBlock', {'objs': self.learning_objs.to_json() })
 
 
         return fragment
