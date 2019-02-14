@@ -12,12 +12,6 @@ function HL_LO_XBlock(runtime, xblock_element, configuration) {
 
 
     $(function ($) {
-
-        debugger;
-
-        // import this xblocks data into the catalog for use in the system
-
-
         // add this listing of catalog records to the template
         $('.objectives_listing', xblock_element).html(catalog.records_as_html());
 

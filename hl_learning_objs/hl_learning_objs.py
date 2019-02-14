@@ -98,7 +98,7 @@ class HL_LearningObjs_XBlock(XBlock):
         # add the custom initialization code for the LMS view and initialize it
         fragment.add_javascript(load_resource('static/js/js-str-format.js'))
         fragment.add_javascript(load_resource('static/js/LO_catalog.js'))
-        fragment.add_javascript(unicode(render_template('static/js/hl_learning_objs-lms.js', content)))
+        fragment.add_javascript(load_resource('static/js/hl_learning_objs-lms.js'))
 
         fragment.initialize_js('LO_catalog')
         fragment.initialize_js('HL_LO_XBlock', {
