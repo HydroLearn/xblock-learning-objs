@@ -5,12 +5,15 @@ function HL_LO_XBlock(runtime, xblock_element) {
 
         var catalog = new LO_catalog(JSON.parse('{{ blooms_catalog|safe }}'));
 
-        // import the data from the xblock_element into the catalog
 
-        // generate learning objective strings
+        // parse the existing objects
+        var existing = JSON.parse('{{ objs|safe|escapejs }}');
 
+        // import this xblocks data into the catalog for use in the system
+        catalog.import_objectives(existing)
 
-        // append the string list to the xblock's contents
-        $('.HL_LO_xblock').append('a list of strings for learning objectives')
+        // add this listing of catalog records to the template
+        $('.HL_LO_xblock', xblock_element).html(catalog.records_as_html());
+                
     });
 }

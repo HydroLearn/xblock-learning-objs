@@ -4,8 +4,15 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
     // add modal tag so it's width gets adjusted on window resize
     $(xblock_element).closest('.modal-window').addClass('hl_resize_correction');
 
-    // ''
+
+    // initialize the data catalog with it's initali reference data
     var catalog = new LO_catalog(JSON.parse('{{ blooms_catalog|safe }}'));
+
+    // parse the existing objects
+    var existing = JSON.parse('{{ objs|safe|escapejs }}');
+
+    // import this xblocks data into the catalog for use in the system    
+    catalog.import_objectives(existing)
 
     // Define mapping of tabs (modes) to display names
     var studio_buttons = {
@@ -17,9 +24,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
         $('.action_input', xblock_element).append(catalog._generate_level_selection());
         $('.abet_input', xblock_element).append(catalog._generate_ABET_selection());
 
-        // import this xblocks data into the catalog for use in the system
-        var existing = JSON.parse('{{ objs|safe|escapejs }}');
-        catalog.import_objectives(existing)
+
 
         // by default hide the creation form until called
         $('#learning_obj_creation', xblock_element).hide()
