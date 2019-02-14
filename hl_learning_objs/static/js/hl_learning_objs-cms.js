@@ -182,9 +182,9 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
     }
 
     function tab_highlight(toHighlight) {
-        debugger;
         $(xblock_element).closest('.modal-window').find('.editor-modes .modal_tab').removeClass('is-set');
         $(xblock_element).closest('.modal-window').find('.editor-modes .modal_tab[data-mode="' + toHighlight + '"]').addClass('is-set');
+        debugger;
     }
 
     // Hide all panes except toShow
