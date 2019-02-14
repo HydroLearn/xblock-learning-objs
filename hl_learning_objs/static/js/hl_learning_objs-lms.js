@@ -1,5 +1,5 @@
 /* JavaScript for HydroLearn's learning objectives XBlock, LMS Side. */
-function HL_LO_XBlock(runtime, xblock_element) {
+function HL_LO_XBlock(runtime, xblock_element, configuration) {
     // runtime code for loading the xblock in the LMS portion of the site
     $(function ($) {
 
@@ -10,7 +10,7 @@ function HL_LO_XBlock(runtime, xblock_element) {
         var existing = JSON.parse('{{ objs|safe|escapejs }}');
         debugger;
         var test_str = '{{ self.learning_objs.to_string }}';
-        
+
 
         // import this xblocks data into the catalog for use in the system
         catalog.import_records(existing)
