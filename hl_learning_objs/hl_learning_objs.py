@@ -94,6 +94,7 @@ class HL_LearningObjs_XBlock(XBlock):
         # body_html = unicode(self.generate_html())
         fragment.add_content(render_template('templates/learning_objs-lms.html', content))
         fragment.add_css(load_resource('static/css/lms-styling.css'))
+        fragment.add_css(load_resource('static/css/LO_listing_styling.css'))
 
         #fragment.add_content(render_template('templates/HLCustomText.html', content))
 
@@ -126,9 +127,11 @@ class HL_LearningObjs_XBlock(XBlock):
         # Load fragment template
         fragment.add_content(render_template('templates/learning_objs-cms.html', content))
 
-        # add static files for styling, custom CK5 build, and template initialization
+        # add static files for styling, and template initialization
         fragment.add_css(load_resource('static/css/jquery.steps.css'))
         fragment.add_css(load_resource('static/css/cms-styling.css'))
+        fragment.add_css(load_resource('static/css/LO_listing_styling.css'))
+
         fragment.add_javascript(unicode(render_template('static/js/js-str-format.js', content)))
         fragment.add_javascript(unicode(render_template('static/js/jquery.steps.js', content)))
         fragment.add_javascript(unicode(render_template('static/js/LO_catalog.js', content)))
