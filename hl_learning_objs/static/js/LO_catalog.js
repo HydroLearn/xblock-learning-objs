@@ -207,7 +207,7 @@ function LO_catalog(initial_catalog){
         var level = this.get_level(level_id);
         debugger;
         // check that a verb id was passed and that it's a valid index for this level's verb list
-        if(!(!!verb_id && isNaN(parseInt(verb_id)) && typeof(level.verbs[parseInt(verb_id)]) != "undefined"))
+        if(!(!!verb_id && !isNaN(parseInt(verb_id)) && typeof(level.verbs[parseInt(verb_id)]) != "undefined"))
             throw Error("Learning Objective Catalog: the specified learning level doesn't contain verb at index '{0}' matching the provided id does not exist!".format(verb_id));
 
         return level[parseInt(verb_id)];
