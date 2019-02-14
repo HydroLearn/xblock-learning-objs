@@ -115,7 +115,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
                             "outcomes": outcomes_ids,
                         }
 
-                        var new_LO = new Learning_obj(
+                        var new_LO = new catalog.record(
                                 values_dictionary["level_id"],
                                 values_dictionary["verb_id"],
                                 values_dictionary["condition"],
