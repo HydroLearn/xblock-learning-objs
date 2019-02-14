@@ -1,17 +1,17 @@
 /* JavaScript for HydroLearn's learning objectives XBlock, Studio Side. */
-function HL_LO_XBlockStudio(runtime, xblock_element) {
+function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
 
     // add modal tag so it's width gets adjusted on window resize
     $(xblock_element).closest('.modal-window').addClass('hl_resize_correction');
 
 
     // initialize the learning objecives data catalog with the provided blooms_catalog
-    var catalog = new LO_catalog(JSON.parse(configuration.blooms_catalog));
+    var catalog = new LO_catalog(JSON.parse(viewbag.blooms_catalog));
 
     // assuming existing objects were provided parse the records and import them
-    var existing = JSON.parse(configuration.objs);
+    var existing = JSON.parse(viewbag.objs);
     catalog.import_records(existing);
-    
+
 
     // Define mapping of tabs (modes) to display names
     var studio_buttons = {
