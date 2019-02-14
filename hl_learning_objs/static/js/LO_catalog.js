@@ -195,8 +195,23 @@ function LO_catalog(initial_catalog){
     }
 
     LO_catalog.prototype.get_level = function(id){
-        if(typeof(this.data[id]) == "undefined") throw Error("Learning Objective Catalog: Learning Level matching the provided id does not exist!")
-        return this.levels[id];
+
+        // check that the provided id is in the catalog's list of data
+        if(!(!!id && typeof(this.data[id]) != "undefined")) throw Error("Learning Objective Catalog: Learning Level matching the provided id does not exist!")
+
+        // if passed validation return the level object
+        return this.data[id];
+    }
+
+    LO_catalog.prototype.get_verb = function(level_id, verb_id){
+        var level = this.get_level(level_id);
+
+        // check that a verb id was passed and that it's a valid index for this level's verb list
+        if(!(!!verb_id && isNaN(parseInt(verb_id)) && typeof(level.verbs[parseInt(verb_id)] != "undefined"))
+            throw Error("Learning Objective Catalog: the specified learning level doesn't contain verb at index '{0}' matching the provided id does not exist!".format(verb_id));
+
+        return level[parseInt(verb_id)];
+
     }
 
     LO_catalog.prototype.objective_str = function(level_id,verb_id, condition, task, degree){
