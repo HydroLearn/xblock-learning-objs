@@ -265,7 +265,7 @@ function LO_catalog(initial_catalog){
     // import the json list conatining existing learning objectives
     LO_catalog.prototype.import_records = function(obj_list){
         var self = this;
-        debugger;
+
         $.each(obj_list, function(i, item){
             var new_item = new self.record(
                     item.level,
@@ -298,7 +298,6 @@ function LO_catalog(initial_catalog){
             class: 'record_listing',
         });
 
-        debugger;
         // generate the listing based on the stored records
         //  otherwise output a single list item stating an 'empty' message
         if(this.num_records() > 0){
