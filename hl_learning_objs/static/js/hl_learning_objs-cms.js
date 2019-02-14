@@ -249,34 +249,23 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
 
     $(function($) {
 
-        // Add Save Button
-        // $('ul', '.modal-actions')
-        //     .prepend(
-        //         $('<li>', {class: "action-item"}).append(
-        //             $('<a />', {
-        //                 class: "action-primary",
-        //                 id: "chx_submit",
-        //                 text: "Save"
-        //             })
-        //         )
-        //     );
-        //
-        // // add actions for the top of the modal to switch views
-        // for (var mode in studio_buttons) {
-        //     $('.editor-modes', xblock_element)
-        //         .append(
-        //             $('<li>', {class: "action-item"}).append(
-        //                 $('<a />', {
-        //                     //class: "action-primary",
-        //                     class: mode + "-button modal_tab",
-        //                     //id: mode,
-        //                     text: studio_buttons[mode],
-        //                     href: "#",
-        //                     "data-mode":mode,
-        //                 })
-        //             )
-        //         );
-        // }
+
+        // add actions for the top of the modal to switch views
+        for (var mode in studio_buttons) {
+            $(xblock_element).find('.editor-modes')
+                .append(
+                    $('<li>', {class: "action-item"}).append(
+                        $('<a />', {
+                            //class: "action-primary",
+                            class: mode + "-button modal_tab",
+                            //id: mode,
+                            text: studio_buttons[mode],
+                            href: "#",
+                            "data-mode":mode,
+                        })
+                    )
+                );
+        }
 
         // populate form inputs for catalog items
         initialize_forms();
