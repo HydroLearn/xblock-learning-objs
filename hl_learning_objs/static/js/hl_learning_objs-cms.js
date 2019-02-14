@@ -275,7 +275,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
         // Set main pane to the editor
         tab_switch("editor");
 
-
+        debugger;
         $(xblock_element).closest('.modal-window').find('.editor-modes .modal_tab').click(function(){
             tab_switch($(this).attr('data-mode'));
         });
