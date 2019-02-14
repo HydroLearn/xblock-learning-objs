@@ -21,7 +21,7 @@ def package_data(pkg, roots):
 
 
 setup(
-    name='xblock-hl_learning_objs',
+    name='xblock-hl_learning_objs_withmixin',
     version='0.1',
     author="cRivet",
     description='Custom Xblock for generating collection of learning objectives for use in HydroLearn platform.',
@@ -30,6 +30,7 @@ setup(
     ],
     install_requires=[
         'XBlock',
+        'xblock-utils'
     ],
     entry_points={
         'xblock.v1': [

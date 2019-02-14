@@ -35,8 +35,9 @@ from xblock.fields import (
 # from xblock.fragment import Fragment #DEPRECIATED
 from web_fragments.fragment import Fragment
 
+from xblockutils.studio_editable import StudioEditableXBlockMixin
 
-class HL_LearningObjs_XBlock(XBlock):
+class HL_LearningObjs_XBlock(XBlock, StudioEditableXBlockMixin):
     """
         custom xblock for defining a list of learning objective strings for
         a unit in the HydroLearn platform.
