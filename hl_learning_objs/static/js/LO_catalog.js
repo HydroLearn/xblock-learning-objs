@@ -236,8 +236,12 @@ function LO_catalog(initial_catalog){
         return this._records;
     }
 
+    LO_catalog.prototype.num_records = function(){
+        return this._records.length;
+    }
+
     LO_catalog.prototype.add_item = function(new_learning_obj){
-        if(!(new_learning_obj instanceof Learning_obj)) throw Error('Catalog only accepts Learning_obj items')
+        if(!(new_learning_obj instanceof this.record)) throw Error('Catalog only accepts Learning_obj items')
 
         this._records.push(new_learning_obj);
     }
@@ -273,6 +277,36 @@ function LO_catalog(initial_catalog){
     }
 
     // generate displayable elements for records
+    LO_catalog.prototype.records_as_html = function(){
+
+        var wrapper = $('<div />',{
+            class: 'record_listing_wrapper',
+        });
+
+        var listing = $('<ul />', {
+            class: 'record_listing',
+        });
+
+        var catalog = this;
+        $.each(this._records, function(i, record){
+            var record_string = "{0} {1} {2} {3}.".format(
+                    this.condition,
+                    catalog.get_verb(this.level,this.verb),
+                    this.task,
+                    this.degree
+                )
+
+            var row = $('<li />', {
+                class: 'record_item',
+                text: record_string,
+            })
+            listing.append(row);
+        });
+
+        wrapper.append(listing);
+
+        return wrapper;
+    }
 
 
     LO_catalog.prototype.verb_validation = function(){

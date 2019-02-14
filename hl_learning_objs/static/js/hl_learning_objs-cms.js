@@ -199,26 +199,18 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
     // update listing of learning objectives based on catalog items
     function update_listing(){
 
-        var items = catalog.item_list();
+        var  = catalog.item_list();
 
-        if(items.length == 0){
+        if(catalog.num_records() == 0){
             $('#learning_obj_collection', xblock_element).hide();
             $('#learning_obj_empty', xblock_element).show();
         }else{
             $('#learning_obj_empty', xblock_element).hide();
             $('#learning_obj_collection', xblock_element).html("");
 
-            var listing = $('<ul />', {
-                class: 'objective_listing',
-            })
 
-            $.each(items, function(i, item){
-                var row = $('<li />', {
-                    class: 'objective_item',
-                    text: item.as_str(),
-                })
-                listing.append(row);
-            });
+            // get the record listing from the catalog as html
+            var listing = catalog.records_as_html();
             $('#learning_obj_collection', xblock_element).append(listing);
 
             $('#learning_obj_collection', xblock_element).show();
