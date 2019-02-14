@@ -11,7 +11,7 @@ function HL_LO_XBlock(runtime, xblock_element, configuration) {
         // parse the existing objects
         var existing = JSON.parse('{{ objs|safe|escapejs }}');
 
-        var test_str = '{{ self.learning_objs.to_string }}';
+        var test_str = '{{ self.learning_objs.to_json }}';
 
 
         // import this xblocks data into the catalog for use in the system
