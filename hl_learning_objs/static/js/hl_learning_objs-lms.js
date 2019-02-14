@@ -13,7 +13,7 @@ function HL_LO_XBlock(runtime, xblock_element) {
         catalog.import_objectives(existing)
 
         // add this listing of catalog records to the template
-        $('.HL_LO_xblock', xblock_element).html(catalog.records_as_html());
-                
+        $('.objectives_listing', xblock_element).html(catalog.records_as_html());
+
     });
 }
