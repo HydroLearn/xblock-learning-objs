@@ -2,7 +2,7 @@
 function HL_LO_XBlock(runtime, xblock_element, configuration) {
     // runtime code for loading the xblock in the LMS portion of the site
     debugger;
-    var catalog = new LO_catalog(JSON.parse('{{ blooms_catalog|safe }}'));
+    var catalog = new LO_catalog(JSON.parse(configuration.blooms_catalog));
 
     if(!!configuration.objs){
         var existing = JSON.parse(configuration.objs);
