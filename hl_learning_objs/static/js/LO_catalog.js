@@ -247,27 +247,23 @@ function LO_catalog(initial_catalog){
 
     }
 
-    LO_catalog.prototype.item_list = function(){
-        return this._records;
-    }
-
     LO_catalog.prototype.num_records = function(){
         return this._records.length;
     }
 
-    LO_catalog.prototype.add_item = function(new_learning_obj){
-        if(!(new_learning_obj instanceof this.record)) throw Error('Catalog only accepts Learning_obj items')
+    LO_catalog.prototype.add_record = function(new_learning_obj){
+        if(!(new_learning_obj instanceof this.record)) throw Error('Catalog only accepts Learning_obj objects')
 
         this._records.push(new_learning_obj);
     }
 
-    LO_catalog.prototype.remove_item = function(item_index){
+    LO_catalog.prototype.remove_record = function(item_index){
         // remove the item at the passed index;
         this._records.splice(item_index,1);
     }
 
     // import the json list conatining existing learning objectives
-    LO_catalog.prototype.import_objectives = function(obj_list){
+    LO_catalog.prototype.import_records = function(obj_list){
         var self = this;
 
         $.each(obj_list, function(i, item){
@@ -279,7 +275,7 @@ function LO_catalog(initial_catalog){
                     item.degree,
                     item.ABET_ids
                 );
-            self.add_item(new_item);
+            self.add_record(new_item);
         });
 
 
@@ -287,7 +283,7 @@ function LO_catalog(initial_catalog){
     }
 
     // export the current colleciton of learning objectives as a json obj list
-    LO_catalog.prototype.export_objectives = function(){
+    LO_catalog.prototype.export_records = function(){
         return this._records;
     }
 
@@ -302,21 +298,36 @@ function LO_catalog(initial_catalog){
             class: 'record_listing',
         });
 
-        var catalog = this;
-        $.each(this._records, function(i, record){
-            var record_string = "{0} {1} {2} {3}.".format(
-                    this.condition,
-                    catalog.get_verb(this.level,this.verb),
-                    this.task,
-                    this.degree
-                )
+
+        // generate the listing based on the stored records
+        //  otherwise output a single list item stating an 'empty' message
+        if(this.num_records() > 0){
+            var catalog = this;
+
+            $.each(this._records, function(i, record){
+                var record_string = "{0} {1} {2} {3}.".format(
+                        this.condition,
+                        catalog.get_verb(this.level,this.verb),
+                        this.task,
+                        this.degree
+                    )
+
+                var row = $('<li />', {
+                    class: 'record_item',
+                    text: record_string,
+                })
+                listing.append(row);
+            });
+        }else {
 
             var row = $('<li />', {
                 class: 'record_item',
-                text: record_string,
+                text: 'There don\'t appear to be any Learning Objectives',
             })
             listing.append(row);
-        });
+        }
+
+
 
         wrapper.append(listing);
 

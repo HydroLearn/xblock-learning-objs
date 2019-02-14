@@ -10,7 +10,7 @@ function HL_LO_XBlock(runtime, xblock_element) {
         var existing = JSON.parse('{{ objs|safe|escapejs }}');
 
         // import this xblocks data into the catalog for use in the system
-        catalog.import_objectives(existing)
+        catalog.import_records(existing)
 
         // add this listing of catalog records to the template
         $('.objectives_listing', xblock_element).html(catalog.records_as_html());

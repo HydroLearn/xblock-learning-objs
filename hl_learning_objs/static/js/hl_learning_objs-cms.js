@@ -11,8 +11,8 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
     // parse the existing objects
     var existing = JSON.parse('{{ objs|safe|escapejs }}');
 
-    // import this xblocks data into the catalog for use in the system    
-    catalog.import_objectives(existing)
+    // import this xblocks data into the catalog for use in the system
+    catalog.import_records(existing)
 
     // Define mapping of tabs (modes) to display names
     var studio_buttons = {
@@ -129,7 +129,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
                                 values_dictionary["outcomes"]
                             )
 
-                        catalog.add_item(new_LO);
+                        catalog.add_record(new_LO);
                         update_listing();
 
                         editor_toggle();
@@ -230,7 +230,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
         var data = {
             // "commit": commit.toString(),
             "display_name": $('.settings_display_name', xblock_element).val(),
-            "learning_obj_list": catalog.export_objectives(),
+            "learning_obj_list": catalog.export_records(),
         }
 
         runtime.notify('save', {state: 'start'});
