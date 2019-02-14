@@ -50,7 +50,7 @@
     display: flex;
     flex-flow: column;
     width: calc(100% - 2em);
-    height: calc(100% - 5.5em);
+    height: calc(100% - 60px - 5.5em);
     padding: 1em; }
     #learning_obj_creation .wizard .steps {
       flex-grow: 0; }

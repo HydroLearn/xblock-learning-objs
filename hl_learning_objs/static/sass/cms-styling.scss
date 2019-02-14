@@ -115,7 +115,7 @@ $actions-container: 60px;
         flex-flow: column;
 
         width: calc(100% - #{$wizard_padding + $gutter});
-        height: calc(100% - #{$actions-container + $crumb-height + $crumb-addtl-vert + $wizard_padding + $gutter});
+        height: calc(100% - #{$actions-container} - #{$crumb-height + $crumb-addtl-vert + $wizard_padding + $gutter});
 
         padding: $wizard_padding;
 
