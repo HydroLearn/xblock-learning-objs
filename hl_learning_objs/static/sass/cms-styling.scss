@@ -75,6 +75,7 @@ $wizard_padding: 1em;
 $crumb-height: 1.5em;
 $crumb-addtl-vert: 2em; // accounts for padding/margins in calculations
 $gutter: 1em;
+$actions-container: 60px;
 
 #learning_obj_listing{
     h3 {
@@ -114,7 +115,7 @@ $gutter: 1em;
         flex-flow: column;
 
         width: calc(100% - #{$wizard_padding + $gutter});
-        height: calc(100% - #{$crumb-height + $crumb-addtl-vert + $wizard_padding + $gutter});
+        height: calc(100% - #{$actions-container + $crumb-height + $crumb-addtl-vert + $wizard_padding + $gutter});
 
         padding: $wizard_padding;
 
