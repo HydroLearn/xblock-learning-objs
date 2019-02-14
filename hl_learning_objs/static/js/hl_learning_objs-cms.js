@@ -182,8 +182,9 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
     }
 
     function tab_highlight(toHighlight) {
+
         $(xblock_element).closest('.modal-window').find('.editor-modes .modal_tab').removeClass('is-set');
-        $(xblock_element).closest('.modal-window').find('.editor-modes .modal_tab[data-mode="' + toHighlight + '"]', xblock_element).addClass('is-set');
+        $(xblock_element).closest('.modal-window').find('.editor-modes .modal_tab[data-mode="' + toHighlight + '"]').addClass('is-set');
     }
 
     // Hide all panes except toShow
@@ -194,7 +195,6 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
         $('.modal_tab_view', xblock_element).hide()
         $('.modal_tab_view[data-mode="' + toShow + '"]', xblock_element).show();
 
-        place_modal();
     }
 
     // update listing of learning objectives based on catalog items
