@@ -199,15 +199,12 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
     // update listing of learning objectives based on catalog items
     function update_listing(){
 
-        var  = catalog.item_list();
-
         if(catalog.num_records() == 0){
             $('#learning_obj_collection', xblock_element).hide();
             $('#learning_obj_empty', xblock_element).show();
         }else{
             $('#learning_obj_empty', xblock_element).hide();
             $('#learning_obj_collection', xblock_element).html("");
-
 
             // get the record listing from the catalog as html
             var listing = catalog.records_as_html();
