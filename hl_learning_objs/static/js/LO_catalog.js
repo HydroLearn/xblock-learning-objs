@@ -252,7 +252,7 @@ function LO_catalog(initial_catalog){
         var self = this;
 
         $.each(obj_list, function(i, item){
-            var new_item = new this.record(
+            var new_item = new self.record(
                     item.level,
                     item.verb,
                     item.condition,
