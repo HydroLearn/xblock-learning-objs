@@ -252,6 +252,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
 
         // add actions for the top of the modal to switch views
         for (var mode in studio_buttons) {
+            debugger;
             $(xblock_element).find('.editor-modes')
                 .append(
                     $('<li>', {class: "action-item"}).append(
