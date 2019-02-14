@@ -298,7 +298,7 @@ function LO_catalog(initial_catalog){
             class: 'record_listing',
         });
 
-
+        debugger;
         // generate the listing based on the stored records
         //  otherwise output a single list item stating an 'empty' message
         if(this.num_records() > 0){
