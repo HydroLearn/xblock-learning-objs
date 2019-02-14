@@ -5,14 +5,13 @@ function HL_LO_XBlockStudio(runtime, xblock_element) {
     $(xblock_element).closest('.modal-window').addClass('hl_resize_correction');
 
 
-    // initialize the data catalog with it's initali reference data
-    var catalog = new LO_catalog(JSON.parse('{{ blooms_catalog|safe }}'));
+    // initialize the learning objecives data catalog with the provided blooms_catalog
+    var catalog = new LO_catalog(JSON.parse(configuration.blooms_catalog));
 
-    // parse the existing objects
-    var existing = JSON.parse('{{ objs|safe|escapejs }}');
-
-    // import this xblocks data into the catalog for use in the system
-    catalog.import_records(existing)
+    // assuming existing objects were provided parse the records and import them
+    var existing = JSON.parse(configuration.objs);
+    catalog.import_records(existing);
+    
 
     // Define mapping of tabs (modes) to display names
     var studio_buttons = {

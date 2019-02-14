@@ -135,10 +135,13 @@ class HL_LearningObjs_XBlock(XBlock):
         fragment.add_javascript(load_resource('static/js/js-str-format.js'))
         fragment.add_javascript(load_resource('static/js/jquery.steps.js'))
         fragment.add_javascript(load_resource('static/js/LO_catalog.js'))
-        fragment.add_javascript(unicode(render_template('static/js/hl_learning_objs-cms.js', content)))
+        fragment.add_javascript(load_resource('static/js/hl_learning_objs-cms.js'))
 
         fragment.initialize_js('LO_catalog')
-        fragment.initialize_js('HL_LO_XBlockStudio')
+        fragment.initialize_js('HL_LO_XBlockStudio', {
+                'blooms_catalog': json.dumps(blooms),
+                'objs': json.dumps(self.learning_objs or []),
+            })
 
         return fragment
 
