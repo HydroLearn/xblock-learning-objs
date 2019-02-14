@@ -3,12 +3,14 @@ function HL_LO_XBlock(runtime, xblock_element, configuration) {
     // runtime code for loading the xblock in the LMS portion of the site
     $(function ($) {
 
+        debugger;
         var catalog = new LO_catalog(JSON.parse('{{ blooms_catalog|safe }}'));
+
 
 
         // parse the existing objects
         var existing = JSON.parse('{{ objs|safe|escapejs }}');
-        debugger;
+
         var test_str = '{{ self.learning_objs.to_string }}';
 
 
