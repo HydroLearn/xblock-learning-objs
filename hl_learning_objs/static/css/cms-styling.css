@@ -37,7 +37,7 @@
   font-weight: 600; }
 
 #learning_obj_creation {
-  height: 98%; }
+  height: calc(100% - 8px); }
   #learning_obj_creation #editor-crumb {
     height: 1.5em;
     background: #efefef;

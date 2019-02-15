@@ -92,7 +92,7 @@ $actions-container: 60px;
     // height:100%;
     //  for some reason this div has a vertical gap before it,
     //  shrink to alleviate
-    height:98%;
+    height: calc(100% - 8px);
 
     #editor-crumb{
         height: $crumb-height;
