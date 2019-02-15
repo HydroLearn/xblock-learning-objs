@@ -195,7 +195,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
 
         // map preview updating to the inputs
         $("#learning_obj_wizard", xblock_element).on('keyup', '#condition', update_preview);
-        $("#learning_obj_wizard", xblock_element).on('change','#learning_verb_selection', update_preview);
+        $("#learning_obj_wizard", xblock_element).on('change','.learning_verb_selection', update_preview);
         $("#learning_obj_wizard", xblock_element).on('keyup', '#task', update_preview);
         $("#learning_obj_wizard", xblock_element).on('keyup', '#degree', update_preview);
     }
