@@ -11,6 +11,11 @@
 }
 
 .HL_LO_xblock_studio{
+    #HL_LO_xblock_content_wrapper {
+        height: calc(100% - 60px);
+        margin-bottom: 60px;
+    }
+
     .child_form{
         padding: 1em 1.5em;
     }
@@ -73,7 +78,6 @@
 
 $wizard_padding: 1em;
 $crumb-height: 1.5em;
-$crumb-addtl-vert: 2em; // accounts for padding/margins in calculations
 $gutter: 1em;
 $actions-container: 60px;
 
@@ -109,8 +113,8 @@ $actions-container: 60px;
         display: flex;
         flex-flow: column;
 
-        width: calc(100% - #{$wizard_padding + $gutter});
-        height: calc(100% - #{$actions-container} - #{$crumb-height + $crumb-addtl-vert + $wizard_padding + $gutter});
+        width: calc(100% - #{$wizard_padding * 2 + $gutter});
+        height: calc(100% - #{$crumb-height + $wizard_padding * 2 + $gutter});
 
         padding: $wizard_padding;
 
