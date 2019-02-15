@@ -209,9 +209,17 @@ $actions-container: 60px;
                 }
 
                 .bloom_table{
+                    margin: 1em 0;
+
                     tr {
                         th {
                             padding: .3em .5em;
+                            background: #999;
+                            color: #fff;
+
+                            font-size: 1.08em;
+                            font-style: italic;
+                            font-weight: 600;
 
                         }
                         td {
