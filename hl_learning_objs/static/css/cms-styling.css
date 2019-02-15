@@ -75,6 +75,9 @@
       overflow: auto;
       flex-grow: 1;
       background: none;
+      width: 100%;
+      min-width: unset;
+      max-width: unset;
       min-height: unset; }
       #learning_obj_creation .wizard .content .body {
         padding: 10px 25px;
@@ -82,7 +85,9 @@
         background: #eee;
         border-radius: 7px;
         height: calc(100% - 20px);
-        min-height: fit-content; }
+        min-height: fit-content;
+        width: calc(100% - 50px);
+        min-width: unset; }
         #learning_obj_creation .wizard .content .body ul {
           margin: 3px 2em; }
         #learning_obj_creation .wizard .content .body .wizard_preview {
