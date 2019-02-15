@@ -207,6 +207,43 @@ $actions-container: 60px;
 
                     margin-bottom: 1em;
                 }
+
+                .bloom_table{
+                    tr {
+                        th {
+                            padding: .3em .5em;
+
+                        }
+                        td {
+                            padding: .3em .5em;
+
+                            &.level1{ background: #00890080; }
+                            &.level2{ background: #5bb61880; }
+                            &.level3{ background: #ff830080; }
+                            &.level4{ background: #0087ff80; }
+                            &.level5{ background: #ab00ff80; }
+                            &.level6{ background: #ff000080; }
+
+                        }
+                        &:first-child {
+                            th {
+                                &:first-child{ border-top-left-radius: 7px;}
+                                &:last-child{ border-top-right-radius: 7px;}
+                            }
+                        }
+                        &:last-child {
+                            td {
+                                &:first-child{ border-bottom-left-radius: 7px;}
+                                &:last-child{ border-bottom-right-radius: 7px;}
+                            }
+                        }
+
+
+                    }
+
+                    .bold { font-weight: bold; }
+                    .whitetext {color: #fff;}
+                }
             }
         }
 
