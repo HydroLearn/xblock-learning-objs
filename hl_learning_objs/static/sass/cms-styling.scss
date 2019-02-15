@@ -167,14 +167,6 @@ $actions-container: 60px;
 
             }
 
-            .wizard_preview{
-                background: #fffedf;
-                padding: .3em 1em;
-                border-radius: 7px;
-                font-style:italic;
-
-                margin-bottom: 1em;
-            }
         }
 
         .content{
@@ -205,6 +197,15 @@ $actions-container: 60px;
 
                 ul{
                     margin: 3px 2em;
+                }
+
+                .wizard_preview{
+                    background: #fffedf;
+                    padding: .3em 1em;
+                    border-radius: 7px;
+                    font-style:italic;
+
+                    margin-bottom: 1em;
                 }
             }
         }
