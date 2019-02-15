@@ -81,7 +81,7 @@ $actions-container: 60px;
     h3 {
         font-size: 1.2em;
         font-weight: 600;
-    }    
+    }
 }
 
 #learning_obj_creation{
@@ -167,7 +167,14 @@ $actions-container: 60px;
 
             }
 
+            .wizard_preview{
+                background: #fffedf;
+                padding: .3em 1em;
+                border-radius: 7px;
+                font-style:italic;
 
+                margin-bottom: 1em;
+            }
         }
 
         .content{
