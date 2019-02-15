@@ -146,6 +146,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
                     }
                 });
 
+                update_preview()
                 bind_input_evts();
 
                 // hide wizard by default
