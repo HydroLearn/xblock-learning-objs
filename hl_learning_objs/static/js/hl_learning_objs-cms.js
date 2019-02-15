@@ -186,8 +186,25 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
             }
 
         });
+    }
 
+    function update_ABET_review(){
+        // get the wizard
+        var wizard = $('#learning_obj_wizard', xblock_element);
 
+        // clear the current review contents
+        $('.ABET_review', wizard).html("");
+
+        // generate the abet listing
+        var listing = $("<ul />")
+        $('.abet_input .ABET_input:checked', wizard).each(function(i, elem){
+            listing.append($('<li />', {
+                text: $(this).parent('.ABET_Label').text();
+            }));
+        })
+
+        // add the generated listing to the review box
+        $('.ABET_review', wizard).append(listing);
     }
 
     function bind_input_evts() {
@@ -199,6 +216,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
         $("#learning_obj_wizard", xblock_element).on('change','.learning_verb_selection', update_preview);
         $("#learning_obj_wizard", xblock_element).on('keyup', '#task', update_preview);
         $("#learning_obj_wizard", xblock_element).on('keyup', '#degree', update_preview);
+        $("#learning_obj_wizard", xblock_element).on('keyup', '.ABET_input', update_ABET_review);
     }
 
 
