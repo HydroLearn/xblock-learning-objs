@@ -2,165 +2,167 @@
 <!-- studio view for learning objectives xblock -->
 <div class="HL_LO_xblock_studio editor-with-buttons">
     <!-- HTML editor tab -->
-    <div class="modal_tab_view modal_tab_editor" data-mode="editor">
-        <div id="learning_obj_listing">
-            <h3>Learning Objectives</h3>
-            <div id="learning_obj_empty">
-                <ul>
-                    <li>There don't appear to be any learning objectives yet. Please add some.</li>
-                </ul>
-            </div>
-            <div id="learning_obj_collection"></div>
+    <div id="HL_LO_xblock_content_wrapper">
+        <div class="modal_tab_view modal_tab_editor" data-mode="editor">
+            <div id="learning_obj_listing">
+                <h3>Learning Objectives</h3>
+                <div id="learning_obj_empty">
+                    <ul>
+                        <li>There don't appear to be any learning objectives yet. Please add some.</li>
+                    </ul>
+                </div>
+                <div id="learning_obj_collection"></div>
 
-            <button id="add_new"><i class="fa fa-plus"></i> Objective</button>
+                <button id="add_new"><i class="fa fa-plus"></i> Objective</button>
+            </div>
+
+            <div id="learning_obj_creation">
+
+                <div id="editor-crumb">
+                    <a id="cancel_new"> <i class="fa fa-arrow-left"></i> Cancel </a>
+                </div>
+
+                <div id="learning_obj_wizard">
+                    <h2>Condition</h2>
+                    <section class="child_form condition_form">
+                        <h3>Preview:</h3>
+                        <div class="wizard_preview"></div>
+
+                        <h3>What's the condition?</h3>
+                        <label for="condition"><i>Describe the condition under which the student will perform the described behavior:</i></label>
+                        <input id="condition" type="text" name="condition_input" value="" />
+
+                        <h3>Examples:</h3>
+                        <ul>
+                            <li>With a definition of each source of ground water recharge and how it functions in the water cycle </li>
+                            <li>to 90% accuracy</li>
+                            <li>within 0.1 correct measure</li>
+                            <li>with at least 5 characteristics listed</li>
+                        </ul>
+                    </section>
+
+                    <h2>Action</h2>
+                    <section class="child_form level_form">
+                        <h3>Preview:</h3>
+                        <div class="wizard_preview"></div>
+
+                        <p>Choose Level of Knowledge and associated action the user is to complete</a>
+
+                        <div class="action_input"></div>
+
+
+                        <table class="bloom_table">
+                            <tr>
+                                <th>Difficulty</th>
+                                <th>Based on Bloom's Taxonomy</th>
+                                <th>Description</th>
+                            </tr>
+                            <tr>
+                                <td class="level1 whitetext">Level 1</td>
+                                <td class="level1 whitetext bold">Remembering</td>
+                                <td class="level1 whitetext">Recognizing or recalling relevant facts, terms, concepts, knowledge, or answers.</td>
+                            </tr>
+                            <tr>
+                                <td class="level2 whitetext">Level 2</td>
+                                <td class="level2 whitetext bold">Understanding</td>
+                                <td class="level2 whitetext">Constructing meaning from instructional messages.</td>
+                            </tr>
+                            <tr>
+                                <td class="level3 whitetext">Level 3</td>
+                                <td class="level3 whitetext bold">Applying </td>
+                                <td class="level3 whitetext">Using ideas and concepts to solve problems.</td>
+                            </tr>
+                            <tr>
+                                <td class="level4 whitetext">Level 4</td>
+                                <td class="level4 whitetext bold">Analyzing</td>
+                                <td class="level4 whitetext">Breaking something down into components, seeing relationships and overall structure.</td>
+                            </tr>
+                            <tr>
+                                <td class="level5 whitetext">Level 5</td>
+                                <td class="level5 whitetext bold">Evaluating</td>
+                                <td class="level5 whitetext">Making judgments based on criteria and standards</td>
+                            </tr>
+                            <tr>
+                                <td class="level6 whitetext">Level 6</td>
+                                <td class="level6 whitetext bold">Creating </td>
+                                <td class="level6 whitetext">Reorganizing diverse elements to form a new pattern or structure</td>
+                            </tr>
+                        </table>
+                    </section>
+
+                    <h2>Task</h2>
+                    <section class="child_form task_form">
+                        <h3>Preview:</h3>
+                        <div class="wizard_preview"></div>
+
+                        <p>Describe the task, be as specific as possible</p>
+                        <label for="task">
+                            What is the TASK the learner has to do?
+                        </label>
+                        <input id="task" type="text" name="task_input" value="" />
+
+                        <h3>Examples:</h3>
+                        <ul>
+                            <li>all areas below 100 year flood plane</li>
+                            <li>spatial distribution of surface and groundwater supplies and the corresponding demands by different sectors over the CONUS domain</li>
+                            <li>different statistics on surface and groundwater resources at a HUC8 spatial scale</li>
+                            <li>different future scenarios of population growth and its impact on both the water and energy systems, and how this affects other water use sectors besides energy</li>
+                        </ul>
+                    </section>
+
+                    <h2>Degree</h2>
+                    <section class="child_form degree_form">
+                        <h3>Preview:</h3>
+                        <div class="wizard_preview"></div>
+
+                        <label for="degree">
+                            Describe the desired degree or level of performance.
+                        </label>
+                        <input id="degree" type="text" name="degree_input" value="" />
+
+                        <h3>Examples:</h3>
+                        <ul>
+                            <li>With a definition of each source of ground water recharge and how it functions in the water cycle </li>
+                            <li>to 90% accuracy</li>
+                            <li>within 0.1 correct measure</li>
+                            <li>with at least 5 characteristics listed</li>
+                        </ul>
+                    </section>
+
+                    <h2>ABET outcomes</h2>
+                    <section class="child_form ABET_form">
+                        <h3>Preview:</h3>
+                        <div class="wizard_preview"></div>
+
+                        <h3>Link to ABET Outcomes</h3>
+                        <p>OPTIONAL: Select ABET Outcomes that correspond with your learning objectives</p>
+                        <div class="abet_input"></div>
+                    </section>
+
+                    <h2>Review</h2>
+                    <section class="child_form review_form">
+                        <h3>Review:</h3>
+                        <div class="wizard_preview"></div>
+
+                        <h4>ABET Outcomes:</h4>
+                        <div class="ABET_review"></div>
+                    </section>
+
+                </div>
+            </div>
+
+
         </div>
 
-        <div id="learning_obj_creation">
 
-            <div id="editor-crumb">
-                <a id="cancel_new"> <i class="fa fa-arrow-left"></i> Cancel </a>
-            </div>
-
-            <div id="learning_obj_wizard">
-                <h2>Condition</h2>
-                <section class="child_form condition_form">
-                    <h3>Preview:</h3>
-                    <div class="wizard_preview"></div>
-
-                    <h3>What's the condition?</h3>
-                    <label for="condition"><i>Describe the condition under which the student will perform the described behavior:</i></label>
-                    <input id="condition" type="text" name="condition_input" value="" />
-
-                    <h3>Examples:</h3>
-                    <ul>
-                        <li>With a definition of each source of ground water recharge and how it functions in the water cycle </li>
-                        <li>to 90% accuracy</li>
-                        <li>within 0.1 correct measure</li>
-                        <li>with at least 5 characteristics listed</li>
-                    </ul>
-                </section>
-
-                <h2>Action</h2>
-                <section class="child_form level_form">
-                    <h3>Preview:</h3>
-                    <div class="wizard_preview"></div>
-
-                    <p>Choose Level of Knowledge and associated action the user is to complete</a>
-
-                    <div class="action_input"></div>
-
-
-                    <table class="bloom_table">
-                        <tr>
-                            <th>Difficulty</th>
-                            <th>Based on Bloom's Taxonomy</th>
-                            <th>Description</th>
-                        </tr>
-                        <tr>
-                            <td class="level1 whitetext">Level 1</td>
-                            <td class="level1 whitetext bold">Remembering</td>
-                            <td class="level1 whitetext">Recognizing or recalling relevant facts, terms, concepts, knowledge, or answers.</td>
-                        </tr>
-                        <tr>
-                            <td class="level2 whitetext">Level 2</td>
-                            <td class="level2 whitetext bold">Understanding</td>
-                            <td class="level2 whitetext">Constructing meaning from instructional messages.</td>
-                        </tr>
-                        <tr>
-                            <td class="level3 whitetext">Level 3</td>
-                            <td class="level3 whitetext bold">Applying </td>
-                            <td class="level3 whitetext">Using ideas and concepts to solve problems.</td>
-                        </tr>
-                        <tr>
-                            <td class="level4 whitetext">Level 4</td>
-                            <td class="level4 whitetext bold">Analyzing</td>
-                            <td class="level4 whitetext">Breaking something down into components, seeing relationships and overall structure.</td>
-                        </tr>
-                        <tr>
-                            <td class="level5 whitetext">Level 5</td>
-                            <td class="level5 whitetext bold">Evaluating</td>
-                            <td class="level5 whitetext">Making judgments based on criteria and standards</td>
-                        </tr>
-                        <tr>
-                            <td class="level6 whitetext">Level 6</td>
-                            <td class="level6 whitetext bold">Creating </td>
-                            <td class="level6 whitetext">Reorganizing diverse elements to form a new pattern or structure</td>
-                        </tr>
-                    </table>
-                </section>
-
-                <h2>Task</h2>
-                <section class="child_form task_form">
-                    <h3>Preview:</h3>
-                    <div class="wizard_preview"></div>
-
-                    <p>Describe the task, be as specific as possible</p>
-                    <label for="task">
-                        What is the TASK the learner has to do?
-                    </label>
-                    <input id="task" type="text" name="task_input" value="" />
-
-                    <h3>Examples:</h3>
-                    <ul>
-                        <li>all areas below 100 year flood plane</li>
-                        <li>spatial distribution of surface and groundwater supplies and the corresponding demands by different sectors over the CONUS domain</li>
-                        <li>different statistics on surface and groundwater resources at a HUC8 spatial scale</li>
-                        <li>different future scenarios of population growth and its impact on both the water and energy systems, and how this affects other water use sectors besides energy</li>
-                    </ul>
-                </section>
-
-                <h2>Degree</h2>
-                <section class="child_form degree_form">
-                    <h3>Preview:</h3>
-                    <div class="wizard_preview"></div>
-
-                    <label for="degree">
-                        Describe the desired degree or level of performance.
-                    </label>
-                    <input id="degree" type="text" name="degree_input" value="" />
-
-                    <h3>Examples:</h3>
-                    <ul>
-                        <li>With a definition of each source of ground water recharge and how it functions in the water cycle </li>
-                        <li>to 90% accuracy</li>
-                        <li>within 0.1 correct measure</li>
-                        <li>with at least 5 characteristics listed</li>
-                    </ul>
-                </section>
-
-                <h2>ABET outcomes</h2>
-                <section class="child_form ABET_form">
-                    <h3>Preview:</h3>
-                    <div class="wizard_preview"></div>
-
-                    <h3>Link to ABET Outcomes</h3>
-                    <p>OPTIONAL: Select ABET Outcomes that correspond with your learning objectives</p>
-                    <div class="abet_input"></div>
-                </section>
-
-                <h2>Review</h2>
-                <section class="child_form review_form">
-                    <h3>Review:</h3>
-                    <div class="wizard_preview"></div>
-
-                    <h4>ABET Outcomes:</h4>
-                    <div class="ABET_review"></div>
-                </section>
-
-            </div>
+        <!-- XBlock options -->
+        <div class="modal_tab_view modal_tab_settings" data-mode="settings">
+    		<!-- this seems like the form for modifying the model fields -->
+            <p class="chx_desc">Display Name</p>
+            <input type="text" class="settings_display_name" value="{{ self.display_name }}">
         </div>
 
-
     </div>
-
-
-    <!-- XBlock options -->
-    <div class="modal_tab_view modal_tab_settings" data-mode="settings">
-		<!-- this seems like the form for modifying the model fields -->
-        <p class="chx_desc">Display Name</p>
-        <input type="text" class="settings_display_name" value="{{ self.display_name }}">
-    </div>
-
 
     <div class="xblock-actions">
         <ul>
@@ -172,6 +174,8 @@
           </li>
         </ul>
       </div>
+
+
 </div>
 
 <!-- define the xblock actions (the markup is important) -->
