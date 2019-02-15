@@ -199,7 +199,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
         var listing = $("<ul />")
         $('.abet_input .ABET_input:checked', wizard).each(function(i, elem){
             listing.append($('<li />', {
-                text: $(this).parent('.ABET_Label').text();
+                text: $(this).parent('.ABET_Label').text()
             }));
         })
 
