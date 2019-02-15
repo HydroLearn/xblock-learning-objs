@@ -154,9 +154,53 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
 
     }
 
-    function bind_input_evts() {
-        $("#learning_obj_wizard", xblock_element).on('change','#learning_level_selection', catalog.learning_level_change_evt);
+    function update_preview(){
+        // get the wizard and each of the preview boxes
+        var wizard = $('#learning_obj_wizard', xblock_element);
+        var preview_boxes = $('.wizard_preview', wizard);
+
+        // clear out current previews
+        preview_boxes.html("");
+
+        // generate ordered list of inputs based on steps
+        var obj_parts = [];
+
+        // collect the input values
+        obj_parts.push($('#condition', wizard).val().trim());
+        obj_parts.push($('.learning_verb_selection.active option:selected', wizard).text().trim());
+        obj_parts.push($('#task', wizard).val().trim());
+        obj_parts.push($('#degree', wizard).val().trim());
+
+        $.each(obj_parts, function(i, val){
+            // add space before if not the first element
+            if(i != 0) preview_boxes.append(' ');
+
+            // if the value isn't empty append it to the preview string
+            if(!!val){
+                preview_boxes.append(val);
+            }else{
+                // otherwise show ellipses, and break the loop (showing more work ahead)
+                preview_boxes.append('...');
+                return false;
+            }
+
+        });
+
+
     }
+
+    function bind_input_evts() {
+        // bind verb selection swapping on learning_level selecting
+        $("#learning_obj_wizard", xblock_element).on('change','#learning_level_selection', catalog.learning_level_change_evt);
+
+        // map preview updating to the inputs
+        $("#learning_obj_wizard", xblock_element).on('keyup', '#condition', update_preview);
+        $("#learning_obj_wizard", xblock_element).on('change','#learning_verb_selection', catalog.learning_level_change_evt);
+        $("#learning_obj_wizard", xblock_element).on('keyup', '#task', update_preview);
+        $("#learning_obj_wizard", xblock_element).on('keyup', '#degree', update_preview);
+    }
+
+
 
     function getCookie(name) {
         var cookieValue = null;
@@ -219,6 +263,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
 
 
     }
+
     // Send current code and settings to the backend
     function studio_submit(commit) {
 
