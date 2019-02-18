@@ -25,21 +25,13 @@
 
             .record_item{
                 display: table-row;
-                border-radius: 7px;
-
 
                 &:hover{
-
                     .display_cell{
                         border: 1px solid #e5e5e5;
-                        border-top-left-radius: 7px;
-                        border-bottom-left-radius: 7px;
                     }
-
                     .controls{
                         border: 1px solid #e5e5e5;
-                        border-top-right-radius: 7px;
-                        border-bottom-right-radius: 7px;
                     }
                 }
 
@@ -48,6 +40,8 @@
                     .display_cell{
                         display: table-cell;
                         transition: all .3s;
+                        border-top-left-radius: 7px;
+                        border-bottom-left-radius: 7px;
                         border: 1px solid #00000000;
 
                     }
@@ -55,6 +49,8 @@
                     .controls {
                         display:table-cell;
                         transition: all .3s;
+                        border-top-right-radius: 7px;
+                        border-bottom-right-radius: 7px;
                         border: 1px solid #00000000;
 
                         .control {
