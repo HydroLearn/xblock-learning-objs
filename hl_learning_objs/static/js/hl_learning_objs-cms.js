@@ -182,21 +182,21 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
 
         $.each(obj_parts, function(i, val){
             // add space before if not the first element
-            if(i != 0) preview_string.concat(' ');
+            if(i != 0) preview_string = preview_string.concat(' ');
 
             // if the value isn't empty append it to the preview string
             if(!!val){
-                preview_string.concat(val);
+                preview_string = preview_string.concat(val);
             }else{
                 // otherwise show ellipses, and break the loop (showing more work ahead)
-                preview_string.concat('... ');
+                preview_string = preview_string.concat('... ');
                 return false;
             }
 
         });
 
         // add punctuation/capatilize first character
-        preview_string.concat('.');
+        preview_string = preview_string.concat('.');
         preview_string = preview_string.charAt(0).toUpperCase() + preview_string.slice(1);
 
 
