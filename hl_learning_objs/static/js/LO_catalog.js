@@ -400,7 +400,7 @@ function LO_catalog(initial_catalog){
                 })
                 controls.append($('<i />', {class: 'fa fa-edit edit_btn control'}))
                 controls.append($('<i />', {class: 'fa fa-trash delete_btn control'}))
-                controls.append($('<i />', {class: 'fa fa-arrows move_btn control'}))
+                //controls.append($('<i />', {class: 'fa fa-arrows move_btn control'}))
 
                 row.append(display_str, controls);
 
@@ -419,7 +419,7 @@ function LO_catalog(initial_catalog){
         wrapper.append(listing);
 
         $(listing).sortable({
-            handle:'.move_btn',
+            //handle:'.move_btn',
             placeholder: "ui-state-highlight",
         });
         $(listing).disableSelection();
