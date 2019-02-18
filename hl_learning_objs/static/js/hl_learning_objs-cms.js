@@ -168,7 +168,11 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
 
         // collect the input values
         if(!$('#condition_exclude', wizard).is(':checked')){
-            obj_parts.push($('#condition', wizard).val().trim().concat(','));
+            var condition_str = !!$('#condition', wizard).val().trim();
+            if(!!condition_str){
+                    obj_parts.push(condition_str.concat(','));
+            }
+
         }
 
 
@@ -184,7 +188,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
         }
 
         var preview_string = "";
-
+        var complete = true;
         $.each(obj_parts, function(i, val){
             // add space before if not the first element
             if(i != 0) preview_string += ' ';
@@ -195,13 +199,17 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
             }else{
                 // otherwise show ellipses, and break the loop (showing more work ahead)
                 preview_string += '... ';
+                complete = false;
                 return false;
             }
 
         });
 
-        // add punctuation/capatilize first character
-        preview_string += '.';
+        // always punctuate complete sentences...
+        if(complete){
+                preview_string += '.';
+        }
+        //capatilize first character
         preview_string = preview_string.charAt(0).toUpperCase() + preview_string.slice(1);
 
 
@@ -234,6 +242,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
         }else{
             $("#condition", xblock_element).removeAttr('disabled');
         }
+        update_preview();
     }
 
     function disable_degree_input(){
@@ -243,6 +252,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
         }else{
             $("#degree", xblock_element).removeAttr('disabled');
         }
+        update_preview();
     }
 
     function bind_input_evts() {
