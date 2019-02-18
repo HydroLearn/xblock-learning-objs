@@ -106,13 +106,12 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
 
                     onFinished: function (event, currentIndex)
                     {
-                        // add the new form row for this learning objective
-                        //$('.LO_fs_add').click()
-                        debugger;
+                        // collect the selected ABET outcomes
                         var outcomes_ids = $(".ABET_selection_wrapper input:checked", xblock_element).map(function(){
                                               return $(this).val();
                                             }).get();
 
+                        // determine if condition and/or degree are exempt
                         var condition_exempt = $("#condition_exclude", xblock_element).is(':checked');
                         var degree_exempt = $("#degree_exclude", xblock_element).is(':checked');
 
@@ -128,6 +127,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
                             "outcomes": outcomes_ids,
                         }
 
+                        // generate new catalog record
                         var new_LO = new catalog.record(
                                 values_dictionary["level_id"],
                                 values_dictionary["verb_id"],
@@ -137,30 +137,23 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
                                 values_dictionary["outcomes"]
                             )
 
+                        // add record to catalog
                         catalog.add_record(new_LO);
+
+                        // update the listing of learning objectives
                         update_listing();
 
+                        // switch back to preview mode
                         editor_toggle();
+
+                        // reset the wizard instance to be ready for the next one
                         reset_wizard();
 
-                        // add the new form
-                        //var learning_objective_form = $('.LO_form').last();
-                        // if(learning_objective_form.attr('id') !== "learning_objective_set-0" || learning_objective_form.find(".LO_representation").text() !== ''){
-                        //     $('.LO_fs_add').click();
-                        //     learning_objective_form = $('.LO_form').last();
-                        // }
-                        //updateLearningObjective(learning_objective_form, values_dictionary);
-                        //$('.ui-dialog-titlebar-close').click();
-                        //resetWizard();
                     }
                 });
 
                 update_preview()
                 bind_input_evts();
-
-                // hide wizard by default
-                //$("#learning_obj_creation", xblock_element).hide();
-
 
     }
 
@@ -268,6 +261,9 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
         // bind verb selection swapping on learning_level selecting
         $("#learning_obj_wizard", xblock_element).on('change','#learning_level_selection', catalog.learning_level_change_evt);
 
+
+        // trigger change on level selection (hides all learning verb selections)
+        //      Added for resetting active verb select when wizard is canceled.
         $("#learning_level_selection", xblock_element).trigger('change');
 
         // map preview updating to the inputs
@@ -396,8 +392,6 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
         $(xblock_element).closest('.modal-window').find('.editor-modes .modal_tab').click(function(){
             tab_switch($(this).attr('data-mode'));
         });
-
-
 
         $('#cancel_new', xblock_element).click(function(){
             editor_toggle();

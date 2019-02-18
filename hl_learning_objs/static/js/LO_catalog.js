@@ -47,12 +47,6 @@ function Learning_obj(level, verb, condition, task, degree, outcomes){
         obj_string = obj_string.charAt(0).toUpperCase() + obj_string.slice(1).concat('.');
 
         return obj_string;
-        // return "{0} {1} {2} {3}.".format(
-        //         this.condition,
-        //         this.verb,  // this needs to be revised to call the catalog for verb value
-        //         this.task,
-        //         this.degree
-        //     )
     }
 
     // method to output a json object representing the learning objective
@@ -350,27 +344,14 @@ function LO_catalog(initial_catalog){
             var catalog = this;
 
             $.each(this._records, function(i, record){
-                //var record_string = "{0} {1} {2} {3}.";
-                // var record_string = "{0} {1} {2} {3}".format(
-                //         (!!this.condition)? this.condition.concat(','): this.condition,
-                //         "the student will be able to {0}".format(catalog.get_verb(this.level,this.verb)),
-                //         this.task,
-                //         this.degree
-                //     )
-                //
-                // // remove excess spaces if condition/degree aren't provided.
-                // record_string = record_string.trim()
-                //
-                // // punctuation
-                // record_string = record_string.charAt(0).toUpperCase() + record_string.slice(1)
 
                 var record_string = record.as_str(catalog);
-
                 var row = $('<li />', {
                     class: 'record_item',
                     text: record_string,
                 })
                 listing.append(row);
+
             });
         }else {
 
@@ -380,8 +361,6 @@ function LO_catalog(initial_catalog){
             })
             listing.append(row);
         }
-
-
 
         wrapper.append(listing);
 
