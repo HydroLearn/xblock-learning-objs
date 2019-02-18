@@ -26,15 +26,6 @@
             .record_item{
                 display: table-row;
 
-                &:hover{
-                    .display_cell{
-                        border: 1px solid #e5e5e5;
-                    }
-                    .controls{
-                        border: 1px solid #e5e5e5;
-                    }
-                }
-
                 &.editable{
 
                     .display_cell{
@@ -87,6 +78,15 @@
                         }
                     }
 
+                }
+
+                &:hover{
+                    .display_cell{
+                        border: 1px solid #e5e5e5;
+                    }
+                    .controls{
+                        border: 1px solid #e5e5e5;
+                    }
                 }
             }
         }
