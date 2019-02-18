@@ -375,7 +375,6 @@ function LO_catalog(initial_catalog){
         });
 
         var listing = $('<div />', {
-            id:"sortable_listing",
             class: 'record_listing editable',
         });
 
@@ -419,9 +418,9 @@ function LO_catalog(initial_catalog){
 
         wrapper.append(listing);
 
-        $('#sortable_listing').sortable({
+        $(listing).draggable({
             handle:'.move_btn',
-        })
+        });
 
         return wrapper;
     }
