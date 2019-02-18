@@ -21,6 +21,10 @@
     }
 
     .learning_level_wrapper{
+        label{
+            padding: 0 .5em;
+        }
+
         .learning_level_selection{
             .learning_level_option{
 
@@ -29,9 +33,7 @@
         .verb_selection_wrapper{
             display:none;
 
-            label{
-                padding: 0 .5em;
-            }
+
 
             .learning_verb_separator {
                 padding: 0 .5em;

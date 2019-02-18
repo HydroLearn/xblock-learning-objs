@@ -11,10 +11,10 @@
   margin-bottom: 60px; }
 .HL_LO_xblock_studio .child_form {
   padding: 1em 1.5em; }
+.HL_LO_xblock_studio .learning_level_wrapper label {
+  padding: 0 .5em; }
 .HL_LO_xblock_studio .learning_level_wrapper .verb_selection_wrapper {
   display: none; }
-  .HL_LO_xblock_studio .learning_level_wrapper .verb_selection_wrapper label {
-    padding: 0 .5em; }
   .HL_LO_xblock_studio .learning_level_wrapper .verb_selection_wrapper .learning_verb_separator {
     padding: 0 .5em;
     color: #45a4f3; }
