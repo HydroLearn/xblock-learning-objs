@@ -25,7 +25,7 @@
 
             .record_item{
                 display: table-row;
-                
+
                 &.editable{
 
                     .display_cell{
@@ -60,20 +60,29 @@
                             &.edit_btn {
                                 color: $HL_blue;
 
-
                                 &:hover {
                                     color: #fff;
                                     background: $HL_blue;
                                     box-shadow: #00000044 0.1em 0.2em 0.3em 0.05em;
-
                                 }
                             }
+
                             &.delete_btn {
                                 color: $red;
 
                                 &:hover {
                                     color: #fff;
                                     background: $red;
+                                    box-shadow: #00000044 0.1em 0.2em 0.3em 0.05em;
+
+                                }
+                            }
+                            &.move_btn {
+                                color: $gray_med;
+
+                                &:hover {
+                                    color: #fff;
+                                    background: $gray_med;
                                     box-shadow: #00000044 0.1em 0.2em 0.3em 0.05em;
 
                                 }

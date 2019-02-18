@@ -46,6 +46,12 @@
             color: #fff;
             background: #ea163e;
             box-shadow: #00000044 0.1em 0.2em 0.3em 0.05em; }
+        .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable .record_item.editable .controls .control.move_btn {
+          color: #7f7f7f; }
+          .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable .record_item.editable .controls .control.move_btn:hover {
+            color: #fff;
+            background: #7f7f7f;
+            box-shadow: #00000044 0.1em 0.2em 0.3em 0.05em; }
     .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable .record_item:hover .display_cell {
       border: 1px solid #45a4f3; }
     .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable .record_item:hover .controls {
