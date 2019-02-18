@@ -12,8 +12,7 @@
 .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable {
   display: table; }
   .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable .record_item {
-    display: table-row;
-    counter-reset: records; }
+    display: table-row; }
     .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable .record_item.editable .display_cell {
       display: table-cell;
       padding: 0 .5em;
@@ -21,9 +20,6 @@
       border-top-left-radius: 7px;
       border-bottom-left-radius: 7px;
       border: 1px solid #00000000; }
-      .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable .record_item.editable .display_cell::before {
-        counter-increment: records;
-        content: counter(records). ; }
     .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable .record_item.editable .controls {
       display: table-cell;
       transition: all .3s;

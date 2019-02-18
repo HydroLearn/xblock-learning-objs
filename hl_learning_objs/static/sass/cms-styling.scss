@@ -25,15 +25,10 @@
 
             .record_item{
                 display: table-row;
-                counter-reset: records;
-
+                
                 &.editable{
 
                     .display_cell{
-                        &::before{
-                            counter-increment: records;
-                            content: counter(records) + ". ";
-                        }
 
                         display: table-cell;
                         padding: 0 .5em;
