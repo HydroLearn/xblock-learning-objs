@@ -207,15 +207,35 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
         $('.ABET_review', wizard).append(listing);
     }
 
+    function disable_condition_input(event){
+        if($(this).is(":checked")) {
+            $("#condition", xblock_element).attr('disabled', true);
+
+        }else{
+            $("#condition", xblock_element).removeAttr('disabled');
+        }
+    }
+
+    function disable_degree_input(){
+        if($(this).is(":checked")) {
+            $("#degree", xblock_element).attr('disabled', true);
+
+        }else{
+            $("#degree", xblock_element).removeAttr('disabled');
+        }
+    }
+
     function bind_input_evts() {
         // bind verb selection swapping on learning_level selecting
         $("#learning_obj_wizard", xblock_element).on('change','#learning_level_selection', catalog.learning_level_change_evt);
 
         // map preview updating to the inputs
         $("#learning_obj_wizard", xblock_element).on('keyup', '#condition', update_preview);
+        $("#learning_obj_wizard", xblock_element).on('change', '#condition_exclude', disable_condition_input);
         $("#learning_obj_wizard", xblock_element).on('change','.learning_verb_selection', update_preview);
         $("#learning_obj_wizard", xblock_element).on('keyup', '#task', update_preview);
         $("#learning_obj_wizard", xblock_element).on('keyup', '#degree', update_preview);
+        $("#learning_obj_wizard", xblock_element).on('change', '#degree_exclude', disable_degree_input);
         $("#learning_obj_wizard", xblock_element).on('change', '.ABET_input', update_ABET_review);
     }
 
