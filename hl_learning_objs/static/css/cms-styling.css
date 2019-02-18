@@ -12,11 +12,33 @@
 .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable {
   display: table; }
   .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable .record_item {
-    display: table-row; }
+    display: table-row;
+    border-radius: 7px;
+    transition: all .3s; }
+    .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable .record_item:hover {
+      border: 1px solid #e5e5e5; }
     .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable .record_item.editable .display_cell {
       display: table-cell; }
     .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable .record_item.editable .controls {
       display: table-cell; }
+      .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable .record_item.editable .controls .control {
+        font-size: 1.4em;
+        border-radius: 7px;
+        cursor: pointer;
+        padding: .2em;
+        transition: all .3s; }
+        .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable .record_item.editable .controls .control.edit_btn {
+          color: #45a4f3; }
+          .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable .record_item.editable .controls .control.edit_btn:hover {
+            color: #fff;
+            background: #45a4f3;
+            box-shadow: #00000055 0.3em 0.3em 7px 0.1em; }
+        .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable .record_item.editable .controls .control.delete_btn {
+          color: #ea163e; }
+          .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable .record_item.editable .controls .control.delete_btn:hover {
+            color: #fff;
+            background: red;
+            box-shadow: #00000055 0.3em 0.3em 7px 0.1em; }
 .HL_LO_xblock_studio .child_form {
   padding: 1em 1.5em; }
 .HL_LO_xblock_studio .learning_level_wrapper label {

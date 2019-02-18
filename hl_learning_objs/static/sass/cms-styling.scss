@@ -25,6 +25,12 @@
 
             .record_item{
                 display: table-row;
+                border-radius: 7px;
+                transition: all .3s;
+
+                &:hover{
+                    border: 1px solid #e5e5e5;
+                }
 
                 &.editable{
 
@@ -34,6 +40,35 @@
 
                     .controls {
                         display:table-cell;
+
+                        .control {
+                            font-size: 1.4em;
+                            border-radius: 7px;
+                            cursor: pointer;
+                            padding: .2em;
+                            transition: all .3s;
+
+                            &.edit_btn {
+                                color: $HL_blue;
+
+
+                                &:hover {
+                                    color: #fff;
+                                    background: $HL_blue;
+                                    box-shadow: #00000055 0.3em 0.3em 7px 0.1em;
+                                }
+                            }
+                            &.delete_btn {
+                                color: $red;
+
+                                &:hover {
+                                    color: #fff;
+                                    background: red;
+                                    box-shadow: #00000055 0.3em 0.3em 7px 0.1em;
+                                }
+                            }
+
+                        }
                     }
 
                 }
