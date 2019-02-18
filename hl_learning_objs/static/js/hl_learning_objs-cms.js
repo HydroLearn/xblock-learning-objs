@@ -186,7 +186,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
 
             // if the value isn't empty append it to the preview string
             if(!!val){
-                preview_string =+ val;
+                preview_string += val;
             }else{
                 // otherwise show ellipses, and break the loop (showing more work ahead)
                 preview_string += '... ';
