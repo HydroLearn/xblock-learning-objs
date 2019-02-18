@@ -161,6 +161,10 @@ function LO_catalog(initial_catalog){
         if(typeof(this.data[level_id]) == "undefined") throw Error("the requested 'level_id' isn't present in the data catalog!");
         if(typeof(this.data[level_id].verbs) == "undefined") throw Error("the requested 'level_id' object doesn't contain any predefined verbs!");
 
+        var separator = $('<i />',{
+            class: "fa fa-arrow-left",
+        });
+
         var verb_id = "verbs_select_{0}".format(level_id);
         var selection_label = $('<label />', {
             for: verb_id,
@@ -199,7 +203,7 @@ function LO_catalog(initial_catalog){
         return $('<div />', {
             class: 'verb_selection_wrapper',
             "data-level": level_id,
-        }).append(selection_label, selection);
+        }).append(separator, selection_label, selection);
     }
 
     LO_catalog.prototype.learning_level_change_evt = function(){

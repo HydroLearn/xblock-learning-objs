@@ -29,10 +29,14 @@
         .verb_selection_wrapper{
             display:none;
 
+            .learning_verb_separator {
+                padding: 0 .3em;
+            }
+
             &.active{
                 display:inline-block;
             }
-            
+
             .learning_verb_selection{
                 display:none;
 
