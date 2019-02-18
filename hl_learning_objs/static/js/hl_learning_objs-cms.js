@@ -35,13 +35,13 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
 
     function reset_wizard(){
         // reset input values
-        $("#condition", xblock_element).val("");
-        $("#task", xblock_element).val("");
-        $("#degree", xblock_element).val("");
-        $("#learning_level_selection", xblock_element).val("None");
-        $(".learning_verb_selection.active", xblock_element).val("None");
-        $(".learning_verb_selection.active", xblock_element).removeClass('active');
-        $(".ABET_selection_wrapper input:checked", xblock_element).prop('checked', false);
+        // $("#condition", xblock_element).val("");
+        // $("#task", xblock_element).val("");
+        // $("#degree", xblock_element).val("");
+        // $("#learning_level_selection", xblock_element).val("None");
+        // $(".learning_verb_selection.active", xblock_element).val("None");
+        // $(".learning_verb_selection.active", xblock_element).removeClass('active');
+        // $(".ABET_selection_wrapper input:checked", xblock_element).prop('checked', false);
 
         // destroy and reinitalize wizard (reset)
         $('#learning_obj_wizard', xblock_element).steps('destroy');
