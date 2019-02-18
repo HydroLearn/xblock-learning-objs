@@ -6,10 +6,13 @@ function Learning_obj(level, verb, condition, task, degree, outcomes){
     // error checking
     if(!(!!level && typeof(level) == "string" && !isNaN(parseInt(level)))) throw Error("Learning Objective: level must be an integer string")
     if(!(!!verb && typeof(verb) == "string" && !isNaN(parseInt(verb)))) throw Error("Learning Objective: verb must be an integer string")
-    if(!(!!condition && typeof(condition) == "string")) throw Error("Learning Objective: condition must be a string")
     if(!(!!task && typeof(task) == "string")) throw Error("Learning Objective: task must be a string")
-    if(!(!!degree && typeof(degree) == "string")) throw Error("Learning Objective: degree must be a string")
+
     if(!(!!outcomes && Array.isArray(outcomes))) throw Error("Learning Objective: outcomes must be an array of integer string id's")
+
+    // optional fields
+    if(!(typeof(condition) == "string")) throw Error("Learning Objective: condition must be a string")
+    if(!(typeof(degree) == "string")) throw Error("Learning Objective: degree must be a string")
 
     // catalog id's for learning level/verb
     this.level = level;
@@ -26,7 +29,8 @@ function Learning_obj(level, verb, condition, task, degree, outcomes){
 
 }
     // method to output learning objective string from stored values
-    Learning_obj.prototype.as_str = function(){
+    //  must be provided a catalog for mapping verb/level indices
+    Learning_obj.prototype.as_str = function(catalog){
         return "{0} {1} {2} {3}.".format(
                 this.condition,
                 this.verb,  // this needs to be revised to call the catalog for verb value
@@ -36,7 +40,7 @@ function Learning_obj(level, verb, condition, task, degree, outcomes){
     }
 
     // method to output a json object representing the learning objective
-    Learning_obj.prototype.as_obj = function(){
+    Learning_obj.prototype.as_raw_obj = function(){
         return {
             'condition': this.condition,
             'level': this.level,
@@ -111,12 +115,18 @@ function LO_catalog(initial_catalog){
             class:"learning_level_wrapper",
         });
 
+        var selection_label = $('<label />', {
+            for: 'learning_level_selection',
+            class: 'learning_level_label',
+            text: 'Learning Level: '
+        });
+
         var selection = $('<select />', {
             id:"learning_level_selection",
             class:"learning_level_selection",
         });
 
-        wrapper.append(selection);
+        wrapper.append(selection_label, selection);
 
         // create a default 'null' option for the selection
         selection.append($('<option />', {
@@ -151,9 +161,16 @@ function LO_catalog(initial_catalog){
         if(typeof(this.data[level_id]) == "undefined") throw Error("the requested 'level_id' isn't present in the data catalog!");
         if(typeof(this.data[level_id].verbs) == "undefined") throw Error("the requested 'level_id' object doesn't contain any predefined verbs!");
 
+        var verb_id = "verbs_select_{0}".format(level_id);
+        var selection_label = $('<label />', {
+            for: verb_id,
+            class: 'learning_verb_label',
+            text: 'Learning Verb: '
+        });
+
         // genearte a select box listing the possible verbs for a specified learning level
         var selection = $('<select />', {
-            id:"verbs_select_{0}".format(level_id),
+            id: verb_id,
             class:"learning_verb_selection",
             "data-level": level_id,
 
@@ -177,7 +194,9 @@ function LO_catalog(initial_catalog){
             selection.append(option);
         });
 
-        return selection;
+
+
+        return $('<div />', { class: 'verb_selection_wrapper'}).append(selection_label, selection);
     }
 
     LO_catalog.prototype.learning_level_change_evt = function(){
@@ -294,7 +313,7 @@ function LO_catalog(initial_catalog){
             class: 'record_listing_wrapper',
         });
 
-        var listing = $('<ul />', {
+        var listing = $('<ol />', {
             class: 'record_listing',
         });
 
@@ -304,7 +323,9 @@ function LO_catalog(initial_catalog){
             var catalog = this;
 
             $.each(this._records, function(i, record){
-                var record_string = "{0} {1} {2} {3}.".format(
+                //var record_string = "{0} {1} {2} {3}.";
+
+                var record_string = "{0}, the student will be able to {1} {2} {3}.".format(
                         this.condition,
                         catalog.get_verb(this.level,this.verb),
                         this.task,

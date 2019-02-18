@@ -25,12 +25,15 @@
                 <div id="learning_obj_wizard">
                     <h2>Condition</h2>
                     <section class="child_form condition_form">
-                        <h3>Preview:</h3>
                         <div class="wizard_preview"></div>
 
                         <h3>What's the condition?</h3>
                         <label for="condition"><i>Describe the condition under which the student will perform the described behavior:</i></label>
                         <input id="condition" type="text" name="condition_input" value="" />
+
+                        <!-- add option to exclude condition -->
+                        <label><input type="checkbox" id="condition_exclude" /> Exclude Condition from this learning objective.</label>
+
 
                         <h3>Examples:</h3>
                         <ul>
@@ -43,7 +46,6 @@
 
                     <h2>Action</h2>
                     <section class="child_form level_form">
-                        <h3>Preview:</h3>
                         <div class="wizard_preview"></div>
 
                         <p>Choose Level of Knowledge and associated action the user is to complete</a>
@@ -92,7 +94,6 @@
 
                     <h2>Task</h2>
                     <section class="child_form task_form">
-                        <h3>Preview:</h3>
                         <div class="wizard_preview"></div>
 
                         <p>Describe the task, be as specific as possible</p>
@@ -112,13 +113,15 @@
 
                     <h2>Degree</h2>
                     <section class="child_form degree_form">
-                        <h3>Preview:</h3>
                         <div class="wizard_preview"></div>
 
                         <label for="degree">
                             Describe the desired degree or level of performance.
                         </label>
                         <input id="degree" type="text" name="degree_input" value="" />
+
+                        <!-- add option to exclude condition -->
+                        <label><input type="checkbox" id="degree_exclude" /> Exclude Degree from this learning objective.</label>
 
                         <h3>Examples:</h3>
                         <ul>
@@ -131,17 +134,14 @@
 
                     <h2>ABET outcomes</h2>
                     <section class="child_form ABET_form">
-                        <h3>Preview:</h3>
                         <div class="wizard_preview"></div>
 
-                        <h3>Link to ABET Outcomes</h3>
-                        <p>OPTIONAL: Select ABET Outcomes that correspond with your learning objectives</p>
+                        <h3>Select ABET Outcomes that correspond with this learning objective</h3>
                         <div class="abet_input"></div>
                     </section>
 
                     <h2>Review</h2>
                     <section class="child_form review_form">
-                        <h3>Review:</h3>
                         <div class="wizard_preview"></div>
 
                         <h4>ABET Outcomes:</h4>
