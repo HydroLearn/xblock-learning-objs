@@ -48,11 +48,14 @@
                     .display_cell{
                         display: table-cell;
                         transition: all .3s;
+                        border: 1px solid #00000000;
+
                     }
 
                     .controls {
                         display:table-cell;
                         transition: all .3s;
+                        border: 1px solid #00000000;
 
                         .control {
                             font-size: 1.4em;
@@ -60,7 +63,7 @@
                             cursor: pointer;
                             padding: .2em;
                             transition: all .3s;
-
+                            margin: 0 .2em;
                             box-shadow: #00000000 0 0 0 0;
 
                             &.edit_btn {
