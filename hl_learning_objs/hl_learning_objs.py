@@ -128,11 +128,13 @@ class HL_LearningObjs_XBlock(XBlock):
         fragment.add_content(render_template('templates/learning_objs-cms.html', content))
 
         # add static files for styling, and template initialization
+        fragment.add_css(load_resource('static/css/jquery-ui.min.css'))
         fragment.add_css(load_resource('static/css/jquery.steps.css'))
         fragment.add_css(load_resource('static/css/cms-styling.css'))
         fragment.add_css(load_resource('static/css/LO_listing_styling.css'))
 
         fragment.add_javascript(load_resource('static/js/js-str-format.js'))
+        fragment.add_javascript(load_resource('static/js/jquery-ui.min.js'))
         fragment.add_javascript(load_resource('static/js/jquery.steps.js'))
         fragment.add_javascript(load_resource('static/js/LO_catalog.js'))
         fragment.add_javascript(load_resource('static/js/hl_learning_objs-cms.js'))

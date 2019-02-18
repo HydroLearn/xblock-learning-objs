@@ -375,6 +375,7 @@ function LO_catalog(initial_catalog){
         });
 
         var listing = $('<div />', {
+            id:"sortable_listing",
             class: 'record_listing editable',
         });
 
@@ -418,7 +419,16 @@ function LO_catalog(initial_catalog){
 
         wrapper.append(listing);
 
+        $('#sortable_listing').sortable({
+            handle:'.move_btn',
+        })
+
         return wrapper;
+    }
+
+    LO_catalog.prototype.update_record_indices = function(){
+
+
     }
 
     LO_catalog.prototype.verb_validation = function(){

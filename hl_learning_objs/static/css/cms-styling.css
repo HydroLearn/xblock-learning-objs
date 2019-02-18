@@ -47,7 +47,8 @@
             background: #ea163e;
             box-shadow: #00000044 0.1em 0.2em 0.3em 0.05em; }
         .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable .record_item.editable .controls .control.move_btn {
-          color: #7f7f7f; }
+          color: #7f7f7f;
+          cursor: grab; }
           .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable .record_item.editable .controls .control.move_btn:hover {
             color: #fff;
             background: #7f7f7f;
