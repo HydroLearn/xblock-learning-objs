@@ -41,10 +41,10 @@ function Learning_obj(level, verb, condition, task, degree, outcomes){
             )
 
         // remove excess spaces if condition/degree aren't provided.
-        obj_string = obj_string.trim()
+        obj_string = obj_string.trim();
 
         // punctuation
-        obj_string = obj_string.charAt(0).toUpperCase() + obj_string.slice(1);
+        obj_string = obj_string.charAt(0).toUpperCase() + obj_string.slice(1).concat('.');
 
         return obj_string;
         // return "{0} {1} {2} {3}.".format(
