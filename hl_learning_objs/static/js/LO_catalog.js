@@ -421,6 +421,10 @@ function LO_catalog(initial_catalog){
         $(listing).sortable({
             //handle:'.move_btn',
             placeholder: "ui-state-highlight",
+            start: function(e, ui){
+                ui.placeholder.height(ui.item.height());
+                ui.placeholder.width(ui.item.width());
+            }
         });
         $(listing).disableSelection();
 
