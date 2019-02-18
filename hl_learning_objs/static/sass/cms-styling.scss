@@ -26,20 +26,33 @@
             .record_item{
                 display: table-row;
                 border-radius: 7px;
-                transition: all .3s;
+
 
                 &:hover{
-                    border: 1px solid #e5e5e5;
+
+                    .display_cell{
+                        border: 1px solid #e5e5e5;
+                        border-top-left-radius: 7px;
+                        border-bottom-left-radius: 7px;
+                    }
+
+                    .controls{
+                        border: 1px solid #e5e5e5;
+                        border-top-right-radius: 7px;
+                        border-bottom-right-radius: 7px;
+                    }
                 }
 
                 &.editable{
 
                     .display_cell{
                         display: table-cell;
+                        transition: all .3s;
                     }
 
                     .controls {
                         display:table-cell;
+                        transition: all .3s;
 
                         .control {
                             font-size: 1.4em;
@@ -48,6 +61,8 @@
                             padding: .2em;
                             transition: all .3s;
 
+                            box-shadow: #00000000 0 0 0 0;
+
                             &.edit_btn {
                                 color: $HL_blue;
 
@@ -55,7 +70,8 @@
                                 &:hover {
                                     color: #fff;
                                     background: $HL_blue;
-                                    box-shadow: #00000055 0.3em 0.3em 7px 0.1em;
+                                    box-shadow: #00000044 0.1em 0.2em 0.3em 0.05em;
+
                                 }
                             }
                             &.delete_btn {
@@ -63,8 +79,9 @@
 
                                 &:hover {
                                     color: #fff;
-                                    background: red;
-                                    box-shadow: #00000055 0.3em 0.3em 7px 0.1em;
+                                    background: $red;
+                                    box-shadow: #00000044 0.1em 0.2em 0.3em 0.05em;
+
                                 }
                             }
 
