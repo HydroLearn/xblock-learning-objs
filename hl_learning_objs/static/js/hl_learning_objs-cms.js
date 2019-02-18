@@ -71,19 +71,25 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
 
 
                         var valid_input = true;
+                        var exempt = false;
                         switch(currentIndex){
                             case 0:
-                                valid_input = $("#condition", xblock_element).val().trim().length > 0;
+                                // condition
+                                exempt = $("#condition_exclude",xblock_element).is(':checked');
+                                valid_input = exempt || ($("#condition", xblock_element).val().trim().length > 0);
                                 break;
                             case 1:
-
+                                // verb/Action
                                 valid_input = catalog.verb_validation();
                                 break;
                             case 2:
+                                // task
                                 valid_input = $("#task", xblock_element).val().trim().length > 0
                                 break;
                             case 3:
-                                valid_input = $("#degree", xblock_element).val().trim().length > 0;
+                                // degree
+                                exempt = $("#degree_exclude",xblock_element).is(':checked');
+                                valid_input = exempt || ($("#degree", xblock_element).val().trim().length > 0);
                                 break;
 
                             default: break;
@@ -107,11 +113,14 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
                                               return $(this).val();
                                             }).get();
 
+                        var condition_exempt = $("#condition_exclude", xblock_element).is(':checked');
+                        var degree_exempt = $("#degree_exclude", xblock_element).is(':checked');
+
                         // grab all input field values
                         var values_dictionary = {
-                            "condition": $("#condition", xblock_element).val().trim(),
+                            "condition": (condition_exempt)? "": $("#condition", xblock_element).val().trim(),
                             "task": $("#task", xblock_element).val().trim(),
-                            "degree": $("#degree", xblock_element).val().trim(),
+                            "degree": (degree_exempt) ? "" :$("#degree", xblock_element).val().trim(),
                             "level_id": $("#learning_level_selection option:selected", xblock_element).val(),
                             "level": $("#learning_level_selection option:selected", xblock_element).text(),
                             'verb_id': $(".learning_verb_selection.active option:selected", xblock_element).val(),
@@ -259,6 +268,8 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
         // bind verb selection swapping on learning_level selecting
         $("#learning_obj_wizard", xblock_element).on('change','#learning_level_selection', catalog.learning_level_change_evt);
 
+        $("#learning_level_selection", xblock_element).trigger('change');
+
         // map preview updating to the inputs
         $("#learning_obj_wizard", xblock_element).on('keyup', '#condition', update_preview);
         $("#learning_obj_wizard", xblock_element).on('change', '#condition_exclude', disable_condition_input);
@@ -267,9 +278,9 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
         $("#learning_obj_wizard", xblock_element).on('keyup', '#degree', update_preview);
         $("#learning_obj_wizard", xblock_element).on('change', '#degree_exclude', disable_degree_input);
         $("#learning_obj_wizard", xblock_element).on('change', '.ABET_input', update_ABET_review);
+
+        // trigger change on learning level selection
     }
-
-
 
     function getCookie(name) {
         var cookieValue = null;
