@@ -16,6 +16,31 @@
         margin-bottom: 60px;
     }
 
+    // styling for preview table
+    .record_listing_wrapper{
+
+
+        .record_listing.editable{
+            display: table;
+
+            .record_item{
+                display: table-row;
+
+                &.editable{
+
+                    .display_cell{
+                        display: table-cell;
+                    }
+
+                    .controls {
+                        display:table-cell;
+                    }
+
+                }
+            }
+        }
+    }
+
     .child_form{
         padding: 1em 1.5em;
     }

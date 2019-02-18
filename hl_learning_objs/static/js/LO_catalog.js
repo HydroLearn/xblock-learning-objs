@@ -367,6 +367,56 @@ function LO_catalog(initial_catalog){
         return wrapper;
     }
 
+    // generate editable elements for records
+    LO_catalog.prototype.editable_records_as_html = function(){
+
+        var wrapper = $('<div />',{
+            class: 'record_listing_wrapper',
+        });
+
+        var listing = $('<div />', {
+            class: 'record_listing editable',
+        });
+
+        // generate the listing based on the stored records
+        //  otherwise output a single list item stating an 'empty' message
+        if(this.num_records() > 0){
+            var catalog = this;
+
+            $.each(this._records, function(i, record){
+
+                var row = $('<div />', {
+                    class: 'record_item editable',
+                })
+
+                var record_string = record.as_str(catalog);
+                var display_str = $('<div />', {
+                    class: 'display_cell',
+                    text: record_string,
+                })
+
+                var controls = $('<div />', {
+                    class: 'controls',
+                })
+                controls.append($('<i />', {class: 'fa fa-edit edit_btn control'}))
+                controls.append($('<i />', {class: 'fas fa-trash-alt delete_btn control'}))
+
+                listing.append(row);
+
+            });
+        }else {
+
+            var row = $('<div />', {
+                class: 'record_item',
+                text: 'There don\'t appear to be any Learning Objectives',
+            })
+            listing.append(row);
+        }
+
+        wrapper.append(listing);
+
+        return wrapper;
+    }
 
     LO_catalog.prototype.verb_validation = function(){
         var level_selected = !!$('#learning_level_selection').val() && $('#learning_level_selection').val() != "None";
