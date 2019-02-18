@@ -168,7 +168,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
 
         // collect the input values
         if(!$('#condition_exclude', wizard).is(':checked')){
-            var condition_str = !!$('#condition', wizard).val().trim();
+            var condition_str = $('#condition', wizard).val().trim();
             if(!!condition_str){
                     obj_parts.push(condition_str.concat(','));
             }
