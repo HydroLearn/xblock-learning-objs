@@ -25,12 +25,20 @@
 
             .record_item{
                 display: table-row;
+                counter-reset: records;
 
                 &.editable{
 
                     .display_cell{
+                        &::before{
+                            counter-increment: records;
+                            content: counter(records) + ". ";
+                        }
+
                         display: table-cell;
+                        padding: 0 .5em;
                         transition: all .3s;
+
                         border-top-left-radius: 7px;
                         border-bottom-left-radius: 7px;
                         border: 1px solid #00000000;
@@ -40,6 +48,7 @@
                     .controls {
                         display:table-cell;
                         transition: all .3s;
+
                         border-top-right-radius: 7px;
                         border-bottom-right-radius: 7px;
                         border: 1px solid #00000000;
@@ -82,10 +91,10 @@
 
                 &:hover{
                     .display_cell{
-                        border: 1px solid #e5e5e5;
+                        border: 1px solid $HL_blue;
                     }
                     .controls{
-                        border: 1px solid #e5e5e5;
+                        border: 1px solid $HL_blue;
                     }
                 }
             }
