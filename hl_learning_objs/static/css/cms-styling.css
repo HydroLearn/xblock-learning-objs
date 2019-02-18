@@ -14,7 +14,8 @@
 .HL_LO_xblock_studio .learning_level_wrapper .verb_selection_wrapper {
   display: none; }
   .HL_LO_xblock_studio .learning_level_wrapper .verb_selection_wrapper .learning_verb_separator {
-    padding: 0 .3em; }
+    padding: 0 .3em;
+    color: #45a4f3; }
   .HL_LO_xblock_studio .learning_level_wrapper .verb_selection_wrapper.active {
     display: inline-block; }
   .HL_LO_xblock_studio .learning_level_wrapper .verb_selection_wrapper .learning_verb_selection {
