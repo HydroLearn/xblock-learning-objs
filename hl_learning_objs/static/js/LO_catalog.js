@@ -31,12 +31,28 @@ function Learning_obj(level, verb, condition, task, degree, outcomes){
     // method to output learning objective string from stored values
     //  must be provided a catalog for mapping verb/level indices
     Learning_obj.prototype.as_str = function(catalog){
-        return "{0} {1} {2} {3}.".format(
-                this.condition,
-                this.verb,  // this needs to be revised to call the catalog for verb value
+        if(typeof(catalog) == undefined) throw Error("Learning Objective: catalog for string lookup must be provided to 'as_str' method.")
+
+        var obj_string = "{0} {1} {2} {3}".format(
+                (!!this.condition)? this.condition.concat(','): this.condition,
+                "the student will be able to {0}".format(catalog.get_verb(this.level,this.verb)),
                 this.task,
                 this.degree
             )
+
+        // remove excess spaces if condition/degree aren't provided.
+        obj_string = obj_string.trim()
+
+        // punctuation
+        obj_string = obj_string.charAt(0).toUpperCase() + record_string.slice(1);
+
+        return obj_string;
+        // return "{0} {1} {2} {3}.".format(
+        //         this.condition,
+        //         this.verb,  // this needs to be revised to call the catalog for verb value
+        //         this.task,
+        //         this.degree
+        //     )
     }
 
     // method to output a json object representing the learning objective
@@ -335,13 +351,20 @@ function LO_catalog(initial_catalog){
 
             $.each(this._records, function(i, record){
                 //var record_string = "{0} {1} {2} {3}.";
+                // var record_string = "{0} {1} {2} {3}".format(
+                //         (!!this.condition)? this.condition.concat(','): this.condition,
+                //         "the student will be able to {0}".format(catalog.get_verb(this.level,this.verb)),
+                //         this.task,
+                //         this.degree
+                //     )
+                //
+                // // remove excess spaces if condition/degree aren't provided.
+                // record_string = record_string.trim()
+                //
+                // // punctuation
+                // record_string = record_string.charAt(0).toUpperCase() + record_string.slice(1)
 
-                var record_string = "{0}, the student will be able to {1} {2} {3}.".format(
-                        this.condition,
-                        catalog.get_verb(this.level,this.verb),
-                        this.task,
-                        this.degree
-                    )
+                var record_string = record.as_str(catalog);
 
                 var row = $('<li />', {
                     class: 'record_item',
