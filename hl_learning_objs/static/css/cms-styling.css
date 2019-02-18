@@ -1,3 +1,8 @@
+.ui-state-highlight {
+  background: #efefef;
+  border-radius: 7px;
+  border: 2px dashed #e5e5e5; }
+
 .chx_display_name {
   width: 400px; }
 
