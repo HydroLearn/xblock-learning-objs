@@ -420,6 +420,7 @@ function LO_catalog(initial_catalog){
 
         $(listing).sortable({
             handle:'.move_btn',
+            placeholder: "ui-state-highlight",
         });
         $(listing).disableSelection();
 

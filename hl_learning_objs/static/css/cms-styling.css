@@ -17,15 +17,11 @@
       display: table-cell;
       padding: 0 .5em;
       transition: all .3s;
-      border-top-left-radius: 7px;
-      border-bottom-left-radius: 7px;
+      border-radius: 7px;
       border: 1px solid #00000000; }
     .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable .record_item.editable .controls {
       display: none;
-      transition: all .3s;
-      border-top-right-radius: 7px;
-      border-bottom-right-radius: 7px;
-      border: 1px solid #00000000; }
+      transition: all .3s; }
       .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable .record_item.editable .controls .control {
         font-size: 1.4em;
         border-radius: 7px;
@@ -56,8 +52,7 @@
     .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable .record_item:hover .display_cell {
       border: 1px solid #45a4f3; }
     .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable .record_item:hover .controls {
-      display: table-cell;
-      border: 1px solid #45a4f3; }
+      display: table-cell; }
 .HL_LO_xblock_studio .child_form {
   padding: 1em 1.5em; }
 .HL_LO_xblock_studio .learning_level_wrapper label {
