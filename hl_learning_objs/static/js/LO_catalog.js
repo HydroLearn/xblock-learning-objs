@@ -162,7 +162,7 @@ function LO_catalog(initial_catalog){
         if(typeof(this.data[level_id].verbs) == "undefined") throw Error("the requested 'level_id' object doesn't contain any predefined verbs!");
 
         var separator = $('<i />',{
-            class: "fa fa-arrow-left",
+            class: "fa fa-arrow-left learning_verb_separator",
         });
 
         var verb_id = "verbs_select_{0}".format(level_id);
