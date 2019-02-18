@@ -41,7 +41,8 @@
                     }
 
                     .controls {
-                        display:table-cell;
+                        display:none;
+                        // display:table-cell;
                         transition: all .3s;
 
                         border-top-right-radius: 7px;
@@ -80,7 +81,7 @@
                             &.move_btn {
                                 color: $gray_med;
                                 cursor: grab;
-                                
+
                                 &:hover {
                                     color: #fff;
                                     background: $gray_med;
@@ -99,6 +100,7 @@
                         border: 1px solid $HL_blue;
                     }
                     .controls{
+                        display:table-cell;
                         border: 1px solid $HL_blue;
                     }
                 }

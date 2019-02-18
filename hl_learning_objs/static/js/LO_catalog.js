@@ -418,9 +418,10 @@ function LO_catalog(initial_catalog){
 
         wrapper.append(listing);
 
-        $(listing).draggable({
+        $(listing).sortable({
             handle:'.move_btn',
         });
+        $(listing).disableSelection();
 
         return wrapper;
     }
