@@ -196,7 +196,10 @@ function LO_catalog(initial_catalog){
 
 
 
-        return $('<div />', { class: 'verb_selection_wrapper'}).append(selection_label, selection);
+        return $('<div />', {
+            class: 'verb_selection_wrapper',
+            "data-level": level_id,
+        }).append(selection_label, selection);
     }
 
     LO_catalog.prototype.learning_level_change_evt = function(){
@@ -204,11 +207,15 @@ function LO_catalog(initial_catalog){
         var wrapper = $(this).closest('.learning_level_wrapper')
         var val = $(this).val();
 
+        wrapper.find('.verb_selection_wrapper').removeClass('active');
         wrapper.find('.learning_verb_selection').removeClass('active');
         wrapper.find('.learning_verb_selection').val("None");
 
+
+
         var associated_verb_select = wrapper.find('.learning_verb_selection[data-level={0}]'.format(val))
         associated_verb_select.addClass('active')
+        associated_verb_select.closest('.verb_selection_wrapper').addClass('active');
 
 
     }

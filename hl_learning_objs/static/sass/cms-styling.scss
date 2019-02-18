@@ -26,18 +26,26 @@
 
             }
         }
-
-        .learning_verb_selection{
+        .verb_selection_wrapper{
             display:none;
 
             &.active{
                 display:inline-block;
             }
+            
+            .learning_verb_selection{
+                display:none;
 
-            .verb_option{
+                &.active{
+                    display:inline-block;
+                }
 
+                .verb_option{
+
+                }
             }
         }
+
     }
 
     .ABET_selection_wrapper{
