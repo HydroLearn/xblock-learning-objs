@@ -167,14 +167,19 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
         var obj_parts = [];
 
         // collect the input values
-        if($('#condition_exclude', wizard).is(':checked')){
+        if(!$('#condition_exclude', wizard).is(':checked')){
             obj_parts.push($('#condition', wizard).val().trim().concat(','));
         }
 
-        obj_parts.push($('.learning_verb_selection.active option:selected', wizard).text().trim());
+
+        if(!!$('.learning_verb_selection.active option:selected', wizard).text().trim()){
+            obj_parts.push('the student will be able to '.concat($('.learning_verb_selection.active option:selected', wizard).text().trim()));
+        }
+
+
         obj_parts.push($('#task', wizard).val().trim());
 
-        if($('#degree_exclude', wizard).is(':checked')){
+        if(!$('#degree_exclude', wizard).is(':checked')){
             obj_parts.push($('#degree', wizard).val().trim());
         }
 
