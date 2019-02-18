@@ -167,25 +167,40 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
         var obj_parts = [];
 
         // collect the input values
-        obj_parts.push($('#condition', wizard).val().trim());
+        if($('#condition_exclude', wizard).is(':checked')){
+            obj_parts.push($('#condition', wizard).val().trim().concat(','));
+        }
+
         obj_parts.push($('.learning_verb_selection.active option:selected', wizard).text().trim());
         obj_parts.push($('#task', wizard).val().trim());
-        obj_parts.push($('#degree', wizard).val().trim());
+
+        if($('#degree_exclude', wizard).is(':checked')){
+            obj_parts.push($('#degree', wizard).val().trim());
+        }
+
+        var preview_string = "";
 
         $.each(obj_parts, function(i, val){
             // add space before if not the first element
-            if(i != 0) preview_boxes.append(' ');
+            if(i != 0) preview_string.concat(' ');
 
             // if the value isn't empty append it to the preview string
             if(!!val){
-                preview_boxes.append(val);
+                preview_string.concat(val);
             }else{
                 // otherwise show ellipses, and break the loop (showing more work ahead)
-                preview_boxes.append('...');
+                preview_string.concat('... ');
                 return false;
             }
 
         });
+
+        // add punctuation/capatilize first character
+        preview_string.concat('.');
+        preview_string = preview_string.charAt(0).toUpperCase() + preview_string.slice(1);
+
+
+        preview_boxes.append(preview_string);
     }
 
     function update_ABET_review(){
