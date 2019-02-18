@@ -15,7 +15,7 @@
     display: table-row; }
     .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable .record_item.editable .display_cell {
       display: table-cell;
-      padding: 0 .5em;
+      padding: .2em .5em;
       transition: all .3s;
       vertical-align: middle;
       border-radius: 7px;
