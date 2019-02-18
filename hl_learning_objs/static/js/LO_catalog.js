@@ -169,7 +169,7 @@ function LO_catalog(initial_catalog){
         var selection_label = $('<label />', {
             for: verb_id,
             class: 'learning_verb_label',
-            text: 'Learning Verb: '
+            text: 'Action: '
         });
 
         // genearte a select box listing the possible verbs for a specified learning level

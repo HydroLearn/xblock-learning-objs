@@ -29,8 +29,12 @@
         .verb_selection_wrapper{
             display:none;
 
+            label{
+                padding: 0 .5em;
+            }
+
             .learning_verb_separator {
-                padding: 0 .3em;
+                padding: 0 .5em;
                 color: $HL_blue;
             }
 
