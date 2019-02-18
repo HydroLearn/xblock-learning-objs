@@ -401,6 +401,8 @@ function LO_catalog(initial_catalog){
                 controls.append($('<i />', {class: 'fa fa-edit edit_btn control'}))
                 controls.append($('<i />', {class: 'fas fa-trash-alt delete_btn control'}))
 
+                row.append(display_str, controls);
+                
                 listing.append(row);
 
             });
