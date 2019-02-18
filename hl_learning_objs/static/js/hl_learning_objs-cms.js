@@ -23,8 +23,6 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
         $('.action_input', xblock_element).append(catalog._generate_level_selection());
         $('.abet_input', xblock_element).append(catalog._generate_ABET_selection());
 
-
-
         // by default hide the creation form until called
         $('#learning_obj_creation', xblock_element).hide()
 
@@ -47,10 +45,6 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
         $('#learning_obj_wizard', xblock_element).steps('destroy');
         initialize_steps();
 
-        // remove 'done' tags from each step tab
-        // $('#learning_obj_wizard .steps .done').each(function(index, tab){
-        //     $(tab).removeClass('done')._enableAria(false);
-        // })
     }
 
     function initialize_steps(){
@@ -323,19 +317,19 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
     // update listing of learning objectives based on catalog items
     function update_listing(){
 
-        if(catalog.num_records() == 0){
-            $('#learning_obj_collection', xblock_element).hide();
-            $('#learning_obj_empty', xblock_element).show();
-        }else{
-            $('#learning_obj_empty', xblock_element).hide();
-            $('#learning_obj_collection', xblock_element).html("");
+        // if(catalog.num_records() == 0){
+        //     $('#learning_obj_collection', xblock_element).hide();
+        //     $('#learning_obj_empty', xblock_element).show();
+        // }else{
+            // $('#learning_obj_empty', xblock_element).hide();
+            // $('#learning_obj_collection', xblock_element).html("");
 
             // get the record listing from the catalog as html
             var listing = catalog.records_as_html();
             $('#learning_obj_collection', xblock_element).append(listing);
 
             $('#learning_obj_collection', xblock_element).show();
-        }
+        // }
 
 
     }
