@@ -426,13 +426,13 @@ function LO_catalog(target, initial_catalog, edit_mode){
         var add_new_row = $('div />',{
                     class: 'new_item_row',
                 });
-                
+
         var add_new_cell = $('<div />',{
                         class: 'new_item_cell'
                     });
 
         var add_new_button = $('<button />', {
-            id: 'add_new'
+            id: 'add_new_btn'
         });
 
         add_new_cell.append(add_new_button);
