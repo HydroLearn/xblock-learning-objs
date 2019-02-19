@@ -432,7 +432,8 @@ function LO_catalog(target, initial_catalog, edit_mode){
                     });
 
         var add_new_button = $('<button />', {
-            id: 'add_new_btn'
+            id: 'add_new_btn',
+            text: 'Add Objective'
         });
 
         add_new_cell.append(add_new_button);
