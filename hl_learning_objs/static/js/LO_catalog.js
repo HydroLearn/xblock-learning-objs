@@ -369,6 +369,7 @@ function LO_catalog(target, initial_catalog, edit_mode){
 
         wrapper.append(listing);
 
+
         return wrapper;
     }
 
@@ -459,6 +460,41 @@ function LO_catalog(target, initial_catalog, edit_mode){
         return wrapper;
     }
 
+    LO_catalog.prototype._ABETs_set_as_html = function(){
+
+        var abets = [];
+        // get all abet id's in the records
+        $.each(this._records, function(i, elem){
+            abets.concat(this.ABET_ids);
+        });
+
+        // refine set to unique elements
+        abets = abets.filter(function (value, index, self) {
+            return self.indexOf(value) === index;
+        });
+
+        // sort the unique indexes
+        abets.sort()
+
+        debugger;
+        // generate listing of unique/ordered abets
+        var wrapper = $('<ul />', {
+            class: 'ABET_listing'
+        })
+
+        var catalog = this;
+        $.each(abets, function(i, value){
+            wrapper.append($('<li />', {
+                class: "abet_item",
+                text: catalog.ABET_outcomes[value]
+            }))
+        })
+
+
+        return wrapper;
+
+
+    }
     // reorder the records of the list to match display
     //      new_order is the current display ordering of the indices
     LO_catalog.prototype._update_record_indices = function(new_order){
@@ -502,6 +538,10 @@ function LO_catalog(target, initial_catalog, edit_mode){
 
         }else {
             $(this._target).append(this._records_as_html());
+            
+            $(this._target).append(this._ABETs_set_as_html());
+
+
         }
 
     }
