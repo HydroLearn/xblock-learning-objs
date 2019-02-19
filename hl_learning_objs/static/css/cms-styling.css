@@ -4,7 +4,8 @@
   border: 2px dashed #e5e5e5; }
 
 .accord_content {
-  margin: 1em; }
+  margin: 1em;
+  width: unset; }
   .accord_content .ui-icon {
     display: none;
     background-image: unset; }
