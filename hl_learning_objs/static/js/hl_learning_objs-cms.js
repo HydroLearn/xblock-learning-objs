@@ -337,19 +337,6 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
     // update listing of learning objectives based on catalog items
     function update_listing(){
 
-        // get an array mapping the current adjusted order of initial indexes
-        //var current_display_order = $('#learning_obj_collection',xblock_element ).find(".record_item").map( function(){ return $(this).attr('data-initial-index')}).toArray();
-
-        // update the stored records based off of display order
-        //catalog._update_record_indices(current_display_order);
-        //catalog.update_record_order();
-
-        // clear out the existing listing as it has changed
-        // $('#learning_obj_collection', xblock_element).html("");
-
-        // get the record listing from the catalog as html
-        // var listing = catalog.editable_records_as_html();
-        // $('#learning_obj_collection', xblock_element).append(listing);
         catalog.update_listing();
         $('#learning_obj_collection', xblock_element).show();
 

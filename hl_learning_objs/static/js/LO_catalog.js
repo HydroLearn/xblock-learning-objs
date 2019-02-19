@@ -421,29 +421,11 @@ function LO_catalog(target, initial_catalog, edit_mode){
             })
             listing.append(row);
         }
+        
+        // add the listing and add new button to the wrapper
+        wrapper.append(listing, add_new_btn);
 
 
-        // add row to hold new item button
-        var add_new_row = $('<div />',{
-                    class: 'new_item_row',
-                });
-
-        var add_new_cell = $('<div />',{
-                        class: 'new_item_cell'
-                    });
-
-        var add_new_button = $('<button />', {
-            id: 'add_new_btn',
-            text: '<i class="fa fa-plus"></i> Add Objective'
-        });
-
-        add_new_cell.append(add_new_button);
-        add_new_row.append(add_new_cell);
-
-
-        listing.append(add_new_row);
-
-        wrapper.append(listing);
 
         var catalog = this;
         // enable sortability controlls
