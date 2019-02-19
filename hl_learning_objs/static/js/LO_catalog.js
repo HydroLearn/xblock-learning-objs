@@ -406,10 +406,14 @@ function LO_catalog(target, initial_catalog, edit_mode){
                     class: 'controls',
                 })
 
-                var edit_btn = $('<i />', {class: 'fa fa-edit edit_btn control'})
+                // TODO: EDIT will require moving the wizard initialization into
+                //      the catalog itself in order to pass the necessary information
+                //      freely, will revisit this
+                //
+                // var edit_btn = $('<i />', {class: 'fa fa-edit edit_btn control'})
                 var delete_btn = $('<i />', {class: 'fa fa-trash delete_btn control'})
 
-                controls.append(edit_btn);
+                // controls.append(edit_btn);
                 controls.append(delete_btn);
                 //controls.append($('<i />', {class: 'fa fa-arrows move_btn control'}))
 
