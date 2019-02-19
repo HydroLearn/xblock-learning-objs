@@ -478,7 +478,8 @@ function LO_catalog(target, initial_catalog, edit_mode){
     }
 
     LO_catalog.prototype.update_listing = function(){
-        $(this._target).html('')
+        debugger;
+        $(this._target).html('');
 
         if(this._edit_mode){
             $(this._target).append(this._editable_records_as_html());
