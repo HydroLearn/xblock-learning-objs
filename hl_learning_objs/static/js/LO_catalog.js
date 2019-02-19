@@ -76,6 +76,7 @@ function Learning_obj(level, verb, condition, task, degree, outcomes){
 
 function LO_catalog(target, initial_catalog, edit_mode){
 
+    // target can either be a string or a jquery object
     this._target = target;
 
     this._edit_mode = (typeof(edit_mode) != 'undefined') ? edit_mode: false;
@@ -478,7 +479,7 @@ function LO_catalog(target, initial_catalog, edit_mode){
     }
 
     LO_catalog.prototype.update_listing = function(){
-        debugger;
+
         $(this._target).html('');
 
         if(this._edit_mode){
