@@ -439,10 +439,11 @@ function LO_catalog(initial_catalog){
     LO_catalog.prototype.update_record_indices = function(new_order){
         debugger;
 
+        var catalog = this;
         // construct a newly ordered collection of records
         var ordered_records = []
         $.each(new_order, function(new_position, old_position){
-            ordered_records.push(this._records[old_position]);
+            ordered_records.push(catalog._records[old_position]);
         })
 
         debugger;
