@@ -325,7 +325,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
 
     // update listing of learning objectives based on catalog items
     function update_listing(){
-        debugger;
+
         // get an array mapping the current adjusted order of initial indexes
         //var current_display_order = $('#learning_obj_collection',xblock_element ).find(".record_item").map( function(){ return $(this).attr('data-initial-index')}).toArray();
 
@@ -347,9 +347,6 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
 
     // Send current code and settings to the backend
     function studio_submit(commit) {
-
-        // update the catalog record indexes to match display order
-        //update_listing();
 
         // trigger commit
         commit = commit === undefined ? false : commit;

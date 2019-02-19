@@ -431,7 +431,7 @@ function LO_catalog(initial_catalog){
             start: function(e, ui){
                 ui.placeholder.height(ui.item.height());
                 ui.placeholder.width(ui.item.width());
-            }
+            },
             stop: function(e,ui){
                 // after sorting update catalog record collection
                 // to reflect changes
