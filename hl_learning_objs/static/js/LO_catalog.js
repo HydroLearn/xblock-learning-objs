@@ -422,7 +422,7 @@ function LO_catalog(target, initial_catalog, edit_mode){
             listing.append(row);
         }
 
-        debugger;
+        
         // add row to hold new item button
         var add_new_row = $('<div />',{
                     class: 'new_item_row',
@@ -447,20 +447,20 @@ function LO_catalog(target, initial_catalog, edit_mode){
 
         var catalog = this;
         // enable sortability controlls
-        // $(listing).sortable({
-        //     //handle:'.move_btn',
-        //     placeholder: "ui-state-highlight",
-        //     start: function(e, ui){
-        //         ui.placeholder.height(ui.item.height());
-        //         ui.placeholder.width(ui.item.width());
-        //     },
-        //     stop: function(e,ui){
-        //         // after sorting update catalog record collection
-        //         // to reflect changes
-        //         catalog.update_record_order();
-        //     }
-        // });
-        // $(listing).disableSelection();
+        $(listing).sortable({
+            handle:'.display_cell',
+            placeholder: "ui-state-highlight",
+            start: function(e, ui){
+                ui.placeholder.height(ui.item.height());
+                ui.placeholder.width(ui.item.width());
+            },
+            stop: function(e,ui){
+                // after sorting update catalog record collection
+                // to reflect changes
+                catalog.update_record_order();
+            }
+        });
+        $(listing).disableSelection();
 
         return wrapper;
     }
