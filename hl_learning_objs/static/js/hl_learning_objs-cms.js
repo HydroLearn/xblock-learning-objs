@@ -295,10 +295,9 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
             collapsible: true,
             active:false,
             heightStyle: content,
-        })
+        });
 
-        $('.tip_trigger', xblock_element).attr('title', "testing tooltips")
-        $('.tip_trigger', xblock_element).tooltip()
+
 
     }
 
