@@ -374,7 +374,7 @@ function LO_catalog(initial_catalog){
     LO_catalog.prototype.editable_records_as_html = function(){
 
         var wrapper = $('<div />',{
-            id: listing_display_target_id,
+            id: this.listing_display_target_id,
             class: 'record_listing_wrapper',
         });
 
