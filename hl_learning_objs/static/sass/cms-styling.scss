@@ -153,10 +153,6 @@
             padding: 0 .5em;
         }
 
-        input[type=text]{
-            width: 80%;
-        }
-
         .learning_level_selection{
             .learning_level_option{
 
@@ -355,6 +351,10 @@ $actions-container: 60px;
                 width: calc(100% - 50px);
                 min-width: unset;
                 // potentially add min-height here to normalize display
+
+                input[type="text"]{
+                    width: 80% !important;
+                }
 
                 ul{
                     margin: 3px 2em;
