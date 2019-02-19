@@ -461,12 +461,11 @@ function LO_catalog(target, initial_catalog, edit_mode){
     }
 
     LO_catalog.prototype._ABETs_set_as_html = function(){
-        debugger;
+        
         var abets = [];
         // get all abet id's in the records
         $.each(this._records, function(i, elem){
-            debugger;
-            abets.concat(elem.ABET_ids);
+            abets = abets.concat(this.ABET_ids);
         });
 
         // refine set to unique elements
