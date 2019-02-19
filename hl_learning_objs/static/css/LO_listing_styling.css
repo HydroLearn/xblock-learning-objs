@@ -2,4 +2,10 @@
   list-style: decimal;
   margin: 1em 1em 1em 3em; }
 
+ul, ol {
+  margin: 1em 1em 1em 3em; }
+
+ul {
+  list-style: disc; }
+
 /*# sourceMappingURL=LO_listing_styling.css.map */
