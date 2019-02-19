@@ -190,10 +190,10 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
             }
 
         }
-
-        var verb_selection = $('.learning_verb_selection.active option:selected', wizard);
+        debugger;
+        var verb_selection = $('.learning_verb_selection.active', wizard);
         if(verb_selection.length && verb_selection.val() != 'None' && !!verb_selection.find('option:selected', wizard).text().trim()){
-            obj_parts.push('the student will be able to '.concat($('.learning_verb_selection.active option:selected', wizard).text().trim()));
+            obj_parts.push('the student will be able to '.concat(verb_selection.find('option:selected', wizard).text().trim()));
         }
 
 
