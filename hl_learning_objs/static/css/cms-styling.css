@@ -25,7 +25,9 @@
         color: #45a4f3;
         background: #fff;
         border: 1px solid #45a4f3;
-        border-radius: 7px; }
+        border-radius: 7px;
+        font-weight: bold;
+        transition: all .3s; }
         .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable .new_item_row .new_item_cell button:hover {
           color: #fff;
           background: #45a4f3;

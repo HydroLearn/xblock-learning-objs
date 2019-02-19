@@ -422,7 +422,7 @@ function LO_catalog(target, initial_catalog, edit_mode){
             listing.append(row);
         }
 
-        
+
         // add row to hold new item button
         var add_new_row = $('<div />',{
                     class: 'new_item_row',
@@ -434,7 +434,7 @@ function LO_catalog(target, initial_catalog, edit_mode){
 
         var add_new_button = $('<button />', {
             id: 'add_new_btn',
-            text: 'Add Objective'
+            text: '<i class="fa fa-plus"></i> Add Objective'
         });
 
         add_new_cell.append(add_new_button);
