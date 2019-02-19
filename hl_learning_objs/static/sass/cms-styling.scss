@@ -7,8 +7,11 @@
     border: 2px dashed #e5e5e5;
 }
 
-.accord_content .ui-icon { display: none; }
-.accord_content .ui-accordion-header a { padding-left: 0; }
+.accord_content .ui-icon {
+    display: none; 
+    background-image: unset;
+}
+//.accord_content .ui-accordion-header a { padding-left: 0; }
 
 //---------------------------
 
