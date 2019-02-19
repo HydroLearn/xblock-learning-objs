@@ -74,10 +74,9 @@ function Learning_obj(level, verb, condition, task, degree, outcomes){
         and providing a listing of ABET outcomes
 */
 
-function LO_catalog(initial_catalog){
+function LO_catalog(target, initial_catalog){
 
-    this.listing_display_target_id = 'record_listing_wrapper'
-
+    this._target = target;
     // add loaded data to catalog from passed initial_catalog
     this.data = initial_catalog.levels;
     this.ABET_outcomes = initial_catalog.ABET;
@@ -333,7 +332,6 @@ function LO_catalog(initial_catalog){
     LO_catalog.prototype.records_as_html = function(){
 
         var wrapper = $('<div />',{
-            id: this.listing_display_target_id,
             class: 'record_listing_wrapper',
         });
 
@@ -374,7 +372,6 @@ function LO_catalog(initial_catalog){
     LO_catalog.prototype.editable_records_as_html = function(){
 
         var wrapper = $('<div />',{
-            id: this.listing_display_target_id,
             class: 'record_listing_wrapper',
         });
 
@@ -466,7 +463,7 @@ function LO_catalog(initial_catalog){
     LO_catalog.prototype.update_record_order = function(){
         debugger;
         // get an array of initial indexes ordered by current position
-        var current_display_order = $('#'+ this.listing_display_target_id).find(".record_item.editable").map( function(){
+        var current_display_order = $(this._target).find(".record_item").map( function(){
             debugger;
             return $(this).attr('data-record-index');
         }).toArray();
@@ -474,7 +471,7 @@ function LO_catalog(initial_catalog){
         this._update_record_indices(current_display_order);
 
         // reindex the initial order attributes to reflect sorted status
-        $.each( $('#'+ this.listing_display_target_id).find(".record_item.editable"), function(i, element){
+        $.each( $(this._target).find(".record_item"), function(i, element){
             $(this).attr('data-record-index',i);
         });
 
