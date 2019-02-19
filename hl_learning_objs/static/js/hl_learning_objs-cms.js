@@ -37,12 +37,6 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
         // by default hide the creation form until called
         $('#learning_obj_creation', xblock_element).hide()
 
-
-        $('.accord_content').accordion({
-            collapsible: true,
-            active:false,
-        })
-
         // update the listing display now that the data has been imported
         update_listing();
 
@@ -295,7 +289,15 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
         $("#learning_obj_wizard", xblock_element).on('change', '#degree_exclude', disable_degree_input);
         $("#learning_obj_wizard", xblock_element).on('change', '.ABET_input', update_ABET_review);
 
-        // trigger change on learning level selection
+
+        // initalize the accordion
+        $('.accord_content', xblock_element).accordion({
+            collapsible: true,
+            active:false,
+        })
+
+        $('.tip_trigger', xblock_element).tooltip()
+
     }
 
     function getCookie(name) {
