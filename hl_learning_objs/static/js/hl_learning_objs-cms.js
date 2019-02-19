@@ -1,6 +1,9 @@
 /* JavaScript for HydroLearn's learning objectives XBlock, Studio Side. */
 function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
 
+    /* -----------------------------
+        initial configuration/data import
+    -----------------------------*/
     // add modal tag so it's width gets adjusted on window resize
     $(xblock_element).closest('.modal-window').addClass('hl_resize_correction');
 
@@ -18,6 +21,10 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
         "editor": "EDITOR",
         "settings": "SETTINGS",
     };
+
+    /* -----------------------------
+        View Methods
+    -----------------------------*/
 
     function initialize_forms(){
         $('.action_input', xblock_element).append(catalog._generate_level_selection());
@@ -316,6 +323,15 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
 
     // update listing of learning objectives based on catalog items
     function update_listing(){
+        debugger;
+        // get an array mapping the current adjusted order of initial indexes
+        var current_display_order = $('#learning_obj_collection',xblock_element ).find(".record_item").map( function(){ return $(this).attr('data-initial-index')}).toArray();
+
+        // update the stored records based off of display order
+        catalog.update_record_indices(current_display_order);
+
+        // clear out the existing listing as it has changed
+        $('#learning_obj_collection', xblock_element).html("");
 
         // get the record listing from the catalog as html
         var listing = catalog.editable_records_as_html();
@@ -329,6 +345,10 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
     // Send current code and settings to the backend
     function studio_submit(commit) {
 
+        // update the catalog record indexes to match display order
+        update_listing();
+
+        // trigger commit
         commit = commit === undefined ? false : commit;
         var handlerUrl = runtime.handlerUrl(xblock_element, 'studio_submit');
 
@@ -374,6 +394,9 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
         // Set main pane to the editor
         tab_switch("editor");
 
+        /* -----------------------------
+            map base modal events
+        -----------------------------*/
 
         $(xblock_element).closest('.modal-window').find('.editor-modes .modal_tab').click(function(){
             tab_switch($(this).attr('data-mode'));

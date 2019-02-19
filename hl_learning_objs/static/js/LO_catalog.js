@@ -387,6 +387,7 @@ function LO_catalog(initial_catalog){
 
                 var row = $('<div />', {
                     class: 'record_item editable',
+                    "data-initial-index": i,
                 })
 
                 var record_string = record.as_str(catalog);
@@ -418,6 +419,8 @@ function LO_catalog(initial_catalog){
 
         wrapper.append(listing);
 
+
+        // enable sortability controlls
         $(listing).sortable({
             //handle:'.move_btn',
             placeholder: "ui-state-highlight",
@@ -431,7 +434,21 @@ function LO_catalog(initial_catalog){
         return wrapper;
     }
 
-    LO_catalog.prototype.update_record_indices = function(){
+    // reorder the records of the list to match display
+    //      new_order is the current display ordering of the indices
+    LO_catalog.prototype.update_record_indices = function(new_order){
+        debugger;
+
+        // construct a newly ordered collection of records
+        var ordered_records = []
+        $.each(new_order, function(new_position, old_position){
+            ordered_records.push(this._records[old_position]);
+        })
+
+        debugger;
+        // if there are any additional records not accounted for in new_order,
+        //  add them to the end of the array (new-items get added to end anyway)
+        this._records = ordered_records.concat(this._records.slice(ordered_records.length))
 
 
     }
