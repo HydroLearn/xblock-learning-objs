@@ -443,16 +443,14 @@ function LO_catalog(target, initial_catalog){
     // reorder the records of the list to match display
     //      new_order is the current display ordering of the indices
     LO_catalog.prototype._update_record_indices = function(new_order){
-        debugger;
 
         var catalog = this;
         // construct a newly ordered collection of records
         var ordered_records = []
         $.each(new_order, function(new_position, old_position){
             ordered_records.push(catalog._records[old_position]);
-        })
+        });
 
-        debugger;
         // if there are any additional records not accounted for in new_order,
         //  add them to the end of the array (new-items get added to end anyway)
         this._records = ordered_records.concat(this._records.slice(ordered_records.length))
@@ -461,20 +459,24 @@ function LO_catalog(target, initial_catalog){
     }
 
     LO_catalog.prototype.update_record_order = function(){
-        debugger;
+
         // get an array of initial indexes ordered by current position
-        var current_display_order = $(this._target).find(".record_item").map( function(){
-            debugger;
+        var current_display_order = $(".record_item", this._target).map( function(){
             return $(this).attr('data-record-index');
         }).toArray();
 
         this._update_record_indices(current_display_order);
 
         // reindex the initial order attributes to reflect sorted status
-        $.each( $(this._target).find(".record_item"), function(i, element){
+        $.each( $(".record_item", this._target), function(i, element){
             $(this).attr('data-record-index',i);
         });
 
+    }
+
+    LO_catalog.prototype.update_listing = function(){
+        $(this._target).html('')
+        $(this._target).append(this.editable_records_as_html());
     }
 
     LO_catalog.prototype.verb_validation = function(){
