@@ -424,7 +424,7 @@ function LO_catalog(target, initial_catalog, edit_mode){
 
         debugger;
         // add row to hold new item button
-        var add_new_row = $('div />',{
+        var add_new_row = $('<div />',{
                     class: 'new_item_row',
                 });
 
