@@ -294,6 +294,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
         $('.accord_content', xblock_element).accordion({
             collapsible: true,
             active:false,
+            heightStyle: content,
         })
 
         $('.tip_trigger', xblock_element).tooltip()
