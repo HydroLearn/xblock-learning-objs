@@ -391,7 +391,7 @@ function LO_catalog(initial_catalog){
 
                 var row = $('<div />', {
                     class: 'record_item editable',
-                    "data-initial-index": i,
+                    "data-record-index": i,
                 })
 
                 var record_string = record.as_str(catalog);
@@ -468,14 +468,14 @@ function LO_catalog(initial_catalog){
         // get an array of initial indexes ordered by current position
         var current_display_order = $('#'+ this.listing_display_target_id).find(".record_item").map( function(){
             debugger;
-            return $(this).attr('data-initial-index');
+            return $(this).attr('data-record-index');
         }).toArray();
 
         this._update_record_indices(current_display_order);
 
         // reindex the initial order attributes to reflect sorted status
         $.each( $('#'+ this.listing_display_target_id).find(".record_item"), function(i, element){
-            $(this).attr('data-initial-index',i);
+            $(this).attr('data-record-index',i);
         });
 
     }
