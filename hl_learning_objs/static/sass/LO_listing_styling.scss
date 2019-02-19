@@ -1,23 +1,25 @@
-.record_listing_wrapper{
+.objectives_listing{
+    .record_listing_wrapper{
 
-    .record_listing{
-        list-style: decimal;
-        margin: 1em 1em 1em 3em;
+        .record_listing{
+            list-style: decimal;
+            margin: 1em 1em 1em 3em;
 
-        .record_item{
+            .record_item{
 
+            }
         }
     }
-}
 
-ul, ol{
-    margin: 1em 1em 1em 3em;
-}
+    ul, ol{
+        margin: 1em 1em 1em 3em;
+    }
 
-ul {
-    list-style: disc;
-}
+    ul {
+        list-style: disc;
+    }
 
-ol {
-    list-style: decimal;
+    ol {
+        list-style: decimal;
+    }
 }

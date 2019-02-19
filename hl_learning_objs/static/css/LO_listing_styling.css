@@ -1,14 +1,11 @@
-.record_listing_wrapper .record_listing {
+.objectives_listing .record_listing_wrapper .record_listing {
   list-style: decimal;
   margin: 1em 1em 1em 3em; }
-
-ul, ol {
+.objectives_listing ul, .objectives_listing ol {
   margin: 1em 1em 1em 3em; }
-
-ul {
+.objectives_listing ul {
   list-style: disc; }
-
-ol {
+.objectives_listing ol {
   list-style: decimal; }
 
 /*# sourceMappingURL=LO_listing_styling.css.map */
