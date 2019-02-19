@@ -467,6 +467,7 @@ function LO_catalog(initial_catalog){
         debugger;
         // get an array of initial indexes ordered by current position
         var current_display_order = $('#'+ this.listing_display_target_id).find(".record_item").map( function(){
+            debugger;
             return $(this).attr('data-initial-index');
         }).toArray();
 
