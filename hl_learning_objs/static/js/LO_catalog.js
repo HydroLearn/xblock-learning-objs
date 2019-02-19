@@ -76,6 +76,8 @@ function Learning_obj(level, verb, condition, task, degree, outcomes){
 
 function LO_catalog(initial_catalog){
 
+    this.listing_display_target_id = 'record_listing_wrapper'
+
     // add loaded data to catalog from passed initial_catalog
     this.data = initial_catalog.levels;
     this.ABET_outcomes = initial_catalog.ABET;
@@ -331,6 +333,7 @@ function LO_catalog(initial_catalog){
     LO_catalog.prototype.records_as_html = function(){
 
         var wrapper = $('<div />',{
+            id: listing_display_target_id,
             class: 'record_listing_wrapper',
         });
 
@@ -371,6 +374,7 @@ function LO_catalog(initial_catalog){
     LO_catalog.prototype.editable_records_as_html = function(){
 
         var wrapper = $('<div />',{
+            id: listing_display_target_id,
             class: 'record_listing_wrapper',
         });
 
@@ -419,7 +423,7 @@ function LO_catalog(initial_catalog){
 
         wrapper.append(listing);
 
-
+        var catalog = this;
         // enable sortability controlls
         $(listing).sortable({
             //handle:'.move_btn',
@@ -427,6 +431,11 @@ function LO_catalog(initial_catalog){
             start: function(e, ui){
                 ui.placeholder.height(ui.item.height());
                 ui.placeholder.width(ui.item.width());
+            }
+            stop: function(e,ui){
+                // after sorting update catalog record collection
+                // to reflect changes
+                catalog.update_record_order();
             }
         });
         $(listing).disableSelection();
@@ -436,7 +445,7 @@ function LO_catalog(initial_catalog){
 
     // reorder the records of the list to match display
     //      new_order is the current display ordering of the indices
-    LO_catalog.prototype.update_record_indices = function(new_order){
+    LO_catalog.prototype._update_record_indices = function(new_order){
         debugger;
 
         var catalog = this;
@@ -451,6 +460,21 @@ function LO_catalog(initial_catalog){
         //  add them to the end of the array (new-items get added to end anyway)
         this._records = ordered_records.concat(this._records.slice(ordered_records.length))
 
+
+    }
+
+    LO_catalog.prototype.update_record_order = function(){
+        // get an array of initial indexes ordered by current position
+        var current_display_order = $('#'+ this.listing_display_target_id).find(".record_item").map( function(){
+            return $(this).attr('data-initial-index');
+        }).toArray();
+
+        this._update_record_indices(current_display_order);
+
+        // reindex the initial order attributes to reflect sorted status
+        $.each( $('#'+ this.listing_display_target_id).find(".record_item"), function(i, element){
+            $(this).attr('data-initial-index',i);
+        });
 
     }
 

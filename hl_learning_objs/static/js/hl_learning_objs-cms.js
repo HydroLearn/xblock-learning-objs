@@ -138,6 +138,8 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
                                 values_dictionary["outcomes"]
                             )
 
+                        //catalog.update_record_order();
+
                         // add record to catalog
                         catalog.add_record(new_LO);
 
@@ -325,10 +327,11 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
     function update_listing(){
         debugger;
         // get an array mapping the current adjusted order of initial indexes
-        var current_display_order = $('#learning_obj_collection',xblock_element ).find(".record_item").map( function(){ return $(this).attr('data-initial-index')}).toArray();
+        //var current_display_order = $('#learning_obj_collection',xblock_element ).find(".record_item").map( function(){ return $(this).attr('data-initial-index')}).toArray();
 
         // update the stored records based off of display order
-        catalog.update_record_indices(current_display_order);
+        //catalog._update_record_indices(current_display_order);
+        //catalog.update_record_order();
 
         // clear out the existing listing as it has changed
         $('#learning_obj_collection', xblock_element).html("");
@@ -346,7 +349,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
     function studio_submit(commit) {
 
         // update the catalog record indexes to match display order
-        update_listing();
+        //update_listing();
 
         // trigger commit
         commit = commit === undefined ? false : commit;
