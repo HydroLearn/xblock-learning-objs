@@ -81,7 +81,14 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
                                 break;
                             case 1:
                                 // verb/Action
-                                valid_input = catalog.verb_validation();
+                                
+                                var level_select = $('#learning_level_selection', xblock_element);
+                                var verb_select = $(".learning_verb_selection.active", xblock_element);
+
+                                var level_valid = !!level_select.val() && level_select.val() != "None";
+                                var verb_valid = !!verb_select.val() && verb_select.val() != "None";
+
+                                valid_input = level_valid && verb_valid;
                                 break;
                             case 2:
                                 // task

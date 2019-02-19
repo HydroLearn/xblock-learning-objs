@@ -14,7 +14,7 @@ function HL_LO_XBlock(runtime, xblock_element, viewbag) {
 
     $(function ($) {
         // add this listing of catalog records to the template
-        $('.objectives_listing', xblock_element).html(catalog.records_as_html());
+        $('.objectives_listing', xblock_element).html(catalog._records_as_html());
 
     });
 }

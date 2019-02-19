@@ -329,7 +329,7 @@ function LO_catalog(target, initial_catalog){
     }
 
     // generate displayable elements for records
-    LO_catalog.prototype.records_as_html = function(){
+    LO_catalog.prototype._records_as_html = function(){
 
         var wrapper = $('<div />',{
             class: 'record_listing_wrapper',
@@ -369,7 +369,7 @@ function LO_catalog(target, initial_catalog){
     }
 
     // generate editable elements for records
-    LO_catalog.prototype.editable_records_as_html = function(){
+    LO_catalog.prototype._editable_records_as_html = function(){
 
         var wrapper = $('<div />',{
             class: 'record_listing_wrapper',
@@ -476,12 +476,12 @@ function LO_catalog(target, initial_catalog){
 
     LO_catalog.prototype.update_listing = function(){
         $(this._target).html('')
-        $(this._target).append(this.editable_records_as_html());
+        $(this._target).append(this._editable_records_as_html());
     }
 
-    LO_catalog.prototype.verb_validation = function(){
-        var level_selected = !!$('#learning_level_selection').val() && $('#learning_level_selection').val() != "None";
-        var verb_selected = !!$(".learning_verb_selection.active").val() && $(".learning_verb_selection.active").val() != "None";
-
-        return level_selected && verb_selected;
-    }
+    // LO_catalog.prototype.verb_validation = function(){
+    //     var level_selected = !!$('#learning_level_selection').val() && $('#learning_level_selection').val() != "None";
+    //     var verb_selected = !!$(".learning_verb_selection.active").val() && $(".learning_verb_selection.active").val() != "None";
+    //
+    //     return level_selected && verb_selected;
+    // }
