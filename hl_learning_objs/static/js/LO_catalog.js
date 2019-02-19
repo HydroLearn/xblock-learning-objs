@@ -404,9 +404,21 @@ function LO_catalog(target, initial_catalog, edit_mode){
                 var controls = $('<div />', {
                     class: 'controls',
                 })
-                controls.append($('<i />', {class: 'fa fa-edit edit_btn control'}))
-                controls.append($('<i />', {class: 'fa fa-trash delete_btn control'}))
+
+                var edit_btn = $('<i />', {class: 'fa fa-edit edit_btn control'})
+                var delete_btn = $('<i />', {class: 'fa fa-trash delete_btn control'})
+
+                controls.append(edit_btn);
+                controls.append(delete_btn);
                 //controls.append($('<i />', {class: 'fa fa-arrows move_btn control'}))
+
+                // map delete events
+                delete_btn.click(function(){
+                    var index = $(this).closest('.record_item').attr('data-record-index')
+                    catalog.remove_record(index);
+                    catalog.update_listing();
+                })
+
 
                 row.append(display_str, controls);
 
@@ -486,7 +498,9 @@ function LO_catalog(target, initial_catalog, edit_mode){
         $(this._target).html('');
 
         if(this._edit_mode){
+
             $(this._target).append(this._editable_records_as_html());
+
         }else {
             $(this._target).append(this._records_as_html());
         }
