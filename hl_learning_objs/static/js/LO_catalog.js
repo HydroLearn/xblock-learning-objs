@@ -421,9 +421,9 @@ function LO_catalog(target, initial_catalog, edit_mode){
             })
             listing.append(row);
         }
-        
+
         // add the listing and add new button to the wrapper
-        wrapper.append(listing, add_new_btn);
+        wrapper.append(listing);
 
 
 

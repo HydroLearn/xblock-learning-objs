@@ -25,38 +25,30 @@
         margin-bottom: 60px;
     }
 
+    #add_new {
+        color: $HL_blue;
+        background:#fff;
+        border: 1px solid $HL_blue;
+        border-radius: 7px;
+        font-weight: bold;
+        margin: 1em 0;
+        padding: 3px 7px;
+
+        transition: all .3s;
+
+        &:hover{
+            color: #fff;
+            background:$HL_blue;
+            border: 1px solid #fff;
+        }
+    }
+
     // styling for preview table
     .record_listing_wrapper{
 
 
         .record_listing.editable{
             display: table;
-
-            .new_item_row {
-                display: table-row;
-
-                .new_item_cell{
-                    display:table-cell;
-
-                    button {
-                        width: 100%;
-                        color: $HL_blue;
-                        background:#fff;
-                        border: 1px solid $HL_blue;
-                        border-radius: 7px;
-                        font-weight: bold;
-
-                        transition: all .3s;
-
-                        &:hover{
-                            color: #fff;
-                            background:$HL_blue;
-                            border: 1px solid #fff;
-                        }
-                    }
-                }
-
-            }
 
             .record_item{
                 display: table-row;
