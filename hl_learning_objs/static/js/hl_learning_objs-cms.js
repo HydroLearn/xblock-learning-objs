@@ -9,7 +9,11 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
 
 
     // initialize the learning objecives data catalog with the provided blooms_catalog
-    var catalog = new LO_catalog('#learning_obj_collection',JSON.parse(viewbag.blooms_catalog));
+    var catalog = new LO_catalog(
+                        '#learning_obj_collection',
+                        JSON.parse(viewbag.blooms_catalog),
+                        true
+                    );
 
     // assuming existing objects were provided parse the records and import them
     var existing = JSON.parse(viewbag.objs);
@@ -81,7 +85,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
                                 break;
                             case 1:
                                 // verb/Action
-                                
+
                                 var level_select = $('#learning_level_selection', xblock_element);
                                 var verb_select = $(".learning_verb_selection.active", xblock_element);
 

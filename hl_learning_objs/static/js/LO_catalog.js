@@ -74,9 +74,12 @@ function Learning_obj(level, verb, condition, task, degree, outcomes){
         and providing a listing of ABET outcomes
 */
 
-function LO_catalog(target, initial_catalog){
+function LO_catalog(target, initial_catalog, edit_mode){
 
     this._target = target;
+
+    this._edit_mode = (typeof(edit_mode) != 'undefined') ? edit_mode: false;
+
     // add loaded data to catalog from passed initial_catalog
     this.data = initial_catalog.levels;
     this.ABET_outcomes = initial_catalog.ABET;
@@ -476,12 +479,11 @@ function LO_catalog(target, initial_catalog){
 
     LO_catalog.prototype.update_listing = function(){
         $(this._target).html('')
-        $(this._target).append(this._editable_records_as_html());
-    }
 
-    // LO_catalog.prototype.verb_validation = function(){
-    //     var level_selected = !!$('#learning_level_selection').val() && $('#learning_level_selection').val() != "None";
-    //     var verb_selected = !!$(".learning_verb_selection.active").val() && $(".learning_verb_selection.active").val() != "None";
-    //
-    //     return level_selected && verb_selected;
-    // }
+        if(this._edit_mode){
+            $(this._target).append(this._editable_records_as_html());
+        }else {
+            $(this._target).append(this._records_as_html());
+        }
+
+    }
