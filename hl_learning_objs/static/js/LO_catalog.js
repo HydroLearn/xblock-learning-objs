@@ -461,7 +461,7 @@ function LO_catalog(target, initial_catalog, edit_mode){
     }
 
     LO_catalog.prototype._ABETs_set_as_html = function(){
-        
+
         var abets = [];
         // get all abet id's in the records
         $.each(this._records, function(i, elem){
@@ -539,6 +539,9 @@ function LO_catalog(target, initial_catalog, edit_mode){
         }else {
             $(this._target).append(this._records_as_html());
 
+            $(this._target).append($('<h3 />',{
+                text: "ABET outcomes"
+            }));
             $(this._target).append(this._ABETs_set_as_html());
 
 
