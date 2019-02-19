@@ -37,6 +37,12 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
         // by default hide the creation form until called
         $('#learning_obj_creation', xblock_element).hide()
 
+
+        $('.accord_content').accordion({
+            collapsible: true,
+            active:false,
+        })
+
         // update the listing display now that the data has been imported
         update_listing();
 

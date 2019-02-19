@@ -498,7 +498,6 @@ function LO_catalog(target, initial_catalog, edit_mode){
         $(this._target).html('');
 
         if(this._edit_mode){
-
             $(this._target).append(this._editable_records_as_html());
 
         }else {
