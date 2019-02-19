@@ -422,6 +422,15 @@ function LO_catalog(target, initial_catalog, edit_mode){
             listing.append(row);
         }
 
+        // add row to hold new item button
+        listing.append($('div />',{
+                    class: 'new_item_row',
+                }).append($('<div />',{
+                        class: 'new_item_cell'
+                    })).append($('<button />', {
+                        id: 'add_new'
+                    })));
+
         wrapper.append(listing);
 
         var catalog = this;

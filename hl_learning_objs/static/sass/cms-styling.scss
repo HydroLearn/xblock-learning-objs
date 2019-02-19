@@ -32,6 +32,29 @@
         .record_listing.editable{
             display: table;
 
+            .new_item_row {
+                display: table-row;
+
+                .new_item_cell{
+                    display:table-cell;
+
+                    button {
+                        width: 100%;
+                        color: $HL_blue;
+                        background:#fff;
+                        border: 1px solid $HL_blue;
+                        border-radius: 7px;
+
+                        &:hover{
+                            color: #fff;
+                            background:$HL_blue;
+                            border: 1px solid #fff;
+                        }
+                    }
+                }
+
+            }
+
             .record_item{
                 display: table-row;
 
