@@ -461,11 +461,12 @@ function LO_catalog(target, initial_catalog, edit_mode){
     }
 
     LO_catalog.prototype._ABETs_set_as_html = function(){
-
+        debugger;
         var abets = [];
         // get all abet id's in the records
         $.each(this._records, function(i, elem){
-            abets.concat(this.ABET_ids);
+            debugger;
+            abets.concat(elem.ABET_ids);
         });
 
         // refine set to unique elements
@@ -476,7 +477,7 @@ function LO_catalog(target, initial_catalog, edit_mode){
         // sort the unique indexes
         abets.sort()
 
-        debugger;
+
         // generate listing of unique/ordered abets
         var wrapper = $('<ul />', {
             class: 'ABET_listing'
@@ -538,7 +539,7 @@ function LO_catalog(target, initial_catalog, edit_mode){
 
         }else {
             $(this._target).append(this._records_as_html());
-            
+
             $(this._target).append(this._ABETs_set_as_html());
 
 
