@@ -16,6 +16,20 @@
   margin-bottom: 60px; }
 .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable {
   display: table; }
+  .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable .new_item_row {
+    display: table-row; }
+    .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable .new_item_row .new_item_cell {
+      display: table-cell; }
+      .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable .new_item_row .new_item_cell button {
+        width: 100%;
+        color: #45a4f3;
+        background: #fff;
+        border: 1px solid #45a4f3;
+        border-radius: 7px; }
+        .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable .new_item_row .new_item_cell button:hover {
+          color: #fff;
+          background: #45a4f3;
+          border: 1px solid #fff; }
   .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable .record_item {
     display: table-row; }
     .HL_LO_xblock_studio .record_listing_wrapper .record_listing.editable .record_item.editable .display_cell {
