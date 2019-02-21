@@ -198,7 +198,7 @@ class HL_LearningObjs_XBlock(XBlock):
             # generate a string for each learning objective
             objs_strs = map(lambda x: "Learning Objective: (Level %s:%s) %s %s %s %s." % (
                                     str(int(x['level']) + 1),
-                                    blooms_catalog['levels'][str(x['level'])],
+                                    blooms_catalog['levels'][str(x['level'])]['display_name'],
                                     x["condition"],
                                     blooms_catalog['levels'][str(x['level'])]['verbs'][int(x["verb"])],
                                     x["task"],
