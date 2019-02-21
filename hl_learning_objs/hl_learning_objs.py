@@ -196,11 +196,11 @@ class HL_LearningObjs_XBlock(XBlock):
         if self.learning_objs:
 
             # generate a string for each learning objective
-            objs_strs = map(lambda x: "Learning Objective: (Level %s:%s) %s %s %s %s." % (
+            objs_strs = map(lambda x: "<p>Learning Objective: (Level %s:%s) %s %s %s %s.</p>" % (
                                     str(int(x['level']) + 1),
                                     blooms_catalog['levels'][str(x['level'])]['display_name'],
                                     x["condition"],
-                                    blooms_catalog['levels'][str(x['level'])]['verbs'][int(x["verb"])],
+                                    "the student will be able to %" % blooms_catalog['levels'][str(x['level'])]['verbs'][int(x["verb"])],
                                     x["task"],
                                     x["degree"]
                                 ), self.learning_objs)
@@ -209,8 +209,6 @@ class HL_LearningObjs_XBlock(XBlock):
             return_string = "<br/>".join(objs_strs)
 
 
-            print("*** CHECKING INDEX VALUE ***")
-            print(return_string)
             # potential addition of indexing by abet id's
 
             # for obj in self.learning_objs:
