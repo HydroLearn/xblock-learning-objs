@@ -232,7 +232,7 @@ class HL_LearningObjs_XBlock(XBlock):
                 re.DOTALL |
                 re.VERBOSE),
             "",
-            get_learning_objs_string(),
+            self.get_learning_objs_string(),
         )
         html_content = escape_html_characters(html_content)
         html_body = {
