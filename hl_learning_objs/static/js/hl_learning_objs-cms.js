@@ -190,7 +190,7 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
             }
 
         }
-        
+
         var verb_selection = $('.learning_verb_selection.active', wizard);
         if(verb_selection.length && verb_selection.val() != 'None' && !!verb_selection.find('option:selected', wizard).text().trim()){
             obj_parts.push('the student will be able to '.concat(verb_selection.find('option:selected', wizard).text().trim()));
@@ -375,7 +375,8 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
 
 
     $(function($) {
-
+        // trigger custom modal resize event (provided by studio view hl template)
+        $('body').trigger('resize_modal')
 
         // add actions for the top of the modal to switch views
         for (var mode in studio_buttons) {
