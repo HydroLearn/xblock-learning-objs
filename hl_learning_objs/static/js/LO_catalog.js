@@ -487,12 +487,24 @@ function LO_catalog(target, initial_catalog, edit_mode){
         })
 
         var catalog = this;
-        $.each(abets, function(i, value){
+
+        // there are abets output list items for each
+        if(abets.length){
+
+            $.each(abets, function(i, value){
+                wrapper.append($('<li />', {
+                    class: "abet_item",
+                    text: catalog.ABET_outcomes[value]
+                }))
+            });
+
+        }else { // otherwise output none message
             wrapper.append($('<li />', {
                 class: "abet_item",
-                text: catalog.ABET_outcomes[value]
+                text: "There are no specified ABET outcomes for these objectives."
             }))
-        })
+        }
+
 
 
         return wrapper;
