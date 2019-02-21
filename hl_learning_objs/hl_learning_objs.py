@@ -208,6 +208,9 @@ class HL_LearningObjs_XBlock(XBlock):
             # join the list of learning obj strings
             return_string = "<br/>".join(objs_strs)
 
+
+            print("*** CHECKING INDEX VALUE ***")
+            print(return_string)
             # potential addition of indexing by abet id's
 
             # for obj in self.learning_objs:
