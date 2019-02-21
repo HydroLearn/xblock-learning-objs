@@ -173,8 +173,55 @@ class HL_LearningObjs_XBlock(XBlock):
 
         return result
 
+    def get_learning_objs_string(self):
+        """
+            method for generating a string of learning objectives
+            from stored list mapped to the catalog.
+        """
+        return_string = ""
+        blooms_catalog = json.loads(load_resource("static/blooms_catalog.json"))
+
+        # for each item in the stored list, generate a string mapping
+        # verb/level/abet_outcomes to the catalog.
+
+        # sample list item{
+        #   level,
+        #   verb,
+        #   condition,
+        #   task,
+        #   degree,
+        #   ABET_ids
+        # }
+        # if there are learning objectives
+        if self.learning_objs:
+
+            # generate a string for each learning objective
+            objs_strs = map(lambda x: "Learning Objective: (Level %s:%s) %s %s %s %s." % (
+                                    str(int(x['level']) + 1),
+                                    blooms_catalog['levels'][str(x['level'])],
+                                    x["condition"],
+                                    blooms_catalog['levels'][str(x['level'])]['verbs'][int(x["verb"])],
+                                    x["task"],
+                                    x["degree"]
+                                ), self.learning_objs)
+
+            # join the list of learning obj strings
+            return_string = "<br/>".join(obj_strs)
+
+            # potential addition of indexing by abet id's
+
+            # for obj in self.learning_objs:
+            #     # generate sorted collection of abet outcomes
+            #     outcomes_strs = map(lambda id: "ABET Outcome: %s" %
+            #                 blooms_catalog["ABET"][int(id)],
+            #             sorted(obj["ABET_ids"]))
+
+
+        return return_string
+
+
     def index_dictionary(self):
-        xblock_body = super(HLCustomTextXBlock, self).index_dictionary()
+        xblock_body = super(HL_LearningObjs_XBlock, self).index_dictionary()
         # Removing script and style
         html_content = re.sub(
             re.compile(
@@ -185,7 +232,7 @@ class HL_LearningObjs_XBlock(XBlock):
                 re.DOTALL |
                 re.VERBOSE),
             "",
-            # self.content
+            get_learning_objs_string(),
         )
         html_content = escape_html_characters(html_content)
         html_body = {
@@ -198,6 +245,8 @@ class HL_LearningObjs_XBlock(XBlock):
             xblock_body["content"] = html_body
         xblock_body["content_type"] = "Text"
         return xblock_body
+
+
 
     # TO-DO: change this to create the scenarios you'd like to see in the
     # workbench while developing your XBlock.
