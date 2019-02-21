@@ -200,7 +200,7 @@ class HL_LearningObjs_XBlock(XBlock):
                                     str(int(x['level']) + 1),
                                     blooms_catalog['levels'][str(x['level'])]['display_name'],
                                     x["condition"],
-                                    "the student will be able to %" % blooms_catalog['levels'][str(x['level'])]['verbs'][int(x["verb"])],
+                                    "the student will be able to %s" % blooms_catalog['levels'][str(x['level'])]['verbs'][int(x["verb"])],
                                     x["task"],
                                     x["degree"]
                                 ), self.learning_objs)
