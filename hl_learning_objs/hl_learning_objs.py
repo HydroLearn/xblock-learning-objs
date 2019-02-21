@@ -206,7 +206,7 @@ class HL_LearningObjs_XBlock(XBlock):
                                 ), self.learning_objs)
 
             # join the list of learning obj strings
-            return_string = "<br/>".join(obj_strs)
+            return_string = "<br/>".join(objs_strs)
 
             # potential addition of indexing by abet id's
 
