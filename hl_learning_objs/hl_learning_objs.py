@@ -131,6 +131,7 @@ class HL_LearningObjs_XBlock(XBlock):
         fragment.add_css(load_resource('static/css/jquery-ui.min.css'))
         fragment.add_css(load_resource('static/css/jquery.steps.css'))
         fragment.add_css(load_resource('static/css/cms-styling.css'))
+        fragment.add_css(load_resource('static/css/modal-styling.css'))
         fragment.add_css(load_resource('static/css/LO_listing_styling.css'))
 
         fragment.add_javascript(load_resource('static/js/js-str-format.js'))

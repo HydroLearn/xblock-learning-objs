@@ -97,20 +97,6 @@
 .HL_LO_xblock_studio .ABET_selection_wrapper .ABET_Label {
   display: block; }
 
-.modal-type-hl_learning_objs .edit-xblock-modal {
-  display: flex;
-  flex-flow: column;
-  height: 100%; }
-  .modal-type-hl_learning_objs .edit-xblock-modal .modal-header {
-    flex-grow: unset; }
-  .modal-type-hl_learning_objs .edit-xblock-modal .modal-content {
-    overflow: hidden !important;
-    flex-grow: 1; }
-    .modal-type-hl_learning_objs .edit-xblock-modal .modal-content .xblock-editor, .modal-type-hl_learning_objs .edit-xblock-modal .modal-content .xblock-studio_view, .modal-type-hl_learning_objs .edit-xblock-modal .modal-content .HL_LO_xblock_studio, .modal-type-hl_learning_objs .edit-xblock-modal .modal-content .modal_tab_view {
-      height: 100%; }
-  .modal-type-hl_learning_objs .edit-xblock-modal .modal-actions {
-    flex-grow: unset; }
-
 #learning_obj_listing h3 {
   font-size: 1.2em;
   font-weight: 600; }

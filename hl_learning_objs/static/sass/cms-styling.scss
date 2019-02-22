@@ -197,28 +197,28 @@
 }
 
 // this modal requires some special styling to display properly
-.modal-type-hl_learning_objs{
-    .edit-xblock-modal{
-        display: flex;
-        flex-flow: column;
-        height: 100%;
-
-        .modal-header{
-            flex-grow: unset;
-        }
-        .modal-content {
-        	overflow: hidden !important;
-            flex-grow: 1;
-
-            .xblock-editor, .xblock-studio_view, .HL_LO_xblock_studio, .modal_tab_view{
-                height: 100%;
-            }
-        }
-        .modal-actions {
-            flex-grow: unset;
-        }
-    }
-}
+// .modal-type-hl_learning_objs{
+//     .edit-xblock-modal{
+//         display: flex;
+//         flex-flow: column;
+//         height: 100%;
+//
+//         .modal-header{
+//             flex-grow: unset;
+//         }
+//         .modal-content {
+//         	overflow: hidden !important;
+//             flex-grow: 1;
+//
+//             .xblock-editor, .xblock-studio_view, .HL_LO_xblock_studio, .modal_tab_view{
+//                 height: 100%;
+//             }
+//         }
+//         .modal-actions {
+//             flex-grow: unset;
+//         }
+//     }
+// }
 
 
 $wizard_padding: 1em;
