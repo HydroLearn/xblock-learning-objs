@@ -38,7 +38,7 @@ function Learning_obj(level, verb, condition, task, degree, outcomes){
                 "the student will be able to {0}".format(catalog.get_verb(this.level,this.verb)),
                 this.task,
                 this.degree,
-                "<span style='font-color:#e5e5e5; font-style:italic;'>(Level {0}:{1})</span>".format((parseInt(his.level) + 1),catalog.get_level(this.level).display_name)
+                "<span style='font-color:#e5e5e5; font-style:italic;'>(Level {0}:{1})</span>".format((parseInt(this.level) + 1),catalog.get_level(this.level).display_name)
             )
 
         // remove excess spaces if condition/degree aren't provided.
