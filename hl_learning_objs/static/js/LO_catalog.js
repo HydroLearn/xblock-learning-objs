@@ -33,12 +33,12 @@ function Learning_obj(level, verb, condition, task, degree, outcomes){
     Learning_obj.prototype.as_str = function(catalog){
         if(typeof(catalog) == undefined) throw Error("Learning Objective: catalog for string lookup must be provided to 'as_str' method.")
 
-        var obj_string = "{0} {1} {2} {3} {4}".format(
+        var obj_string = "{0} {1} {2} {3}".format(
                 (!!this.condition)? this.condition.concat(','): this.condition,
                 "the student will be able to {0}".format(catalog.get_verb(this.level,this.verb)),
                 this.task,
                 this.degree,
-                "<span style='font-color:#e5e5e5; font-style:italic;'>(Level {0}:{1})</span>".format((parseInt(this.level) + 1),catalog.get_level(this.level).display_name)
+
             )
 
         // remove excess spaces if condition/degree aren't provided.
@@ -46,7 +46,7 @@ function Learning_obj(level, verb, condition, task, degree, outcomes){
 
         // punctuation
         obj_string = obj_string.charAt(0).toUpperCase() + obj_string.slice(1).concat('.');
-
+        obj_string += "(Level {0}:{1})".format((parseInt(this.level) + 1),catalog.get_level(this.level).display_name),
         return obj_string;
     }
 
