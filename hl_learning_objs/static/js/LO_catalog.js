@@ -46,7 +46,7 @@ function Learning_obj(level, verb, condition, task, degree, outcomes){
 
         // punctuation
         obj_string = obj_string.charAt(0).toUpperCase() + obj_string.slice(1).concat('.');
-        obj_string += "(Level {0}:{1})".format((parseInt(this.level) + 1),catalog.get_level(this.level).display_name),
+        obj_string += "(Level {0}:{1})".format((parseInt(this.level) + 1),catalog.get_level(this.level).display_name);
         return obj_string;
     }
 
