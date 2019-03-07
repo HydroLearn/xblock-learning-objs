@@ -35,6 +35,9 @@ from xblock.fields import (
 # from xblock.fragment import Fragment #DEPRECIATED
 from web_fragments.fragment import Fragment
 
+#  TODO:
+#   revise this component based on the following description:
+#       https://docs.google.com/presentation/d/1R4Dhhopm-gyW-n6o498IvVVqjFFoZNT6VgTNs-ToZoA/edit#slide=id.g51c41d0d00_0_0
 
 class HL_LearningObjs_XBlock(XBlock):
     """
@@ -43,12 +46,16 @@ class HL_LearningObjs_XBlock(XBlock):
 
         stores a list of Learning objective strings
     """
+
+    CATEGORY = "hl_learning_objs"
+    STUDIO_LABEL = "Learning Objectives"
+
     # xblock fields
     display_name = String(
-        display_name="Learning Objectives",
+        display_name="Display Name",
         help="This name appears in the horizontal navigation at the top of the page",
         scope=Scope.settings,
-        default="Learning Objectives"
+        default="Learning Objectives (Wizard)"
     )
 
     learning_objs = List(
