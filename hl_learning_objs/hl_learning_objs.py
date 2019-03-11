@@ -13,6 +13,9 @@ Author : Cary Rivet
 """
 
 import urllib, datetime, json, urllib2
+
+from hl_text import hl_text_XBlock
+
 from .utils import render_template, load_resource, resource_string
 from django.template import Context, Template
 
@@ -267,3 +270,26 @@ class HL_LearningObjs_XBlock(XBlock):
              """<HLLearningObjs/>
              """),
         ]
+
+
+# # text implementation of learning objs xblock without wizard interface
+class HL_LearningObjs_text_XBlock(hl_text_XBlock):
+
+    # modify path to the custom starter template for empty xblocks
+    #empty_template = 'templates/initial_learning_activity_template.html'
+
+    display_name = String(
+        display_name="Display Name",
+        help="This name appears in the horizontal navigation at the top of the page",
+        scope=Scope.settings,
+        default="Learning Objectives (Template)"
+    )
+
+    def get_empty_template(self, context={}):
+        return render_template('templates/learning_obj_text_template.html', context)
+
+    def studio_view(self, context):
+
+        fragment = super(HL_LearningObjs_text_XBlock, self).studio_view(context)
+
+        return fragment

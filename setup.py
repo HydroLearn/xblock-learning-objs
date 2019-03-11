@@ -26,13 +26,16 @@ VERSION = '0.1'
 # xblocks  #########################################################
 PREREQs = [
     'XBlock',
-    'xblock-hl-text',
     'xblock-utils',
+    'xblock-hl-text',
+
 ]
 
 BLOCKS = [
     # the main learning obj block
-    'hl_learning_objs = hl_learning_objs:HL_LearningObjs_XBlock',
+    'hl_learning_objs = hl_learning_objs:HL_LearningObjs_text_XBlock',
+    'hl_learning_objs_advanced = hl_learning_objs:HL_LearningObjs_XBlock',
+
 ]
 
 setup(
@@ -47,5 +50,10 @@ setup(
     entry_points={
         'xblock.v1': BLOCKS
     },
-    package_data=package_data("hl_learning_objs", ["static", "public", "templates"]),
+    package_data=package_data("hl_learning_objs",
+                              [
+                                    "static",
+                                    "public",
+                                    "templates"
+                              ]),
 )
