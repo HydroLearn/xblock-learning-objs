@@ -288,7 +288,7 @@ class HL_LearningObjs_text_XBlock(hl_text_XBlock):
     )
 
     def get_empty_template(self, context={}):
-        return render_template('templates/learning_obj_text_template.html', context)
+        return loader.render_template('templates/learning_obj_text_template.html', context)
 
     def studio_view(self, context):
 
