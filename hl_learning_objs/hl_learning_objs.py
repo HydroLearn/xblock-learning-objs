@@ -16,8 +16,7 @@ import urllib, datetime, json, urllib2
 
 from hl_text import hl_text_XBlock
 
-from .utils import render_template, load_resource, resource_string
-from django.template import Context, Template
+
 
 # imports for content indexing support
 import re
@@ -34,6 +33,9 @@ from xblock.fields import (
         Reference, # reference to another xblock
         ReferenceList, # list of references to other xblocks
     )
+
+from xblockutils.resources import ResourceLoader
+loader = ResourceLoader(__name__)
 
 # from xblock.fragment import Fragment #DEPRECIATED
 from web_fragments.fragment import Fragment
@@ -93,22 +95,22 @@ class HL_LearningObjs_XBlock(XBlock):
         """
         fragment = Fragment()
 
-        blooms = json.loads(load_resource("static/blooms_catalog.json"))
+        blooms = json.loads(loader.load_unicode("static/blooms_catalog.json"))
         content = {
             'self': self,
             }
 
         # body_html = unicode(self.generate_html())
-        fragment.add_content(render_template('templates/learning_objs-lms.html', content))
-        fragment.add_css(load_resource('static/css/lms-styling.css'))
-        fragment.add_css(load_resource('static/css/LO_listing_styling.css'))
+        fragment.add_content(loader.render_template('templates/learning_objs-lms.html', content))
+        fragment.add_css(loader.load_unicode('static/css/lms-styling.css'))
+        fragment.add_css(loader.load_unicode('static/css/LO_listing_styling.css'))
 
         #fragment.add_content(render_template('templates/HLCustomText.html', content))
 
         # add the custom initialization code for the LMS view and initialize it
-        fragment.add_javascript(load_resource('static/js/js-str-format.js'))
-        fragment.add_javascript(load_resource('static/js/LO_catalog.js'))
-        fragment.add_javascript(load_resource('static/js/hl_learning_objs-lms.js'))
+        fragment.add_javascript(loader.load_unicode('static/js/js-str-format.js'))
+        fragment.add_javascript(loader.load_unicode('static/js/LO_catalog.js'))
+        fragment.add_javascript(loader.load_unicode('static/js/hl_learning_objs-lms.js'))
 
         fragment.initialize_js('LO_catalog')
         fragment.initialize_js('HL_LO_XBlock', {
@@ -125,7 +127,7 @@ class HL_LearningObjs_XBlock(XBlock):
         """
 
         # load blooms config
-        blooms = json.loads(load_resource("static/blooms_catalog.json"))
+        blooms = json.loads(loader.load_unicode("static/blooms_catalog.json"))
         content = {
             'self': self,
             'blooms_catalog': json.dumps(blooms),
@@ -135,20 +137,20 @@ class HL_LearningObjs_XBlock(XBlock):
         fragment = Fragment()
 
         # Load fragment template
-        fragment.add_content(render_template('templates/learning_objs-cms.html', content))
+        fragment.add_content(loader.render_template('templates/learning_objs-cms.html', content))
 
         # add static files for styling, and template initialization
-        fragment.add_css(load_resource('static/css/jquery-ui.min.css'))
-        fragment.add_css(load_resource('static/css/jquery.steps.css'))
-        fragment.add_css(load_resource('static/css/cms-styling.css'))
-        fragment.add_css(load_resource('static/css/modal-styling.css'))
-        fragment.add_css(load_resource('static/css/LO_listing_styling.css'))
+        fragment.add_css(loader.load_unicode('static/css/jquery-ui.min.css'))
+        fragment.add_css(loader.load_unicode('static/css/jquery.steps.css'))
+        fragment.add_css(loader.load_unicode('static/css/cms-styling.css'))
+        fragment.add_css(loader.load_unicode('static/css/modal-styling.css'))
+        fragment.add_css(loader.load_unicode('static/css/LO_listing_styling.css'))
 
-        fragment.add_javascript(load_resource('static/js/js-str-format.js'))
-        fragment.add_javascript(load_resource('static/js/jquery-ui.min.js'))
-        fragment.add_javascript(load_resource('static/js/jquery.steps.js'))
-        fragment.add_javascript(load_resource('static/js/LO_catalog.js'))
-        fragment.add_javascript(load_resource('static/js/hl_learning_objs-cms.js'))
+        fragment.add_javascript(loader.load_unicode('static/js/js-str-format.js'))
+        fragment.add_javascript(loader.load_unicode('static/js/jquery-ui.min.js'))
+        fragment.add_javascript(loader.load_unicode('static/js/jquery.steps.js'))
+        fragment.add_javascript(loader.load_unicode('static/js/LO_catalog.js'))
+        fragment.add_javascript(loader.load_unicode('static/js/hl_learning_objs-cms.js'))
 
         fragment.initialize_js('LO_catalog')
         fragment.initialize_js('HL_LO_XBlockStudio', {
@@ -190,7 +192,7 @@ class HL_LearningObjs_XBlock(XBlock):
             from stored list mapped to the catalog.
         """
         return_string = ""
-        blooms_catalog = json.loads(load_resource("static/blooms_catalog.json"))
+        blooms_catalog = json.loads(loader.load_unicode("static/blooms_catalog.json"))
 
         # for each item in the stored list, generate a string mapping
         # verb/level/abet_outcomes to the catalog.
