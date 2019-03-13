@@ -9,7 +9,7 @@
         "An ability to acquire and apply new knowledge as needed, using appropriate learning strategies"
     ],
     "levels": {
-            "0": {
+        "0": {
             "display_name": "Remembering",
             "def": "Remembering involves recognizing or recalling relevant facts, terms, concepts, knowledge, or answers.",
             "verbs": [
@@ -58,7 +58,8 @@
                     "produce",
                     "relate",
                     "solve",
-                    "choose"
+                    "choose",
+                    "implement"
                 ]
 
         },
@@ -76,7 +77,8 @@
                     "distinguish",
                     "differentiate",
                     "outline",
-                    "interelate"
+                    "interelate",
+                    "identify"
                 ]
 
         },
@@ -84,7 +86,7 @@
             "display_name": "Evaluating",
             "def": "Evaluating involves making judgments based on criteria and standards.",
             "verbs": [
-                    "rate",
+                    "rank",
                     "assess",
                     "monitor",
                     "check",
@@ -93,7 +95,13 @@
                     "critique",
                     "recommend",
                     "interpret",
-                    "weigh"
+                    "weigh",
+                    "appraise",
+                    "criticize",
+                    "defend",
+                    "conclude",
+                    "justify",
+                    "support"
                 ]
 
         },
