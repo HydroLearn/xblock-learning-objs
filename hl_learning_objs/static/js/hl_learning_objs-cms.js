@@ -75,15 +75,28 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
                         if (currentIndex > newIndex) return true;
 
 
+                        // map the known steps to add validation before proceeding
+                        //  to next step
+                        var step_mapping = {
+                            "condition":    0,
+                            "action":       1,
+                            "task":         2,
+                            "degree":       3,
+                            "abet":         4,
+                            "review":       5,
+                        }
+
+
                         var valid_input = true;
                         var exempt = false;
+
                         switch(currentIndex){
-                            case 0:
+                            case step_mapping.condition:
                                 // condition
                                 exempt = $("#condition_exclude",xblock_element).is(':checked');
                                 valid_input = exempt || ($("#condition", xblock_element).val().trim().length > 0);
                                 break;
-                            case 1:
+                            case step_mapping.action:
                                 // verb/Action
 
                                 var level_select = $('#learning_level_selection', xblock_element);
@@ -94,11 +107,11 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
 
                                 valid_input = level_valid && verb_valid;
                                 break;
-                            case 2:
+                            case step_mapping.task:
                                 // task
                                 valid_input = $("#task", xblock_element).val().trim().length > 0
                                 break;
-                            case 3:
+                            case step_mapping.degree:
                                 // degree
                                 exempt = $("#degree_exclude",xblock_element).is(':checked');
                                 valid_input = exempt || ($("#degree", xblock_element).val().trim().length > 0);
@@ -108,10 +121,6 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
 
                         }
 
-                        // if loading the review step, update the selected ABET listing
-                        if(newIndex == 5){
-                            //updateABETReview();
-                        }
 
                         return valid_input;
                     },

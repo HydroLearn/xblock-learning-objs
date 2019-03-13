@@ -204,11 +204,28 @@ function LO_catalog(target, initial_catalog, edit_mode){
             })
         );
 
-        $.each(this.data[level_id].verbs, function(id, value){
+        // generated alphabetical list of verbs
+
+        var unsorted_dict = this.data[level_id].verbs;
+        var items = $.map(unsorted_dict, function(i,key){
+                    entry={
+                    "id":key,
+                    'text':unsorted_dict[key]
+                    };
+                    return entry
+                });
+
+        var sorted = items.sort(function(a,b){
+                return ((a.text < b.text) ? -1 : ((a.text > b.text) ? 1 : 0));
+            })
+
+
+
+        $.each(sorted, function(id, obj){
             var option = $("<option />", {
                 class: 'verb_option',
-                value: id,
-                text: value,
+                value: obj.id,
+                text: obj.text,
             });
 
             selection.append(option);

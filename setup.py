@@ -33,8 +33,11 @@ PREREQs = [
 
 BLOCKS = [
     # the main learning obj block
-    'hl_learning_objs = hl_learning_objs:HL_LearningObjs_text_XBlock',
-    'hl_learning_objs_advanced = hl_learning_objs:HL_LearningObjs_XBlock',
+    # 'hl_learning_objs = hl_learning_objs:HL_LearningObjs_text_XBlock',
+    # 'hl_learning_objs_advanced = hl_learning_objs:HL_LearningObjs_XBlock',
+
+    'hl_learning_objs = hl_learning_objs:HL_LearningObjs_XBlock',
+    'hl_learning_objs_text = hl_learning_objs:HL_LearningObjs_text_XBlock',
 
 ]
 
