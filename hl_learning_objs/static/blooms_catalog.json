@@ -12,116 +12,115 @@
         "0": {
             "display_name": "Remembering",
             "def": "Remembering involves recognizing or recalling relevant facts, terms, concepts, knowledge, or answers.",
-            "verbs": [
-                    "define",
-                    "describe",
-                    "identify",
-                    "label",
-                    "list",
-                    "match",
-                    "name",
-                    "order",
-                    "recall",
-                    "select"
-                ]
+            "verbs": {
+                "0": "define",
+                "1": "describe",
+                "2": "identify",
+                "3": "label",
+                "4": "list",
+                "5": "match",
+                "6": "name",
+                "7": "order",
+                "8": "recall",
+                "9": "select"
+              }
 
         },
         "1": {
             "display_name": "Understanding",
             "def": "Understanding involved constructing meaning from instructional messages.",
-            "verbs": [
-                    "illustrate",
-                    "compare",
-                    "distinguish",
-                    "estimate",
-                    "explain",
-                    "classify",
-                    "interpret",
-                    "predict",
-                    "summarize",
-                    "translate"
-                ]
+            "verbs": {
+                "0": "illustrate",
+                "1": "compare",
+                "2": "distinguish",
+                "3": "estimate",
+                "4": "explain",
+                "5": "classify",
+                "6": "interpret",
+                "7": "predict",
+                "8": "summarize",
+                "9": "translate"
+              }
 
         },
         "2": {
             "display_name": "Applying",
             "def": "Applying involves using ideas and concepts to solve problems.",
-            "verbs": [
-                    "organize",
-                    "solve",
-                    "demonstrate",
-                    "discover",
-                    "modify",
-                    "operate",
-                    "predict",
-                    "prepare",
-                    "produce",
-                    "relate",
-                    "solve",
-                    "choose",
-                    "implement"
-                ]
+            "verbs": {
+                    "0": "organize",
+                    "1": "solve",
+                    "2": "demonstrate",
+                    "3": "discover",
+                    "4": "modify",
+                    "5": "operate",
+                    "6": "predict",
+                    "7": "prepare",
+                    "8": "produce",
+                    "9": "relate",
+                    "10": "choose",
+                    "11": "implement"
+                }
 
         },
         "3": {
             "display_name": "Analyzing",
             "def": "Analyzing involves breaking something down into components, seeing relationships and overall structure.",
-            "verbs": [
-                    "analyze",
-                    "break down",
-                    "compare",
-                    "select",
-                    "contrast",
-                    "deconstruct",
-                    "discriminate",
-                    "distinguish",
-                    "differentiate",
-                    "outline",
-                    "interelate",
-                    "identify"
-                ]
+            "verbs": {
+                    "0": "analyze",
+                    "1": "break down",
+                    "2": "compare",
+                    "3": "select",
+                    "4": "contrast",
+                    "5": "deconstruct",
+                    "6": "discriminate",
+                    "7": "distinguish",
+                    "8": "differentiate",
+                    "9": "outline",
+                    "10": "interelate",
+                    "11": "identify"
+                }
 
         },
         "4": {
             "display_name": "Evaluating",
             "def": "Evaluating involves making judgments based on criteria and standards.",
-            "verbs": [
-                    "rank",
-                    "assess",
-                    "monitor",
-                    "check",
-                    "test",
-                    "judge",
-                    "critique",
-                    "recommend",
-                    "interpret",
-                    "weigh",
-                    "appraise",
-                    "criticize",
-                    "defend",
-                    "conclude",
-                    "justify",
-                    "support"
-                ]
+            "verbs": {
+                "0": "rank",
+                "1": "assess",
+                "2": "monitor",
+                "3": "check",
+                "4": "test",
+                "5": "judge",
+                "6": "critique",
+                "7": "recommend",
+                "8": "interpret",
+                "9": "weigh",
+                "10": "appraise",
+                "11": "criticize",
+                "12": "defend",
+                "13": "conclude",
+                "14": "justify",
+                "15": "support"
+              }
 
         },
         "5": {
             "display_name": "Creating",
             "def": "Creating involves reorganizing diverse elements to form a new pattern or structure.",
-            "verbs": [
-                    "generate",
-                    "plan",
-                    "compose",
-                    "develop",
-                    "create",
-                    "invent",
-                    "organize",
-                    "construct",
-                    "produce",
-                    "compile",
-                    "design",
-                    "devise"
-                ]
+            "verbs": {
+                "0": "generate",
+                "1": "plan",
+                "2": "compose",
+                "3": "develop",
+                "4": "create",
+                "5": "invent",
+                "6": "organize",
+                "7": "construct",
+                "8": "produce",
+                "9": "compile",
+                "10": "design",
+                "11": "devise"
+              }
         }
     }
 }

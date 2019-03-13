@@ -1,4 +1,5 @@
 /build
 /dist
+/hl_learning_objs/static/legacy_catalogs
 *.egg-info
 .idea

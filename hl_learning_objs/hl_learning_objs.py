@@ -79,16 +79,6 @@ class HL_LearningObjs_XBlock(XBlock):
                 # "content": self.content,
             }
 
-    @staticmethod
-    def generate_html():
-        # add a wrapper around the content so ck-styling applies
-        result = "<div class='HL-Learning-obj_wrapper'>"
-        # Assume valid HTML code
-        result += html
-        result += "</div>"
-
-        return result
-
     def student_view(self, context=None):
         """
         The student view
@@ -100,7 +90,6 @@ class HL_LearningObjs_XBlock(XBlock):
             'self': self,
             }
 
-        # body_html = unicode(self.generate_html())
         fragment.add_content(loader.render_template('templates/learning_objs-lms.html', content))
         fragment.add_css(loader.load_unicode('static/css/lms-styling.css'))
         fragment.add_css(loader.load_unicode('static/css/LO_listing_styling.css'))
