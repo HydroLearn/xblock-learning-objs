@@ -78,12 +78,13 @@ function HL_LO_XBlockStudio(runtime, xblock_element, viewbag) {
                         // map the known steps to add validation before proceeding
                         //  to next step
                         var step_mapping = {
-                            "condition":    0,
-                            "action":       1,
-                            "task":         2,
-                            "degree":       3,
-                            "abet":         4,
-                            "review":       5,
+                            "introduction":    0,
+                            "condition":    1,
+                            "action":       2,
+                            "task":         3,
+                            "degree":       4,
+                            "abet":         5,
+                            "review":       6,
                         }
 
 
