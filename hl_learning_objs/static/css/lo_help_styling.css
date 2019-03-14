@@ -1,0 +1,6 @@
+.bold   { font-weight: 600; }
+.condition, .orange { color:#ffab40; }
+.action,    .red    { color:#980000; }
+.task,      .blue   { color:#6d9eeb; }
+.degree,    .green  { color:#38761d; }
+.level,     .gray   { color:#999999; }

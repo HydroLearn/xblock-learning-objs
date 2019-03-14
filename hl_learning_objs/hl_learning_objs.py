@@ -15,7 +15,7 @@ Author : Cary Rivet
 import urllib, datetime, json, urllib2
 
 from hl_text import hl_text_XBlock
-
+from hl_utils import HLXBlockModalHelperMixin
 
 
 # imports for content indexing support
@@ -39,6 +39,9 @@ loader = ResourceLoader(__name__)
 
 # from xblock.fragment import Fragment #DEPRECIATED
 from web_fragments.fragment import Fragment
+
+
+
 
 #  TODO:
 #   revise this component based on the following description:
@@ -90,11 +93,11 @@ class HL_LearningObjs_XBlock(XBlock):
             'self': self,
             }
 
-        fragment.add_content(loader.render_template('templates/learning_objs-lms.html', content))
+        fragment.add_content(loader.render_django_template('templates/learning_objs-lms.html', content))
         fragment.add_css(loader.load_unicode('static/css/lms-styling.css'))
         fragment.add_css(loader.load_unicode('static/css/LO_listing_styling.css'))
 
-        #fragment.add_content(render_template('templates/HLCustomText.html', content))
+        #fragment.add_content(render_django_template('templates/HLCustomText.html', content))
 
         # add the custom initialization code for the LMS view and initialize it
         fragment.add_javascript(loader.load_unicode('static/js/js-str-format.js'))
@@ -126,7 +129,7 @@ class HL_LearningObjs_XBlock(XBlock):
         fragment = Fragment()
 
         # Load fragment template
-        fragment.add_content(loader.render_template('templates/learning_objs-cms.html', content))
+        fragment.add_content(loader.render_django_template('templates/learning_objs-cms.html', content))
 
         # add static files for styling, and template initialization
         fragment.add_css(loader.load_unicode('static/css/jquery-ui.min.css'))
@@ -276,11 +279,23 @@ class HL_LearningObjs_text_XBlock(hl_text_XBlock):
         default="Learning Objectives (Template)"
     )
 
-    def get_empty_template(self, context={}):
-        return loader.render_template('templates/learning_obj_text_template.html', context)
+    def get_help_template(self, context=None):
+        context = context or {}
+        return loader.render_django_template('templates/help_template.html', context)
 
-    def studio_view(self, context):
+    def get_empty_template(self, context=None):
+        context = context or {}
+        return loader.render_django_template('templates/learning_obj_text_template.html', context)
+
+    def studio_view(self, context=None):
+
+        context = context or {}
 
         fragment = super(HL_LearningObjs_text_XBlock, self).studio_view(context)
+
+
+        # add the custom help styling to the fragment
+        fragment.add_css(loader.load_unicode('static/css/lo_help_styling.css'));
+
 
         return fragment
