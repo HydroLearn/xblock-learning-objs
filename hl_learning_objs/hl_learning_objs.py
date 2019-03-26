@@ -152,6 +152,9 @@ class HL_LearningObjs_XBlock(XBlock):
 
         return fragment
 
+    def public_view(self, context=None):
+        return self.student_view(context)
+
     @staticmethod
     def generate_preview(self, dependencies, html, json, jsa, jsb, css):
 
