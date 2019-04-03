@@ -20,7 +20,7 @@ from hl_utils import HLXBlockModalHelperMixin
 
 # imports for content indexing support
 import re
-from xmodule.util.misc import escape_html_characters
+# from xmodule.util.misc import escape_html_characters
 
 from xblock.core import XBlock
 from xblock.fields import (
@@ -243,7 +243,7 @@ class HL_LearningObjs_XBlock(XBlock):
             "",
             self.get_learning_objs_string(),
         )
-        html_content = escape_html_characters(html_content)
+        # html_content = escape_html_characters(html_content)
         html_body = {
             "html_content": html_content,
             "display_name": self.display_name,
@@ -263,8 +263,8 @@ class HL_LearningObjs_XBlock(XBlock):
     def workbench_scenarios():
         """A canned scenario for display in the workbench."""
         return [
-            ("HLLearningObjs",
-             """<HLLearningObjs/>
+            ("HL Learning Objs",
+             """<hl_learning_objs/>
              """),
         ]
 
@@ -301,4 +301,15 @@ class HL_LearningObjs_text_XBlock(hl_text_XBlock):
         fragment.add_css(loader.load_unicode('static/css/lo_help_styling.css'));
 
 
-        return fragment
+        return
+
+    # workbench while developing your XBlock.
+    @staticmethod
+    def workbench_scenarios():
+        """A canned scenario for display in the workbench."""
+        return [
+            ("HL Learning objs text XBlock",
+             """<hl_learning_objs_text/>
+             """),
+
+        ]

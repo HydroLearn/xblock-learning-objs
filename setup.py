@@ -21,13 +21,13 @@ def package_data(pkg, roots):
 
 
 # Constants #########################################################
-VERSION = '0.1.2'
+VERSION = '1.0.0'
 
 # xblocks  #########################################################
 PREREQs = [
     'XBlock',
     'xblock-utils',
-    'xblock-hl-text',
+    'hl-text-xblock',
 
 ]
 
@@ -42,7 +42,7 @@ BLOCKS = [
 ]
 
 setup(
-    name='xblock-hl_learning_objs',
+    name='hl-learning-objs-xblock',
     version=VERSION,
     author="cRivet",
     description='Custom Xblock for generating collection of learning objectives for use in HydroLearn platform.',
