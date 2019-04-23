@@ -301,7 +301,7 @@ class HL_LearningObjs_text_XBlock(hl_text_XBlock):
         fragment.add_css(loader.load_unicode('static/css/lo_help_styling.css'));
 
 
-        return
+        return fragment
 
     # workbench while developing your XBlock.
     @staticmethod
