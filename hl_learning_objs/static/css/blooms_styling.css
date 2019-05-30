@@ -1,0 +1,37 @@
+.bloom_table {
+  margin: 1em 0; }
+  .bloom_table tr th {
+    padding: .3em .5em;
+    background: #999;
+    color: #fff;
+    font-size: 1.08em;
+    font-style: italic;
+    font-weight: 600; }
+  .bloom_table tr td {
+    padding: .3em .5em; }
+    .bloom_table tr td.level1 {
+      background: #00890080; }
+    .bloom_table tr td.level2 {
+      background: #5bb61880; }
+    .bloom_table tr td.level3 {
+      background: #ff830080; }
+    .bloom_table tr td.level4 {
+      background: #0087ff80; }
+    .bloom_table tr td.level5 {
+      background: #ab00ff80; }
+    .bloom_table tr td.level6 {
+      background: #ff000080; }
+  .bloom_table tr:first-child th:first-child {
+    border-top-left-radius: 7px; }
+  .bloom_table tr:first-child th:last-child {
+    border-top-right-radius: 7px; }
+  .bloom_table tr:last-child td:first-child {
+    border-bottom-left-radius: 7px; }
+  .bloom_table tr:last-child td:last-child {
+    border-bottom-right-radius: 7px; }
+  .bloom_table .bold {
+    font-weight: bold; }
+  .bloom_table .whitetext {
+    color: #fff; }
+
+/*# sourceMappingURL=blooms_styling.css.map */
