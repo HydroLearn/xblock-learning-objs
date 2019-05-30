@@ -137,8 +137,8 @@ class HL_LearningObjs_XBlock(XBlock):
         fragment.add_css(loader.load_unicode('static/css/cms-styling.css'))
         fragment.add_css(loader.load_unicode('static/css/modal-styling.css'))
         fragment.add_css(loader.load_unicode('static/css/LO_listing_styling.css'))
-        fragment.add_css(loader.load_unicode('static/css/blooms_styling.css'));
-        
+
+
         fragment.add_javascript(loader.load_unicode('static/js/js-str-format.js'))
         fragment.add_javascript(loader.load_unicode('static/js/jquery-ui.min.js'))
         fragment.add_javascript(loader.load_unicode('static/js/jquery.steps.js'))
@@ -300,8 +300,7 @@ class HL_LearningObjs_text_XBlock(hl_text_XBlock):
 
         # add the custom help styling to the fragment
         fragment.add_css(loader.load_unicode('static/css/lo_help_styling.css'));
-        fragment.add_css(loader.load_unicode('static/css/blooms_styling.css'));
-
+        
 
         return fragment
 
