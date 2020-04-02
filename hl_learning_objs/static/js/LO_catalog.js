@@ -373,6 +373,11 @@ function LO_catalog(target, initial_catalog, edit_mode){
                     class: 'record_item',
                     text: record_string,
                 })
+
+                // TODO: add in another listing for related 'record.ABET_ids'
+                row.append(catalog._generate_abet_listing_html(record.ABET_ids))
+
+
                 listing.append(row);
 
             });
@@ -482,6 +487,7 @@ function LO_catalog(target, initial_catalog, edit_mode){
         return wrapper;
     }
 
+    // DEPRECIATED METHOD, generates concatenated list of all record outcomes into a single listing
     LO_catalog.prototype._ABETs_set_as_html = function(){
 
         var abets = [];
@@ -529,6 +535,47 @@ function LO_catalog(target, initial_catalog, edit_mode){
 
 
     }
+
+    // generate an unordered list for passed abet id list
+    LO_catalog.prototype._generate_abet_listing_html = function(passed_abets=[]){
+
+        let abets = passed_abets || [];
+        
+        // refine set to unique elements
+        abets = abets.filter(function (value, index, self) {
+            return self.indexOf(value) === index;
+        });
+
+        // sort the unique indexes
+        abets.sort()
+
+
+        // generate listing of unique/ordered abets
+        var wrapper = $('<ul />', {
+            class: 'ABET_listing'
+        })
+
+        var catalog = this;
+
+        // there are abets output list items for each
+        if(abets.length){
+
+            $.each(abets, function(i, value){
+                wrapper.append($('<li />', {
+                    class: "abet_item",
+                    text: catalog.ABET_outcomes[value]
+                }))
+            });
+
+        }
+
+
+
+        return wrapper;
+
+
+    }
+
     // reorder the records of the list to match display
     //      new_order is the current display ordering of the indices
     LO_catalog.prototype._update_record_indices = function(new_order){
@@ -571,12 +618,16 @@ function LO_catalog(target, initial_catalog, edit_mode){
             $(this._target).append(this._editable_records_as_html());
 
         }else {
+
+            // TODO: this needs to be modified to append related ABETs after each record
+            //          not generate a 'unique set' in a separate container
             $(this._target).append(this._records_as_html());
 
-            $(this._target).append($('<h3 />',{
-                text: "ABET outcomes"
-            }));
-            $(this._target).append(this._ABETs_set_as_html());
+            // $(this._target).append($('<h3 />',{
+            //     text: "ABET outcomes"
+            // }));
+            
+            // $(this._target).append(this._ABETs_set_as_html());
 
 
         }

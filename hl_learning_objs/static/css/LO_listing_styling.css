@@ -1,11 +1,18 @@
 .objectives_listing .record_listing_wrapper .record_listing {
   list-style: decimal;
-  margin: 1em 1em 1em 3em; }
+  margin: 1em 1em 1em 3em;
+}
+.objectives_listing .record_listing_wrapper .record_listing .record_item .ABET_listing {
+  margin: 0 0 0 1em;
+}
 .objectives_listing ul, .objectives_listing ol {
-  margin: 1em 1em 1em 3em; }
+  margin: 1em 1em 1em 3em;
+}
 .objectives_listing ul {
-  list-style: disc; }
+  list-style: disc;
+}
 .objectives_listing ol {
-  list-style: decimal; }
+  list-style: decimal;
+}
 
 /*# sourceMappingURL=LO_listing_styling.css.map */
