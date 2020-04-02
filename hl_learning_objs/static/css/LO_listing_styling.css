@@ -3,7 +3,9 @@
   margin: 1em 1em 1em 3em;
 }
 .objectives_listing .record_listing_wrapper .record_listing .record_item .ABET_listing {
-  margin: 0 0 0 1em;
+  margin: 0 0 0 2em;
+  font-size: .8em;
+  color: #555;
 }
 .objectives_listing ul, .objectives_listing ol {
   margin: 1em 1em 1em 3em;
