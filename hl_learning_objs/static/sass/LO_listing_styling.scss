@@ -5,12 +5,18 @@
             list-style: decimal;
             margin: 1em 1em 1em 3em;
 
-            .record_item{
+            
 
+            .record_item{
+                .ABET_listing {
+                    margin: 0 0 0 2em; 
+                    font-size: .8em;
+                    color: #555;
+                }
             }
         }
     }
-
+    // TODO: potentially have to modify this for newly nested ul '.ABET_listing'
     ul, ol{
         margin: 1em 1em 1em 3em;
     }
