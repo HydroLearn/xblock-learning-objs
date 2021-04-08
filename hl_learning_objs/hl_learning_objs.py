@@ -12,7 +12,7 @@ Author : Cary Rivet
 
 """
 
-import urllib, datetime, json, urllib2
+import datetime, json, urllib.request, urllib.error, urllib.parse
 
 from hl_text import hl_text_XBlock
 from hl_utils import HLXBlockModalHelperMixin
@@ -205,14 +205,14 @@ class HL_LearningObjs_XBlock(XBlock):
         if self.learning_objs:
 
             # generate a string for each learning objective
-            objs_strs = map(lambda x: "<p>Learning Objective: (Level %s:%s) %s %s %s %s.</p>" % (
+            objs_strs = ["<p>Learning Objective: (Level %s:%s) %s %s %s %s.</p>" % (
                                     str(int(x['level']) + 1),
                                     blooms_catalog['levels'][str(x['level'])]['display_name'],
                                     x["condition"],
                                     "the student will be able to %s" % blooms_catalog['levels'][str(x['level'])]['verbs'][str(x["verb"])],
                                     x["task"],
                                     x["degree"]
-                                ), self.learning_objs)
+                                ) for x in self.learning_objs]
 
             # join the list of learning obj strings
             return_string = "<br/>".join(objs_strs)
