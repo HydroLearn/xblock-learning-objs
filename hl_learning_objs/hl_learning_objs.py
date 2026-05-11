@@ -56,14 +56,14 @@ class HL_LearningObjs_XBlock(XBlock):
     """
 
     CATEGORY = "hl_learning_objs"
-    STUDIO_LABEL = "Learning Objectives"
+    STUDIO_LABEL = "Learning Objectives (Depreciated)"
 
     # xblock fields
     display_name = String(
         display_name="Display Name",
         help="This name appears in the horizontal navigation at the top of the page",
         scope=Scope.settings,
-        default="Learning Objectives (Wizard)"
+        default="Learning Objectives (Wizard) (Depreciated)"
     )
 
     learning_objs = List(
@@ -280,7 +280,7 @@ class HL_LearningObjs_text_XBlock(hl_text_XBlock):
         display_name="Display Name",
         help="This name appears in the horizontal navigation at the top of the page",
         scope=Scope.settings,
-        default="Learning Objectives (Template)"
+        default="Learning Objectives (Depreciated)"
     )
 
     def get_help_template(self, context=None):
